@@ -331,8 +331,49 @@ export const searchIndex: SearchItem[] = [
   }
 ];
 
+export interface SearchResult extends SearchItem {
+  score: number;
+  matchedSnippet?: string;
+  highlightedLabel?: string;
+}
+
+// Extract snippet around matched text
+function extractSnippet(text: string, searchTerm: string, maxLength: number = 100): string {
+  const lowerText = text.toLowerCase();
+  const lowerTerm = searchTerm.toLowerCase();
+  const index = lowerText.indexOf(lowerTerm);
+  
+  if (index === -1) return '';
+  
+  // Find sentence boundaries
+  const start = Math.max(0, index - 40);
+  const end = Math.min(text.length, index + searchTerm.length + 60);
+  
+  let snippet = text.substring(start, end);
+  
+  // Add ellipsis if needed
+  if (start > 0) snippet = '...' + snippet;
+  if (end < text.length) snippet = snippet + '...';
+  
+  return snippet.trim();
+}
+
+// Highlight matched terms in text
+export function highlightText(text: string, searchTerms: string[]): string {
+  let result = text;
+  
+  searchTerms.forEach(term => {
+    if (term.length < 2) return;
+    
+    const regex = new RegExp(`(${term})`, 'gi');
+    result = result.replace(regex, '<mark>$1</mark>');
+  });
+  
+  return result;
+}
+
 // Advanced search function
-export function searchDocumentation(query: string): SearchItem[] {
+export function searchDocumentation(query: string): SearchResult[] {
   if (!query.trim()) return [];
   
   const searchTerms = query.toLowerCase().trim().split(/\s+/);
@@ -340,6 +381,7 @@ export function searchDocumentation(query: string): SearchItem[] {
   return searchIndex
     .map(item => {
       let score = 0;
+      let matchedSnippet = '';
       const lowerLabel = item.label.toLowerCase();
       const lowerDescription = item.description.toLowerCase();
       const lowerContent = item.content.toLowerCase();
@@ -347,23 +389,54 @@ export function searchDocumentation(query: string): SearchItem[] {
       
       searchTerms.forEach(term => {
         // Exact match in label (highest priority)
-        if (lowerLabel === term) score += 100;
-        else if (lowerLabel.includes(term)) score += 50;
+        if (lowerLabel === term) {
+          score += 100;
+          matchedSnippet = item.description;
+        } else if (lowerLabel.includes(term)) {
+          score += 50;
+          matchedSnippet = item.description;
+        }
         
         // Match in keywords
-        if (item.keywords.some(k => k.includes(term))) score += 30;
+        if (item.keywords.some(k => k.includes(term))) {
+          score += 30;
+          if (!matchedSnippet) {
+            const matchedKeyword = item.keywords.find(k => k.includes(term));
+            matchedSnippet = `Related to: ${matchedKeyword}`;
+          }
+        }
         
         // Match in description
-        if (lowerDescription.includes(term)) score += 20;
+        if (lowerDescription.includes(term)) {
+          score += 20;
+          if (!matchedSnippet) {
+            matchedSnippet = item.description;
+          }
+        }
         
         // Match in category
-        if (lowerCategory.includes(term)) score += 15;
+        if (lowerCategory.includes(term)) {
+          score += 15;
+        }
         
         // Match in full content
-        if (lowerContent.includes(term)) score += 10;
+        if (lowerContent.includes(term)) {
+          score += 10;
+          if (!matchedSnippet) {
+            matchedSnippet = extractSnippet(item.content, term);
+          }
+        }
       });
       
-      return { ...item, score };
+      // Highlight the label
+      const highlightedLabel = highlightText(item.label, searchTerms);
+      
+      return { 
+        ...item, 
+        score,
+        matchedSnippet: matchedSnippet || item.description,
+        highlightedLabel
+      };
     })
     .filter(item => item.score > 0)
     .sort((a, b) => b.score - a.score)

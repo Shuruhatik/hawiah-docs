@@ -123,14 +123,18 @@ export default function DocsPage() {
                         <div className="flex items-start gap-3">
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-1">
-                              <span className="text-sm font-medium text-white">{result.label}</span>
+                              <span 
+                                className="text-sm font-medium text-white"
+                                dangerouslySetInnerHTML={{ __html: result.highlightedLabel || result.label }}
+                              />
                               <span className="text-xs text-gray-500 px-2 py-0.5 bg-white/5 rounded">
                                 {result.category}
                               </span>
                             </div>
-                            <p className="text-xs text-gray-400 line-clamp-1">
-                              {result.description}
-                            </p>
+                            <p 
+                              className="text-xs text-gray-400 line-clamp-2"
+                              dangerouslySetInnerHTML={{ __html: result.matchedSnippet || result.description }}
+                            />
                           </div>
                         </div>
                       </button>
@@ -195,12 +199,18 @@ export default function DocsPage() {
                       className="w-full text-left px-4 py-3 hover:bg-white/5 transition-colors border-b border-white/5 last:border-b-0"
                     >
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-sm font-medium text-white">{result.label}</span>
+                        <span 
+                          className="text-sm font-medium text-white"
+                          dangerouslySetInnerHTML={{ __html: result.highlightedLabel || result.label }}
+                        />
                         <span className="text-xs text-gray-500 px-2 py-0.5 bg-white/5 rounded">
                           {result.category}
                         </span>
                       </div>
-                      <p className="text-xs text-gray-400">{result.description}</p>
+                      <p 
+                        className="text-xs text-gray-400 line-clamp-2"
+                        dangerouslySetInnerHTML={{ __html: result.matchedSnippet || result.description }}
+                      />
                     </button>
                   ))
                 ) : searchQuery ? (
