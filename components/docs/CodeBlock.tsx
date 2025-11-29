@@ -29,22 +29,22 @@ export default function CodeBlock({ code, language = 'typescript' }: CodeBlockPr
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
 
-    // Extract and store comments
-    highlighted = highlighted.replace(/\/\/(.*?)$/gm, (match) => {
-      const index = comments.length;
-      comments.push(`<span class="text-[#6a9955]">${match}</span>`);
-      return `__COMMENT_${index}__`;
-    });
-
-    // Extract and store strings
+    // Extract and store strings FIRST (to avoid matching // inside strings)
     highlighted = highlighted.replace(/(['"`])((?:\\.|(?!\1)[^\\])*?)\1/g, (match) => {
       const index = strings.length;
       strings.push(`<span class="text-[#ce9178]">${match}</span>`);
       return `__STRING_${index}__`;
     });
 
+    // Extract and store comments AFTER strings
+    highlighted = highlighted.replace(/\/\/(.*?)$/gm, (match) => {
+      const index = comments.length;
+      comments.push(`<span class="text-[#6a9955]">${match}</span>`);
+      return `__COMMENT_${index}__`;
+    });
+
     // Apply syntax highlighting to remaining code
-    // Keywords
+    // Keywords (import, export, from, const, let, var, new, await, async, etc.)
     highlighted = highlighted.replace(/\b(const|let|var|function|async|await|return|if|else|for|while|class|import|export|from|default|new|interface|type|Promise)\b/g, '<span class="text-[#c586c0]">$1</span>');
 
     // Booleans and special values
@@ -53,8 +53,15 @@ export default function CodeBlock({ code, language = 'typescript' }: CodeBlockPr
     // Numbers
     highlighted = highlighted.replace(/\b(\d+)\b/g, '<span class="text-[#b5cea8]">$1</span>');
 
-    // Function calls
+    // Function calls and methods (console.log, db.connect, etc.)
     highlighted = highlighted.replace(/\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(/g, '<span class="text-[#dcdcaa]">$1</span>(');
+    
+    // Object properties and method calls (db.connect, console.log)
+    highlighted = highlighted.replace(/\.([a-zA-Z_$][a-zA-Z0-9_$]*)/g, '.<span class="text-[#dcdcaa]">$1</span>');
+
+    // Class names and constructors (Hawiah, MongoDriver, etc.)
+    highlighted = highlighted.replace(/\bnew\s+<span class="text-\[#c586c0\]">new<\/span>\s+([A-Z][a-zA-Z0-9_$]*)/g, 'new <span class="text-[#c586c0]">new</span> <span class="text-[#4ec9b0]">$1</span>');
+    highlighted = highlighted.replace(/\b([A-Z][a-zA-Z0-9_$]*)\s*\(/g, '<span class="text-[#4ec9b0]">$1</span>(');
 
     // Restore strings
     strings.forEach((str, index) => {

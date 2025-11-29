@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Github } from 'lucide-react';
 import Link from 'next/link';
+import CodeBlock from './docs/CodeBlock';
 
 export default function Hero() {
   return (
@@ -61,9 +62,8 @@ export default function Hero() {
               <div className="h-3 w-3 rounded-full bg-green-500"></div>
             </div>
 
-            <pre className="overflow-x-auto text-sm">
-              <code className="text-gray-300">
-                {`import { Hawiah, JSONDriver } from 'hawiah';
+            <div className="-m-2">
+              <CodeBlock code={`import { Hawiah, JSONDriver } from 'hawiah';
 
 // 1. Initialize with any driver
 const db = new Hawiah(
@@ -82,9 +82,8 @@ await db.insert({
 const users = await db.get({ 
   role: 'Developer' 
 });
-// Output: [{ _id: '...', name: 'Ali', ... }]`}
-              </code>
-            </pre>
+// Output: [{ _id: '...', name: 'Ali', ... }]`} />
+            </div>
           </div>
 
           {/* Glow effect */}

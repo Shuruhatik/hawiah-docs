@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import CodeBlock from './docs/CodeBlock';
 
 const codeExamples = [
   {
@@ -106,11 +107,7 @@ export default function CodeDemo() {
 
         {/* Code Content */}
         <div className="p-6">
-          <pre className="overflow-x-auto">
-            <code className="text-sm text-gray-300">
-              {codeExamples[activeTab].code}
-            </code>
-          </pre>
+          <CodeBlock code={codeExamples[activeTab].code} />
         </div>
       </motion.div>
     </section>
