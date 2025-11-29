@@ -428,13 +428,14 @@ export function searchDocumentation(query: string): SearchResult[] {
         }
       });
       
-      // Highlight the label
+      // Highlight the label and snippet
       const highlightedLabel = highlightText(item.label, searchTerms);
+      const highlightedSnippet = highlightText(matchedSnippet || item.description, searchTerms);
       
       return { 
         ...item, 
         score,
-        matchedSnippet: matchedSnippet || item.description,
+        matchedSnippet: highlightedSnippet,
         highlightedLabel
       };
     })
