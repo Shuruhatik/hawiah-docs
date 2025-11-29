@@ -1,15 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  Cpu, 
-  File, 
-  Braces, 
-  FileCode, 
-  Leaf, 
-  Flame, 
-  Feather, 
-  Database 
+import {
+  Cpu,
+  File,
+  Braces,
+  FileCode,
+  Leaf,
+  Flame,
+  Feather,
+  Database
 } from 'lucide-react';
 
 const drivers = [
@@ -52,23 +52,23 @@ export default function EcosystemGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 transition-all hover:border-[#C5F74F]/50 hover:bg-white/10"
+              className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 transition-all hover:border-teal-500/50 hover:bg-white/10"
             >
-              <div className="mb-4 inline-flex rounded-lg bg-[#C5F74F]/10 p-3">
-                <Icon className="h-6 w-6 text-[#C5F74F]" />
+              <div className="mb-4 inline-flex rounded-lg bg-teal-500/10 p-3">
+                <Icon className="h-6 w-6 text-teal-400" />
               </div>
-              
+
               <h3 className="mb-2 text-lg font-semibold text-white">
                 {driver.name}
               </h3>
-              
+
               <p className="text-sm text-gray-400">
                 {driver.description}
               </p>
-              
+
               {/* Hover glow effect */}
               <div className="absolute inset-0 -z-10 opacity-0 transition-opacity group-hover:opacity-100">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#C5F74F]/10 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-400/10 to-transparent"></div>
               </div>
             </motion.div>
           );

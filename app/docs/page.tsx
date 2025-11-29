@@ -12,9 +12,9 @@ export default function DocsPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#0c0c0c] text-white">
+    <div className="min-h-screen bg-[#020202] text-white">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#0c0c0c]/80 backdrop-blur-sm">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#020202]/80 backdrop-blur-sm">
         <div className="flex items-center justify-between px-6 py-4">
           <div className="flex items-center gap-4">
             <button
@@ -27,11 +27,11 @@ export default function DocsPage() {
             <Link href="/" className="text-xl font-bold">Hawiah</Link>
             <nav className="hidden md:flex items-center gap-6 text-sm ml-4">
               <Link href="/" className="text-gray-400 hover:text-white transition-colors">Home</Link>
-              <Link href="/docs" className="text-[#C5F74F]">Docs</Link>
+              <Link href="/docs" className="text-teal-400">Docs</Link>
             </nav>
           </div>
-          <a 
-            href="https://github.com/yourusername/hawiah" 
+          <a
+            href="https://github.com/yourusername/hawiah"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-gray-400 hover:text-white transition-colors"
@@ -45,7 +45,7 @@ export default function DocsPage() {
       <div className="flex pt-16">
         {/* Mobile Sidebar Overlay */}
         {sidebarOpen && (
-          <div 
+          <div
             className="fixed inset-0 bg-black/50 z-40 lg:hidden"
             onClick={() => setSidebarOpen(false)}
           />

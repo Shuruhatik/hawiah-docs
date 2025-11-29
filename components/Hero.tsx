@@ -17,25 +17,25 @@ export default function Hero() {
         >
           <h1 className="mb-6 text-5xl font-bold leading-tight text-white lg:text-6xl">
             One API to{' '}
-            <span className="bg-gradient-to-r from-[#C5F74F] to-[#8BC34A] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
               Rule Them All
             </span>
           </h1>
-          
+
           <p className="mb-8 text-lg leading-relaxed text-gray-400">
-            A lightweight, schema-less database abstraction layer. Swap drivers 
+            A lightweight, schema-less database abstraction layer. Swap drivers
             instantly without changing your code.
           </p>
-          
+
           <div className="flex flex-col gap-4 sm:flex-row">
             <Link
               href="/docs"
-              className="group flex items-center justify-center gap-2 rounded-lg bg-[#C5F74F] px-6 py-3 font-medium text-black transition-all hover:bg-[#b8e847] hover:shadow-lg hover:shadow-[#C5F74F]/20"
+              className="group flex items-center justify-center gap-2 rounded-lg bg-teal-400 px-6 py-3 font-medium text-black transition-all hover:bg-teal-500 hover:shadow-lg hover:shadow-teal-400/20"
             >
               Get Started
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
-            
+
             <Link
               href="https://github.com/hawiah/hawiah"
               target="_blank"
@@ -54,16 +54,16 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="relative"
         >
-          <div className="rounded-xl border border-white/10 bg-[#0c0c0c] p-6 shadow-2xl">
+          <div className="rounded-xl border border-teal-500/20 bg-[#0c0c0c] p-6 shadow-2xl">
             <div className="mb-4 flex items-center gap-2">
               <div className="h-3 w-3 rounded-full bg-red-500"></div>
               <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
               <div className="h-3 w-3 rounded-full bg-green-500"></div>
             </div>
-            
+
             <pre className="overflow-x-auto text-sm">
               <code className="text-gray-300">
-{`import { Hawiah, JSONDriver } from 'hawiah';
+                {`import { Hawiah, JSONDriver } from 'hawiah';
 
 // 1. Initialize with any driver
 const db = new Hawiah(
@@ -86,9 +86,9 @@ const users = await db.get({
               </code>
             </pre>
           </div>
-          
+
           {/* Glow effect */}
-          <div className="absolute -inset-1 -z-10 rounded-xl bg-gradient-to-r from-[#C5F74F]/20 to-[#8BC34A]/20 opacity-50 blur-2xl"></div>
+          <div className="absolute -inset-1 -z-10 rounded-xl bg-gradient-to-r from-teal-400/20 to-emerald-400/20 opacity-50 blur-2xl"></div>
         </motion.div>
       </div>
     </section>

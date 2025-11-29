@@ -56,14 +56,14 @@ export default function Features() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="text-center"
             >
-              <div className="mb-4 inline-flex rounded-xl bg-[#C5F74F]/10 p-4">
-                <Icon className="h-8 w-8 text-[#C5F74F]" />
+              <div className="mb-4 inline-flex rounded-xl bg-teal-500/10 p-4">
+                <Icon className="h-8 w-8 text-teal-400" />
               </div>
-              
+
               <h3 className="mb-2 text-xl font-semibold text-white">
                 {feature.title}
               </h3>
-              
+
               <p className="text-sm text-gray-400">
                 {feature.description}
               </p>

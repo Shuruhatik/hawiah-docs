@@ -52,7 +52,7 @@ export default function DocSection({
               <tbody>
                 {parameters.map((param, idx) => (
                   <tr key={idx} className="border-b border-white/5 last:border-0">
-                    <td className="p-4 text-sm font-mono text-[#C5F74F]">{param.name}</td>
+                    <td className="p-4 text-sm font-mono text-teal-400">{param.name}</td>
                     <td className="p-4 text-sm font-mono text-gray-400">{param.type}</td>
                     <td className="p-4 text-sm text-gray-400">{param.description}</td>
                   </tr>
@@ -69,7 +69,7 @@ export default function DocSection({
             Return Value
           </h3>
           <p className="text-gray-400 bg-[#111111] rounded-lg p-4 border border-white/10">
-            <code className="font-mono text-[#C5F74F]">{returnValue}</code>
+            <code className="font-mono text-teal-400">{returnValue}</code>
           </p>
         </div>
       )}

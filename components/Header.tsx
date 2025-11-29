@@ -10,25 +10,25 @@ export default function Header() {
         <Link href="/" className="text-2xl font-bold text-white">
           Hawiah
         </Link>
-        
+
         <div className="flex items-center gap-6">
-          <Link 
-            href="/docs" 
+          <Link
+            href="/docs"
             className="text-sm text-gray-400 transition-colors hover:text-white"
           >
             Documentation
           </Link>
-          
-          <Link 
-            href="https://github.com/hawiah/hawiah" 
+
+          <Link
+            href="https://github.com/hawiah/hawiah"
             target="_blank"
             className="flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
           >
             <Github size={18} />
             GitHub
           </Link>
-          
-          <span className="rounded-full border border-[#C5F74F]/20 bg-[#C5F74F]/10 px-3 py-1 text-xs font-medium text-[#C5F74F]">
+
+          <span className="rounded-full border border-teal-500/20 bg-teal-500/10 px-3 py-1 text-xs font-medium text-teal-400">
             v1.0.0
           </span>
         </div>

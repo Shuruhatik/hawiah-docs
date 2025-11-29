@@ -23,12 +23,12 @@ export default function RelatedMethods({ methods, onNavigate }: RelatedMethodsPr
           <button
             key={method.id}
             onClick={() => onNavigate(method.id)}
-            className="flex items-center justify-between p-3 bg-[#0c0c0c] hover:bg-white/5 border border-white/5 hover:border-[#C5F74F]/30 rounded-lg transition-all group text-left"
+            className="flex items-center justify-between p-3 bg-[#0c0c0c] hover:bg-white/5 border border-white/5 hover:border-teal-500/30 rounded-lg transition-all group text-left"
           >
             <span className="text-sm text-gray-300 group-hover:text-white font-mono">
               {method.label}
             </span>
-            <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-[#C5F74F] transition-colors" />
+            <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-teal-400 transition-colors" />
           </button>
         ))}
       </div>

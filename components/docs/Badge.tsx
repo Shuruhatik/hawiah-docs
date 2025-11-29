@@ -6,7 +6,7 @@ interface BadgeProps {
 export default function Badge({ children, variant = 'default' }: BadgeProps) {
   const variants = {
     default: 'bg-gray-800 text-gray-300 border-gray-700',
-    success: 'bg-[#C5F74F]/10 text-[#C5F74F] border-[#C5F74F]/20',
+    success: 'bg-teal-500/10 text-teal-400 border-teal-500/20',
     warning: 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20',
     info: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
   };

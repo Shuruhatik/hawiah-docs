@@ -94,11 +94,10 @@ export default function CodeDemo() {
             <button
               key={example.title}
               onClick={() => setActiveTab(index)}
-              className={`px-6 py-3 text-sm font-medium transition-colors ${
-                activeTab === index
-                  ? 'border-b-2 border-[#C5F74F] text-[#C5F74F]'
+              className={`px-6 py-3 text-sm font-medium transition-colors ${activeTab === index
+                  ? 'border-b-2 border-teal-400 text-teal-400'
                   : 'text-gray-400 hover:text-white'
-              }`}
+                }`}
             >
               {example.title}
             </button>
