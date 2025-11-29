@@ -6,6 +6,7 @@ import { useState } from 'react';
 interface SidebarProps {
   activeSection: string;
   setActiveSection: (section: string) => void;
+  searchQuery?: string;
 }
 
 interface NavItem {
@@ -111,10 +112,19 @@ const navGroups: NavGroup[] = [
   },
 ];
 
-export default function Sidebar({ activeSection, setActiveSection }: SidebarProps) {
+export default function Sidebar({ activeSection, setActiveSection, searchQuery = '' }: SidebarProps) {
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(
     new Set(navGroups.map((g) => g.title))
   );
+
+  // Filter groups and items based on search query
+  const filteredGroups = navGroups.map(group => {
+    const filteredItems = group.items.filter(item => 
+      item.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.id.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    return { ...group, items: filteredItems };
+  }).filter(group => group.items.length > 0);
 
   const toggleGroup = (title: string) => {
     const newExpanded = new Set(expandedGroups);
@@ -138,7 +148,7 @@ export default function Sidebar({ activeSection, setActiveSection }: SidebarProp
           </div>
         </div>
         <nav className="space-y-6">
-          {navGroups.map((group) => (
+          {filteredGroups.map((group) => (
             <div key={group.title}>
               <button
                 onClick={() => toggleGroup(group.title)}
