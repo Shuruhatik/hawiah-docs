@@ -55,25 +55,25 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="relative overflow-hidden"
         >
-          <div className="rounded-xl border border-teal-500/20 bg-[#0c0c0c] p-4 sm:p-6 shadow-2xl">
-            <div className="mb-3 sm:mb-4 flex items-center gap-2">
-              <div className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-red-500"></div>
-              <div className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-yellow-500"></div>
-              <div className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-green-500"></div>
+          <div className="rounded-lg sm:rounded-xl border border-teal-500/20 bg-[#0c0c0c] p-3 sm:p-6 shadow-2xl">
+            <div className="mb-2 sm:mb-4 flex items-center gap-1.5 sm:gap-2">
+              <div className="h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-red-500"></div>
+              <div className="h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-yellow-500"></div>
+              <div className="h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-green-500"></div>
             </div>
 
-            <div className="-m-2 overflow-x-auto">
+            <div className="-m-1 sm:-m-2 overflow-x-auto text-xs sm:text-sm">
               <CodeBlock code={`import { Hawiah, JSONDriver } from 'hawiah';
 
-// 1. Initialize with any driver
+// Initialize with any driver
 const db = new Hawiah(
   new JSONDriver('./db.json')
 );
 
-// 2. Connect
+// Connect
 await db.connect();
 
-// 3. Unified CRUD API
+// Unified CRUD API
 await db.insert({ 
   name: 'Ali', 
   role: 'Developer' 
@@ -81,13 +81,12 @@ await db.insert({
 
 const users = await db.get({ 
   role: 'Developer' 
-});
-// Output: [{ _id: '...', name: 'Ali', ... }]`} />
+});`} />
             </div>
           </div>
 
           {/* Glow effect */}
-          <div className="absolute -inset-1 -z-10 rounded-xl bg-gradient-to-r from-teal-400/20 to-emerald-400/20 opacity-50 blur-2xl"></div>
+          <div className="absolute -inset-1 -z-10 rounded-lg sm:rounded-xl bg-gradient-to-r from-teal-400/20 to-emerald-400/20 opacity-50 blur-xl sm:blur-2xl"></div>
         </motion.div>
       </div>
     </section>
