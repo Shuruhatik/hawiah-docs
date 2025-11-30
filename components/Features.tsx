@@ -56,23 +56,23 @@ export default function Features() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="md:row-span-2 relative overflow-hidden rounded-3xl bg-slate-900 dark:bg-black border border-slate-800 dark:border-white/10 p-8 text-white"
+          className="md:row-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-slate-900 dark:to-black border border-slate-200 dark:border-slate-800 p-8 text-slate-900 dark:text-white"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-teal-400/20 dark:bg-teal-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
           <div className="relative z-10 h-full flex flex-col">
-            <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
-              <Zap size={24} className="text-teal-400" />
+            <div className="w-12 h-12 rounded-2xl bg-teal-500/20 dark:bg-white/10 flex items-center justify-center mb-6">
+              <Zap size={24} className="text-teal-600 dark:text-teal-400" />
             </div>
             <h3 className="text-2xl font-bold mb-2">Lightning Fast</h3>
-            <p className="text-slate-400 mb-8">
+            <p className="text-slate-600 dark:text-slate-400 mb-8">
               Zero-overhead abstraction. Direct driver access when you need it.
             </p>
 
             <div className="mt-auto space-y-4">
               {['In-Memory', 'JSON', 'SQLite', 'MongoDB'].map((tech, i) => (
                 <div key={tech} className="flex items-center gap-3">
-                  <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                  <div className="w-full bg-slate-200 dark:bg-white/10 rounded-full h-2 overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${90 + i * 2}%` }}
@@ -80,7 +80,7 @@ export default function Features() {
                       className="h-full bg-teal-500"
                     />
                   </div>
-                  <span className="text-xs font-mono text-slate-400 w-20">{tech}</span>
+                  <span className="text-xs font-mono text-slate-600 dark:text-slate-400 w-20">{tech}</span>
                 </div>
               ))}
             </div>
@@ -127,9 +127,9 @@ export default function Features() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="md:col-span-3 relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-600 to-emerald-600 p-8 text-white"
+          className="md:col-span-3 relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-500 to-emerald-500 dark:from-teal-600 dark:to-emerald-600 p-8 text-white"
         >
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 dark:opacity-20"></div>
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="max-w-xl">
               <div className="flex items-center gap-3 mb-4">
