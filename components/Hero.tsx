@@ -16,14 +16,14 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="flex flex-col justify-center"
         >
-          <h1 className="mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+          <h1 className="mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 dark:text-white">
             One API to{' '}
-            <span className="bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-teal-600 to-emerald-600 dark:from-teal-400 dark:to-emerald-400 bg-clip-text text-transparent">
               Rule Them All
             </span>
           </h1>
 
-          <p className="mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed text-gray-400">
+          <p className="mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed text-slate-600 dark:text-gray-400">
             A lightweight, schema-less database abstraction layer. Swap drivers
             instantly without changing your code.
           </p>
@@ -31,7 +31,7 @@ export default function Hero() {
           <div className="flex flex-row gap-3 sm:gap-4">
             <Link
               href="/docs"
-              className="group flex-1 sm:flex-none flex items-center justify-center gap-2 rounded-lg bg-teal-400 px-4 sm:px-6 py-3 text-sm sm:text-base font-medium text-black transition-all hover:bg-teal-500 hover:shadow-lg hover:shadow-teal-400/20"
+              className="group flex-1 sm:flex-none flex items-center justify-center gap-2 rounded-lg bg-teal-600 dark:bg-teal-400 px-4 sm:px-6 py-3 text-sm sm:text-base font-medium text-white dark:text-black transition-all hover:bg-teal-700 dark:hover:bg-teal-500 hover:shadow-lg hover:shadow-teal-600/20 dark:hover:shadow-teal-400/20"
             >
               <span>Get Started</span>
               <ArrowRight size={16} className="sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
@@ -40,7 +40,7 @@ export default function Hero() {
             <Link
               href="https://github.com/Shuruhatik/hawiah"
               target="_blank"
-              className="flex-1 sm:flex-none flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 sm:px-6 py-3 text-sm sm:text-base font-medium text-white transition-all hover:border-white/20 hover:bg-white/10"
+              className="flex-1 sm:flex-none flex items-center justify-center gap-2 rounded-lg border border-slate-300 dark:border-white/10 bg-slate-100 dark:bg-white/5 px-4 sm:px-6 py-3 text-sm sm:text-base font-medium text-slate-900 dark:text-white transition-all hover:border-slate-400 dark:hover:border-white/20 hover:bg-slate-200 dark:hover:bg-white/10"
             >
               <Github size={16} className="sm:w-[18px] sm:h-[18px]" />
               <span className="hidden xs:inline">GitHub</span>
@@ -55,7 +55,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="relative overflow-hidden"
         >
-          <div className="rounded-lg sm:rounded-xl border border-teal-500/20 bg-[#0c0c0c] p-3 sm:p-6 shadow-2xl">
+          <div className="rounded-lg sm:rounded-xl border border-teal-200 dark:border-teal-500/20 bg-slate-50 dark:bg-[#0c0c0c] p-3 sm:p-6 shadow-2xl">
             <div className="mb-2 sm:mb-4 flex items-center gap-1.5 sm:gap-2">
               <div className="h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-red-500"></div>
               <div className="h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-yellow-500"></div>

@@ -74,13 +74,13 @@ export default function Sidebar({ activeSection, setActiveSection, searchQuery =
   };
 
   return (
-    <aside className="sticky top-16 h-[calc(100vh-4rem)] w-64 border-r border-white/10 overflow-y-auto bg-[#020202]">
+    <aside className="sticky top-16 h-[calc(100vh-4rem)] w-64 border-r border-slate-200 dark:border-white/10 overflow-y-auto bg-slate-50 dark:bg-[#020202]">
       <div className="p-6">
         <div className="mb-6">
-          <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+          <div className="text-xs font-semibold text-slate-500 dark:text-gray-500 uppercase tracking-wider mb-2">
             Documentation
           </div>
-          <div className="text-sm text-gray-400">
+          <div className="text-sm text-slate-600 dark:text-gray-400">
             v1.0.0
           </div>
         </div>
@@ -89,7 +89,7 @@ export default function Sidebar({ activeSection, setActiveSection, searchQuery =
             <div key={group.title}>
               <button
                 onClick={() => toggleGroup(group.title)}
-                className="flex items-center justify-between w-full text-sm font-semibold text-gray-400 hover:text-white transition-colors mb-2"
+                className="flex items-center justify-between w-full text-sm font-semibold text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors mb-2"
               >
                 <span>{group.title}</span>
                 {expandedGroups.has(group.title) ? (
@@ -106,8 +106,8 @@ export default function Sidebar({ activeSection, setActiveSection, searchQuery =
                         ref={activeSection === item.id ? activeItemRef : null}
                         onClick={() => setActiveSection(item.id)}
                         className={`block w-full text-left text-sm py-1.5 px-3 rounded transition-colors ${activeSection === item.id
-                            ? 'text-teal-400 bg-teal-500/10 border-l-2 border-teal-400'
-                            : 'text-gray-400 hover:text-white hover:bg-white/5'
+                            ? 'text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-500/10 border-l-2 border-teal-600 dark:border-teal-400'
+                            : 'text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5'
                           }`}
                       >
                         {item.label}

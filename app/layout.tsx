@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ThemeProvider } from "@/contexts/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Hawiah - One API to Rule Them All",
@@ -16,12 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className="antialiased"
+        className="antialiased bg-white dark:bg-[#020202] text-slate-900 dark:text-[#ededed] transition-colors duration-300"
         suppressHydrationWarning
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

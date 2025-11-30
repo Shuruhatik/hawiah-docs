@@ -1,19 +1,22 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+.dark {
   --background: #020202;
   --foreground: #ededed;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 }
 
 /* Smooth scrolling */
@@ -32,17 +35,29 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #cbd5e1;
   border-radius: 3px;
 }
 
+.dark ::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
 ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
   background: #444;
 }
 
 /* Firefox scrollbar */
 * {
   scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.dark * {
   scrollbar-color: #333 transparent;
 }
 
@@ -222,16 +237,27 @@ button {
 
 /* Search highlight styles */
 mark {
-  background-color: rgba(94, 234, 212, 0.2);
-  color: #5EEAD4;
+  background-color: rgba(20, 184, 166, 0.15);
+  color: #0d9488;
   padding: 1px 3px;
   border-radius: 3px;
   font-weight: 500;
+  border: 1px solid rgba(20, 184, 166, 0.25);
+}
+
+.dark mark {
+  background-color: rgba(94, 234, 212, 0.2);
+  color: #5EEAD4;
   border: 1px solid rgba(94, 234, 212, 0.3);
 }
 
-/* Highlight.js GitHub Dark Theme */
+/* Highlight.js Light Theme */
 .hljs {
+  color: #1e293b;
+  background: #f8fafc;
+}
+
+.dark .hljs {
   color: #c9d1d9;
   background: #0F0F0F;
 }
@@ -243,14 +269,31 @@ mark {
 .hljs-template-variable,
 .hljs-type,
 .hljs-variable.language_ {
-  color: #ff7b72;
+  color: #0d9488;
+}
+
+.dark .hljs-doctag,
+.dark .hljs-keyword,
+.dark .hljs-meta .hljs-keyword,
+.dark .hljs-template-tag,
+.dark .hljs-template-variable,
+.dark .hljs-type,
+.dark .hljs-variable.language_ {
+  color: #5eead4;
 }
 
 .hljs-title,
 .hljs-title.class_,
 .hljs-title.class_.inherited__,
 .hljs-title.function_ {
-  color: #d2a8ff;
+  color: #0891b2;
+}
+
+.dark .hljs-title,
+.dark .hljs-title.class_,
+.dark .hljs-title.class_.inherited__,
+.dark .hljs-title.function_ {
+  color: #2dd4bf;
 }
 
 .hljs-attr,
@@ -263,62 +306,132 @@ mark {
 .hljs-selector-class,
 .hljs-selector-id,
 .hljs-variable {
-  color: #79c0ff;
+  color: #059669;
+}
+
+.dark .hljs-attr,
+.dark .hljs-attribute,
+.dark .hljs-literal,
+.dark .hljs-meta,
+.dark .hljs-number,
+.dark .hljs-operator,
+.dark .hljs-selector-attr,
+.dark .hljs-selector-class,
+.dark .hljs-selector-id,
+.dark .hljs-variable {
+  color: #34d399;
 }
 
 .hljs-meta .hljs-string,
 .hljs-regexp,
 .hljs-string {
-  color: #a5d6ff;
+  color: #10b981;
+}
+
+.dark .hljs-meta .hljs-string,
+.dark .hljs-regexp,
+.dark .hljs-string {
+  color: #6ee7b7;
 }
 
 .hljs-built_in,
 .hljs-symbol {
-  color: #ffa657;
+  color: #0d9488;
+}
+
+.dark .hljs-built_in,
+.dark .hljs-symbol {
+  color: #10b981;
 }
 
 .hljs-code,
 .hljs-comment,
 .hljs-formula {
-  color: #8b949e;
+  color: #64748b;
+}
+
+.dark .hljs-code,
+.dark .hljs-comment,
+.dark .hljs-formula {
+  color: #6b7280;
 }
 
 .hljs-name,
 .hljs-quote,
 .hljs-selector-pseudo,
 .hljs-selector-tag {
-  color: #7ee787;
+  color: #0d9488;
+}
+
+.dark .hljs-name,
+.dark .hljs-quote,
+.dark .hljs-selector-pseudo,
+.dark .hljs-selector-tag {
+  color: #5eead4;
 }
 
 .hljs-subst {
+  color: #1e293b;
+}
+
+.dark .hljs-subst {
   color: #c9d1d9;
 }
 
 .hljs-section {
-  color: #1f6feb;
+  color: #0891b2;
+  font-weight: bold;
+}
+
+.dark .hljs-section {
+  color: #2dd4bf;
   font-weight: bold;
 }
 
 .hljs-bullet {
-  color: #f2cc60;
+  color: #059669;
+}
+
+.dark .hljs-bullet {
+  color: #34d399;
 }
 
 .hljs-emphasis {
+  color: #1e293b;
+  font-style: italic;
+}
+
+.dark .hljs-emphasis {
   color: #c9d1d9;
   font-style: italic;
 }
 
 .hljs-strong {
+  color: #1e293b;
+  font-weight: bold;
+}
+
+.dark .hljs-strong {
   color: #c9d1d9;
   font-weight: bold;
 }
 
 .hljs-addition {
-  color: #aff5b4;
+  color: #059669;
+  background-color: #d1fae5;
+}
+
+.dark .hljs-addition {
+  color: #6ee7b7;
   background-color: #033a16;
 }
 
 .hljs-deletion {
-  color: #ffdcd7;
+  color: #dc2626;
+  background-color: #fee2e2;
+}
+
+.dark .hljs-deletion {
+  color: #fca5a5;
   background-color: #67060c;
 }

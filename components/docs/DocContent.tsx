@@ -52,43 +52,43 @@ export default function DocContent({ activeSection }: DocContentProps) {
     return (
       <div className="opacity-50">
         {/* Title skeleton */}
-        <div className="h-10 bg-white/10 rounded-lg w-2/3 mb-6"></div>
+        <div className="h-10 bg-slate-200 dark:bg-white/10 rounded-lg w-2/3 mb-6"></div>
         
         {/* Description skeleton */}
-        <div className="h-4 bg-white/10 rounded w-full mb-3"></div>
-        <div className="h-4 bg-white/10 rounded w-5/6 mb-8"></div>
+        <div className="h-4 bg-slate-200 dark:bg-white/10 rounded w-full mb-3"></div>
+        <div className="h-4 bg-slate-200 dark:bg-white/10 rounded w-5/6 mb-8"></div>
         
         {/* Section heading skeleton */}
-        <div className="h-8 bg-white/10 rounded-lg w-1/3 mb-4 mt-10"></div>
+        <div className="h-8 bg-slate-200 dark:bg-white/10 rounded-lg w-1/3 mb-4 mt-10"></div>
         
         {/* Code block skeleton */}
-        <div className="bg-[#0F0F0F] border border-white/10 rounded-lg p-4 mb-6">
-          <div className="h-4 bg-white/10 rounded w-3/4 mb-2"></div>
-          <div className="h-4 bg-white/10 rounded w-2/3 mb-2"></div>
-          <div className="h-4 bg-white/10 rounded w-4/5"></div>
+        <div className="bg-slate-100 dark:bg-[#0F0F0F] border border-slate-200 dark:border-white/10 rounded-lg p-4 mb-6">
+          <div className="h-4 bg-slate-200 dark:bg-white/10 rounded w-3/4 mb-2"></div>
+          <div className="h-4 bg-slate-200 dark:bg-white/10 rounded w-2/3 mb-2"></div>
+          <div className="h-4 bg-slate-200 dark:bg-white/10 rounded w-4/5"></div>
         </div>
         
         {/* Section heading skeleton */}
-        <div className="h-8 bg-white/10 rounded-lg w-1/4 mb-4 mt-10"></div>
+        <div className="h-8 bg-slate-200 dark:bg-white/10 rounded-lg w-1/4 mb-4 mt-10"></div>
         
         {/* Paragraph skeleton */}
-        <div className="h-4 bg-white/10 rounded w-full mb-2"></div>
-        <div className="h-4 bg-white/10 rounded w-full mb-2"></div>
-        <div className="h-4 bg-white/10 rounded w-4/5 mb-6"></div>
+        <div className="h-4 bg-slate-200 dark:bg-white/10 rounded w-full mb-2"></div>
+        <div className="h-4 bg-slate-200 dark:bg-white/10 rounded w-full mb-2"></div>
+        <div className="h-4 bg-slate-200 dark:bg-white/10 rounded w-4/5 mb-6"></div>
         
         {/* Code block skeleton */}
-        <div className="bg-[#0F0F0F] border border-white/10 rounded-lg p-4 mb-6">
-          <div className="h-4 bg-white/10 rounded w-2/3 mb-2"></div>
-          <div className="h-4 bg-white/10 rounded w-3/4 mb-2"></div>
-          <div className="h-4 bg-white/10 rounded w-1/2"></div>
+        <div className="bg-slate-100 dark:bg-[#0F0F0F] border border-slate-200 dark:border-white/10 rounded-lg p-4 mb-6">
+          <div className="h-4 bg-slate-200 dark:bg-white/10 rounded w-2/3 mb-2"></div>
+          <div className="h-4 bg-slate-200 dark:bg-white/10 rounded w-3/4 mb-2"></div>
+          <div className="h-4 bg-slate-200 dark:bg-white/10 rounded w-1/2"></div>
         </div>
         
         {/* Section heading skeleton */}
-        <div className="h-8 bg-white/10 rounded-lg w-1/3 mb-4 mt-10"></div>
+        <div className="h-8 bg-slate-200 dark:bg-white/10 rounded-lg w-1/3 mb-4 mt-10"></div>
         
         {/* Paragraph skeleton */}
-        <div className="h-4 bg-white/10 rounded w-full mb-2"></div>
-        <div className="h-4 bg-white/10 rounded w-5/6"></div>
+        <div className="h-4 bg-slate-200 dark:bg-white/10 rounded w-full mb-2"></div>
+        <div className="h-4 bg-slate-200 dark:bg-white/10 rounded w-5/6"></div>
       </div>
     );
   }
@@ -96,14 +96,14 @@ export default function DocContent({ activeSection }: DocContentProps) {
   if (error || !docData) {
     return (
       <div className="py-12">
-        <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-6">
-          <h2 className="text-xl font-semibold text-red-400 mb-2">
+        <div className="bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 rounded-lg p-6">
+          <h2 className="text-xl font-semibold text-red-600 dark:text-red-400 mb-2">
             Documentation Not Found
           </h2>
-          <p className="text-gray-400">
-            The documentation for <code className="text-teal-400">{activeSection}</code> is not available yet.
+          <p className="text-slate-600 dark:text-gray-400">
+            The documentation for <code className="text-teal-600 dark:text-teal-400">{activeSection}</code> is not available yet.
           </p>
-          <p className="text-gray-500 text-sm mt-4">
+          <p className="text-slate-500 dark:text-gray-500 text-sm mt-4">
             To add this documentation, create a file at <code>content/docs/{activeSection}.md</code>
           </p>
         </div>

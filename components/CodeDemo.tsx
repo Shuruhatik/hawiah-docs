@@ -74,10 +74,10 @@ export default function CodeDemo() {
         transition={{ duration: 0.5 }}
         className="mb-8 sm:mb-12 text-center"
       >
-        <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+        <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
           Unified API
         </h2>
-        <p className="text-base sm:text-lg text-gray-400">
+        <p className="text-base sm:text-lg text-slate-600 dark:text-gray-400">
           Same methods, different drivers. It's that simple.
         </p>
       </motion.div>
@@ -87,17 +87,17 @@ export default function CodeDemo() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="overflow-hidden rounded-xl border border-white/10 bg-[#0c0c0c]"
+        className="overflow-hidden rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c0c0c] shadow-lg"
       >
         {/* Tabs */}
-        <div className="flex overflow-x-auto border-b border-white/10 bg-white/5">
+        <div className="flex overflow-x-auto border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5">
           {codeExamples.map((example, index) => (
             <button
               key={example.title}
               onClick={() => setActiveTab(index)}
               className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${activeTab === index
-                  ? 'border-b-2 border-teal-400 text-teal-400'
-                  : 'text-gray-400 hover:text-white'
+                  ? 'border-b-2 border-teal-600 dark:border-teal-400 text-teal-700 dark:text-teal-400'
+                  : 'text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white'
                 }`}
             >
               {example.title}

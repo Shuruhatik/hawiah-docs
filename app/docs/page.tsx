@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Sidebar from '@/components/docs/Sidebar';
 import DocContent from '@/components/docs/DocContent';
 import TableOfContents from '@/components/docs/TableOfContents';
+import ThemeToggle from '@/components/ThemeToggle';
 interface SearchResult {
   id: string;
   label: string;
@@ -118,14 +119,14 @@ export default function DocsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#020202] text-white">
+    <div className="min-h-screen bg-white dark:bg-[#020202] text-slate-900 dark:text-white">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#020202]/80 backdrop-blur-sm">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 dark:border-white/10 bg-white/80 dark:bg-[#020202]/80 backdrop-blur-sm">
         <div className="flex items-center justify-between px-6 py-4 gap-4">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="lg:hidden text-gray-400 hover:text-white"
+              className="lg:hidden text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white"
               aria-label="Toggle menu"
             >
               {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -141,15 +142,15 @@ export default function DocsPage() {
               <span className="text-xl font-bold">Hawiah</span>
             </Link>
             <nav className="hidden md:flex items-center gap-6 text-sm ml-4">
-              <Link href="/" className="text-gray-400 hover:text-white transition-colors">Home</Link>
-              <Link href="/docs" className="text-teal-400">Docs</Link>
+              <Link href="/" className="text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors">Home</Link>
+              <Link href="/docs" className="text-teal-600 dark:text-teal-400">Docs</Link>
             </nav>
           </div>
           
           {/* Search Bar - Desktop */}
           <div className="hidden sm:flex flex-1 max-w-md mx-4" ref={searchRef}>
             <div className="relative w-full">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 dark:text-gray-500" />
               <input
                 type="text"
                 placeholder="Search documentation... (Ctrl+K)"
@@ -159,35 +160,35 @@ export default function DocsPage() {
                   setShowSearchResults(true);
                 }}
                 onFocus={() => searchQuery && setShowSearchResults(true)}
-                className="w-full bg-[#111111] border border-white/10 rounded-lg pl-10 pr-20 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-teal-500/50 focus:ring-1 focus:ring-teal-500/50 transition-colors"
+                className="w-full bg-slate-100 dark:bg-[#111111] border border-slate-300 dark:border-white/10 rounded-lg pl-10 pr-20 py-2 text-sm text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-gray-500 focus:outline-none focus:border-teal-600 dark:focus:border-teal-500/50 focus:ring-1 focus:ring-teal-600 dark:focus:ring-teal-500/50 transition-colors"
               />
-              <kbd className="absolute right-3 top-1/2 -translate-y-1/2 px-2 py-1 text-xs text-gray-500 bg-white/5 border border-white/10 rounded">
+              <kbd className="absolute right-3 top-1/2 -translate-y-1/2 px-2 py-1 text-xs text-slate-500 dark:text-gray-500 bg-slate-200 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded">
                 ⌘K
               </kbd>
               
               {/* Search Results Dropdown */}
               {showSearchResults && searchResults.length > 0 && (
-                <div className="absolute top-full mt-2 w-full bg-[#111111] border border-white/10 rounded-lg shadow-2xl overflow-hidden z-50">
+                <div className="absolute top-full mt-2 w-full bg-white dark:bg-[#111111] border border-slate-200 dark:border-white/10 rounded-lg shadow-2xl overflow-hidden z-50">
                   <div className="max-h-[400px] overflow-y-auto">
                     {searchResults.map((result) => (
                       <button
                         key={result.id}
                         onClick={() => handleSearchSelect(result.id)}
-                        className="w-full text-left px-4 py-3 hover:bg-white/5 transition-colors border-b border-white/5 last:border-b-0"
+                        className="w-full text-left px-4 py-3 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors border-b border-slate-200 dark:border-white/5 last:border-b-0"
                       >
                         <div className="flex items-start gap-3">
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-1">
                               <span 
-                                className="text-sm font-medium text-white"
+                                className="text-sm font-medium text-slate-900 dark:text-white"
                                 dangerouslySetInnerHTML={{ __html: result.highlightedLabel || result.label }}
                               />
-                              <span className="text-xs text-gray-500 px-2 py-0.5 bg-white/5 rounded">
+                              <span className="text-xs text-slate-500 dark:text-gray-500 px-2 py-0.5 bg-slate-100 dark:bg-white/5 rounded">
                                 {result.category}
                               </span>
                             </div>
                             <p 
-                              className="text-xs text-gray-400 line-clamp-2"
+                              className="text-xs text-slate-600 dark:text-gray-400 line-clamp-2"
                               dangerouslySetInnerHTML={{ __html: result.matchedSnippet || result.description }}
                             />
                           </div>
@@ -196,7 +197,7 @@ export default function DocsPage() {
                     ))}
                   </div>
                   {searchQuery && searchResults.length === 0 && (
-                    <div className="px-4 py-3 text-sm text-gray-500 text-center">
+                    <div className="px-4 py-3 text-sm text-slate-500 dark:text-gray-500 text-center">
                       No results found
                     </div>
                   )}
@@ -210,7 +211,7 @@ export default function DocsPage() {
             {/* Mobile Search Button */}
             <button
               onClick={() => setShowMobileSearch(true)}
-              className="sm:hidden text-gray-400 hover:text-white"
+              className="sm:hidden text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white"
               aria-label="Search"
             >
               <Search className="w-5 h-5" />
@@ -221,12 +222,14 @@ export default function DocsPage() {
               href="https://github.com/Shuruhatik/hawiah"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+              className="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors"
               aria-label="GitHub"
             >
               <Github className="w-5 h-5" />
               <span className="hidden sm:inline">GitHub</span>
             </a>
+
+            <ThemeToggle />
           </div>
         </div>
       </header>
@@ -235,23 +238,23 @@ export default function DocsPage() {
       {showMobileSearch && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm sm:hidden">
           <div className="p-4">
-            <div className="bg-[#111111] rounded-lg border border-white/10">
-              <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10">
-                <Search className="w-5 h-5 text-gray-500" />
+            <div className="bg-white dark:bg-[#111111] rounded-lg border border-slate-200 dark:border-white/10">
+              <div className="flex items-center gap-3 px-4 py-3 border-b border-slate-200 dark:border-white/10">
+                <Search className="w-5 h-5 text-slate-500 dark:text-gray-500" />
                 <input
                   type="text"
                   placeholder="Search documentation..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   autoFocus
-                  className="flex-1 bg-transparent text-white placeholder:text-gray-500 focus:outline-none"
+                  className="flex-1 bg-transparent text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-gray-500 focus:outline-none"
                 />
                 <button
                   onClick={() => {
                     setShowMobileSearch(false);
                     setSearchQuery('');
                   }}
-                  className="text-gray-400 hover:text-white"
+                  className="text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -266,29 +269,29 @@ export default function DocsPage() {
                         handleSearchSelect(result.id);
                         setShowMobileSearch(false);
                       }}
-                      className="w-full text-left px-4 py-3 hover:bg-white/5 transition-colors border-b border-white/5 last:border-b-0"
+                      className="w-full text-left px-4 py-3 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors border-b border-slate-200 dark:border-white/5 last:border-b-0"
                     >
                       <div className="flex items-center gap-2 mb-1">
                         <span 
-                          className="text-sm font-medium text-white"
+                          className="text-sm font-medium text-slate-900 dark:text-white"
                           dangerouslySetInnerHTML={{ __html: result.highlightedLabel || result.label }}
                         />
-                        <span className="text-xs text-gray-500 px-2 py-0.5 bg-white/5 rounded">
+                        <span className="text-xs text-slate-500 dark:text-gray-500 px-2 py-0.5 bg-slate-100 dark:bg-white/5 rounded">
                           {result.category}
                         </span>
                       </div>
                       <p 
-                        className="text-xs text-gray-400 line-clamp-2"
+                        className="text-xs text-slate-600 dark:text-gray-400 line-clamp-2"
                         dangerouslySetInnerHTML={{ __html: result.matchedSnippet || result.description }}
                       />
                     </button>
                   ))
                 ) : searchQuery ? (
-                  <div className="px-4 py-8 text-center text-gray-500">
+                  <div className="px-4 py-8 text-center text-slate-500 dark:text-gray-500">
                     No results found
                   </div>
                 ) : (
-                  <div className="px-4 py-8 text-center text-gray-500">
+                  <div className="px-4 py-8 text-center text-slate-500 dark:text-gray-500">
                     Start typing to search...
                   </div>
                 )}

@@ -36,10 +36,10 @@ export default function Features() {
         transition={{ duration: 0.5 }}
         className="mb-12 text-center"
       >
-        <h2 className="mb-4 text-4xl font-bold text-white">
+        <h2 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white">
           Why Choose Hawiah?
         </h2>
-        <p className="text-lg text-gray-400">
+        <p className="text-lg text-slate-600 dark:text-gray-400">
           Built for developers who value simplicity and flexibility
         </p>
       </motion.div>
@@ -56,15 +56,15 @@ export default function Features() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="text-center"
             >
-              <div className="mb-3 sm:mb-4 inline-flex rounded-xl bg-teal-500/10 p-3 sm:p-4">
-                <Icon className="h-6 w-6 sm:h-8 sm:w-8 text-teal-400" />
+              <div className="mb-3 sm:mb-4 inline-flex rounded-xl bg-teal-50 dark:bg-teal-500/10 p-3 sm:p-4">
+                <Icon className="h-6 w-6 sm:h-8 sm:w-8 text-teal-600 dark:text-teal-400" />
               </div>
 
-              <h3 className="mb-1.5 sm:mb-2 text-base sm:text-xl font-semibold text-white">
+              <h3 className="mb-1.5 sm:mb-2 text-base sm:text-xl font-semibold text-slate-900 dark:text-white">
                 {feature.title}
               </h3>
 
-              <p className="text-xs sm:text-sm text-gray-400">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-gray-400">
                 {feature.description}
               </p>
             </motion.div>
