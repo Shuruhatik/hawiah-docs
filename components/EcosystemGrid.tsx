@@ -3,16 +3,17 @@
 import { motion } from 'framer-motion';
 import {
   Cpu,
-  File,
   Braces,
   FileCode,
   Leaf,
   Flame,
   Feather,
-  Database
+  Database,
+  Code2
 } from 'lucide-react';
 
 const drivers = [
+  { name: 'MemoryDriver', icon: Cpu, description: 'In-memory storage', package: '@hawiah/local' },
   { name: 'JSONDriver', icon: Braces, description: 'Local JSON files', package: '@hawiah/local' },
   { name: 'YAMLDriver', icon: FileCode, description: 'Local YAML files', package: '@hawiah/local' },
   { name: 'SQLiteDriver', icon: Feather, description: 'SQLite database', package: '@hawiah/sqlite' },
@@ -20,6 +21,7 @@ const drivers = [
   { name: 'FirebaseDriver', icon: Flame, description: 'Firebase Firestore', package: '@hawiah/firebase' },
   { name: 'PostgreSQLDriver', icon: Database, description: 'PostgreSQL database', package: '@hawiah/postgres' },
   { name: 'MySQLDriver', icon: Database, description: 'MySQL database', package: '@hawiah/mysql' },
+  { name: 'CustomDriver', icon: Code2, description: 'Build your own', package: 'DIY' },
 ];
 
 export default function EcosystemGrid() {
