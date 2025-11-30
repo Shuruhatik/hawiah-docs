@@ -38,8 +38,9 @@ export default function Hero() {
           </h1>
 
           <p className="mb-8 text-lg sm:text-xl leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            The ultimate schema-less database abstraction layer.
-            Swap drivers instantly, write less code, and scale without limits.
+            Modular database abstraction with virtual relationships.
+            Support for 7 drivers, 50+ methods, and DataLoader batching.
+            One API to rule them all.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

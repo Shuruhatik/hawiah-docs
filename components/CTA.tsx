@@ -24,8 +24,8 @@ export default function CTA() {
                         Ready to simplify your database layer?
                     </h2>
                     <p className="mb-10 text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-                        Join thousands of developers building faster with Hawiah.
-                        Open source and free forever.
+                        Modular, flexible, and easy to use. Start with JSON files,
+                        scale to MongoDB or PostgreSQL. Open source and free forever.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -3,7 +3,7 @@ title: insertMany()
 description: Inserts multiple records into the database in a single operation.
 category: "CRUD: Writing Data"
 signature: "insertMany(dataArray: Data[]): Promise<Data[]>"
-returnValue: "Promise<Data[]> - Array of inserted records with generated IDs"
+returnValue: "Promise<Data[]> - Array of inserted records"
 relatedMethods: ["insert", "save"]
 ---
 
@@ -21,24 +21,23 @@ insertMany(dataArray: Data[]): Promise<Data[]>
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `dataArray` | `object[]` | Array of records to insert |
+| `dataArray` | `Data[]` | Array of records to insert |
 
 ## Examples
 
-### Insert Multiple Users
+### Insert multiple users
 
 ```javascript
 const users = await db.insertMany([
-  { name: 'Ahmed', role: 'Admin' },
-  { name: 'Sara', role: 'User' },
-  { name: 'Omar', role: 'Moderator' }
+  { name: 'Ahmed', role: 'Admin', age: 25 },
+  { name: 'Sara', role: 'User', age: 30 },
+  { name: 'Omar', role: 'Moderator', age: 28 }
 ]);
 
-console.log(users.length); // 3
-console.log(users[0]._id); // Generated ID
+console.log(`Inserted ${users.length} users`);
 ```
 
-### Bulk Import
+### Bulk import products
 
 ```javascript
 const products = [
@@ -51,7 +50,7 @@ const inserted = await db.insertMany(products);
 console.log(`Inserted ${inserted.length} products`);
 ```
 
-### With Error Handling
+### With error handling
 
 ```javascript
 try {
@@ -64,8 +63,20 @@ try {
 
 ## Return Value
 
-Returns a `Promise<Data[]>` containing an array of inserted records, each with a generated ID.
+Returns a `Promise<Data[]>` containing an array of inserted records.
 
 ## Performance
 
-`insertMany()` is significantly faster than multiple `insert()` calls as it performs the operation in a single database transaction.
+`insertMany()` is significantly faster than multiple `insert()` calls as it performs the operation in a single batch.
+
+## Notes
+
+- Much more efficient than calling `insert()` multiple times
+- All records are inserted in a single operation
+- If one record fails, behavior depends on the driver
+
+## Related Methods
+
+- [insert()](/docs/insert) - Insert a single record
+- [save()](/docs/save) - Upsert operation
+- [get()](/docs/get) - Query inserted records

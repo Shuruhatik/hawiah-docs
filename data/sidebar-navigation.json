@@ -3,7 +3,9 @@
     "title": "Getting Started",
     "items": [
       { "id": "installation", "label": "Installation" },
-      { "id": "quick-start", "label": "Quick Start" }
+      { "id": "quick-start", "label": "Quick Start" },
+      { "id": "drivers", "label": "Database Drivers" },
+      { "id": "api-reference", "label": "API Reference" }
     ]
   },
   {
@@ -28,6 +30,7 @@
       { "id": "get", "label": "get()" },
       { "id": "getOne", "label": "getOne()" },
       { "id": "getAll", "label": "getAll()" },
+      { "id": "getMany", "label": "getMany()" },
       { "id": "getById", "label": "getById()" },
       { "id": "getBy", "label": "getBy()" },
       { "id": "first", "label": "first()" },
@@ -86,7 +89,15 @@
       { "id": "sort", "label": "sort()" },
       { "id": "select", "label": "select()" },
       { "id": "unique", "label": "unique()" },
-      { "id": "group", "label": "group()" }
+      { "id": "group", "label": "group()" },
+      { "id": "isEmpty", "label": "isEmpty()" }
+    ]
+  },
+  {
+    "title": "Advanced",
+    "items": [
+      { "id": "virtual-relationships", "label": "Virtual Relationships" },
+      { "id": "custom-drivers", "label": "Custom Drivers" }
     ]
   }
 ]

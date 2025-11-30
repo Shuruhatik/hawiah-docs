@@ -1,10 +1,10 @@
 ---
 title: get()
 description: Retrieves multiple records matching the query criteria.
-category: "CRUD - Reading Data"
+category: "CRUD: Reading Data"
 signature: "get(query?: Query, limit?: number): Promise<Data[]>"
 returnValue: "Promise<Data[]> - Array of matching records"
-relatedMethods: ["getOne", "getAll", "getById"]
+relatedMethods: ["getOne", "getAll", "getById", "getBy"]
 ---
 
 # db.get()
@@ -21,8 +21,8 @@ get(query?: Query, limit?: number): Promise<Data[]>
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `query` | `object` | Query criteria (optional) |
-| `limit` | `number` | Maximum number of records to return (optional) |
+| `query` | `Query` | Query criteria (default: {}) |
+| `limit` | `number` | Maximum number of records (optional) |
 
 ## Examples
 
@@ -51,16 +51,34 @@ const users = await db.get({
 ### Get all records
 
 ```javascript
-const allRecords = await db.get();
+const allRecords = await db.get({});
+// or use getAll()
+const allRecords2 = await db.getAll();
+```
+
+### Get with limit
+
+```javascript
+// Get first 5 records
+const first5 = await db.get({}, 5);
 ```
 
 ## Return Value
 
 Returns a `Promise<Data[]>` containing an array of matching records.
 
+## Notes
+
+- If no query is provided, returns all records
+- Use `limit` parameter to restrict number of results
+- For a single record, use `getOne()` instead
+- For all records without filtering, use `getAll()`
+
 ## Related Methods
 
-- [getOne()](#getOne) - Get a single record
-- [getAll()](#getAll) - Get all records without filtering
-- [getById()](#getById) - Get record by ID
-- [getBy()](#getBy) - Get records by field and value
+- [getOne()](/docs/getOne) - Get a single record
+- [getAll()](/docs/getAll) - Get all records
+- [getById()](/docs/getById) - Get record by ID
+- [getBy()](/docs/getBy) - Get records by field value
+- [paginate()](/docs/paginate) - Get paginated results
+- [count()](/docs/count) - Count matching records

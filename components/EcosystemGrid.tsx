@@ -13,15 +13,13 @@ import {
 } from 'lucide-react';
 
 const drivers = [
-  { name: 'MemoryDriver', icon: Cpu, description: 'In-memory storage' },
-  { name: 'FileDriver', icon: File, description: 'File-based storage' },
-  { name: 'JSONDriver', icon: Braces, description: 'JSON file storage' },
-  { name: 'YAMLDriver', icon: FileCode, description: 'YAML file storage' },
-  { name: 'MongoDriver', icon: Leaf, description: 'MongoDB support' },
-  { name: 'FirebaseDriver', icon: Flame, description: 'Firebase integration' },
-  { name: 'SQLiteDriver', icon: Feather, description: 'Lightweight SQL' },
-  { name: 'MySQLDriver', icon: Database, description: 'MySQL database' },
-  { name: 'PostgreSQLDriver', icon: Database, description: 'PostgreSQL database' },
+  { name: 'JSONDriver', icon: Braces, description: 'Local JSON files', package: '@hawiah/local' },
+  { name: 'YAMLDriver', icon: FileCode, description: 'Local YAML files', package: '@hawiah/local' },
+  { name: 'SQLiteDriver', icon: Feather, description: 'SQLite database', package: '@hawiah/sqlite' },
+  { name: 'MongoDriver', icon: Leaf, description: 'MongoDB support', package: '@hawiah/mongo' },
+  { name: 'FirebaseDriver', icon: Flame, description: 'Firebase Firestore', package: '@hawiah/firebase' },
+  { name: 'PostgreSQLDriver', icon: Database, description: 'PostgreSQL database', package: '@hawiah/postgres' },
+  { name: 'MySQLDriver', icon: Database, description: 'MySQL database', package: '@hawiah/mysql' },
 ];
 
 export default function EcosystemGrid() {
@@ -37,8 +35,11 @@ export default function EcosystemGrid() {
         <h2 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white">
           Connect to Any Database
         </h2>
-        <p className="text-lg text-slate-600 dark:text-gray-400">
+        <p className="text-lg text-slate-600 dark:text-gray-400 mb-2">
           Unified API across all supported drivers
+        </p>
+        <p className="text-sm text-teal-600 dark:text-teal-400 font-medium">
+          ✨ Plus Virtual Relationships with DataLoader batching
         </p>
       </motion.div>
 
@@ -62,9 +63,13 @@ export default function EcosystemGrid() {
                 {driver.name}
               </h3>
 
-              <p className="text-xs text-slate-500 dark:text-slate-500 text-center">
+              <p className="text-xs text-slate-500 dark:text-slate-500 text-center mb-2">
                 {driver.description}
               </p>
+
+              <code className="text-[10px] text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/20 px-2 py-1 rounded">
+                {driver.package}
+              </code>
             </motion.div>
           );
         })}

@@ -327,6 +327,70 @@ export const searchIndex: SearchItem[] = [
     description: 'Group records by field',
     content: 'group() Groups records by a specific field and returns grouped results group field string Promise Record string Data[] field string Field name to group by Group users by role const grouped await db.group role console.log grouped Admin name Ahmed role Admin User name Sara role User aggregate groupby',
     keywords: ['group', 'groupby', 'aggregate', 'organize', 'categorize']
+  },
+  {
+    id: 'getMany',
+    label: 'getMany()',
+    category: 'CRUD: Reading',
+    description: 'Get records by multiple queries (OR)',
+    content: 'getMany() Retrieves records matching any of the provided queries OR operation getMany queries Query[] Promise Data[] queries Query[] Array of query criteria Get users with multiple roles const users await db.getMany role Admin role Moderator role Editor Combined array of matching records or multiple',
+    keywords: ['getMany', 'multiple', 'or', 'queries', 'find', 'many']
+  },
+  {
+    id: 'isEmpty',
+    label: 'isEmpty()',
+    category: 'Utility Methods',
+    description: 'Check if database is empty',
+    content: 'isEmpty() Checks if the database contains no records isEmpty Promise boolean const empty await db.isEmpty() if empty console.log Database is empty Initialize with default data await db.insertMany defaultData True if database is empty check empty zero',
+    keywords: ['isEmpty', 'empty', 'check', 'zero', 'none', 'blank']
+  },
+  {
+    id: 'drivers',
+    label: 'Database Drivers',
+    category: 'Getting Started',
+    description: 'Complete guide to all available drivers',
+    content: 'Database Drivers Hawiah supports multiple database drivers through modular architecture JSONDriver YAMLDriver SQLiteDriver MongoDriver FirebaseDriver PostgreSQLDriver MySQLDriver local file json yaml sqlite mongodb firebase postgres mysql driver database connection',
+    keywords: ['drivers', 'database', 'json', 'yaml', 'sqlite', 'mongodb', 'firebase', 'postgres', 'mysql', 'connection']
+  },
+  {
+    id: 'custom-drivers',
+    label: 'Custom Drivers',
+    category: 'Advanced',
+    description: 'Create your own custom database drivers',
+    content: 'Custom Drivers Learn how to create your own custom database drivers for Hawiah IDriver interface connect disconnect set get getOne update delete exists count Redis LocalStorage REST API custom driver create build implement',
+    keywords: ['custom', 'driver', 'create', 'build', 'implement', 'interface', 'extend']
+  },
+  {
+    id: 'api-reference',
+    label: 'API Reference',
+    category: 'Getting Started',
+    description: 'Complete reference of all methods',
+    content: 'API Reference Complete reference of all Hawiah methods organized by category Connection Insert Query Update Delete Array Numeric Field Utility methods complete list reference documentation',
+    keywords: ['api', 'reference', 'complete', 'list', 'methods', 'documentation', 'all']
+  },
+  {
+    id: 'virtual-relationships',
+    label: 'Virtual Relationships',
+    category: 'Advanced',
+    description: 'Create relationships between Hawiah instances',
+    content: 'Virtual Relationships Create relationships between different Hawiah instances relation getWith getOneWith one-to-one one-to-many many-to-many DataLoader batching performance N+1 queries Users Posts Comments join foreign key local key clearCache nested relationships blog e-commerce',
+    keywords: ['relationships', 'virtual', 'relation', 'join', 'foreign key', 'one-to-one', 'one-to-many', 'many-to-many', 'getWith', 'getOneWith', 'dataloader', 'batching', 'performance']
+  },
+  {
+    id: 'getWith',
+    label: 'getWith()',
+    category: 'Advanced',
+    description: 'Get records with relationships',
+    content: 'getWith() Fetch multiple records with their relationships getWith query relations Promise Data[] Get users with posts const users await Users.getWith posts Get with multiple relations const users await Users.getWith posts profile comments virtual relationships join',
+    keywords: ['getWith', 'relationships', 'join', 'with', 'include', 'eager loading']
+  },
+  {
+    id: 'getOneWith',
+    label: 'getOneWith()',
+    category: 'Advanced',
+    description: 'Get single record with relationships',
+    content: 'getOneWith() Fetch single record with relationships getOneWith query relations Promise Data Get user with posts const user await Users.getOneWith _id 1 posts Get post with user and comments const post await Posts.getOneWith _id 1 user comments virtual relationships',
+    keywords: ['getOneWith', 'relationships', 'join', 'with', 'include', 'single', 'one']
   }
 ];
 

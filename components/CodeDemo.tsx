@@ -6,59 +6,134 @@ import CodeBlock from './docs/CodeBlock';
 
 const codeExamples = [
   {
-    title: 'Connect',
-    code: `import { Hawiah, MongoDriver } from 'hawiah';
+    title: 'JSON',
+    code: `const { Hawiah } = require('@hawiah/core');
+const { JSONDriver } = require('@hawiah/local');
 
-const db = new Hawiah(
-  new MongoDriver('mongodb://localhost:27017')
-);
+const driver = new JSONDriver('./users.json');
+const db = new Hawiah({ driver });
 
 await db.connect();
-console.log('Connected!');`
-  },
-  {
-    title: 'Insert',
-    code: `// Insert a single document
 await db.insert({ 
-  name: 'John Doe',
-  email: 'john@example.com',
-  role: 'Admin'
+  id: 1, 
+  name: 'Ahmed', 
+  age: 25 
 });
 
-// Insert multiple documents
-await db.insert([
-  { name: 'Alice', role: 'Developer' },
-  { name: 'Bob', role: 'Designer' }
-]);`
+const users = await db.get({});
+await db.disconnect();`
   },
   {
-    title: 'Query',
-    code: `// Get all documents
-const all = await db.get();
+    title: 'SQLite',
+    code: `const { Hawiah } = require('@hawiah/core');
+const { SQLiteDriver } = require('@hawiah/sqlite');
 
-// Filter by criteria
-const devs = await db.get({ 
-  role: 'Developer' 
+const driver = new SQLiteDriver(
+  './app.db', 
+  'users'
+);
+const db = new Hawiah({ driver });
+
+await db.connect();
+await db.insert({ 
+  id: 1, 
+  username: 'ahmed',
+  email: 'ahmed@test.com' 
 });
 
-// Get single document
-const user = await db.get({ 
-  email: 'john@example.com' 
-}, { limit: 1 });`
+const users = await db.get({});
+await db.disconnect();`
   },
   {
-    title: 'Paginate',
-    code: `// Paginate results
-const page1 = await db.paginate({
-  role: 'Developer'
-}, {
-  page: 1,
-  limit: 10
+    title: 'MongoDB',
+    code: `const { Hawiah } = require('@hawiah/core');
+const { MongoDriver } = require('@hawiah/mongo');
+
+const driver = new MongoDriver({
+  uri: 'mongodb+srv://user:pass@cluster/',
+  databaseName: 'myDatabase',
+  collectionName: 'users'
+});
+const db = new Hawiah({ driver });
+
+await db.connect();
+await db.insert({ 
+  id: 1, 
+  name: 'Ahmed',
+  email: 'ahmed@test.com' 
 });
 
-console.log(page1.data);
-console.log(page1.total);
-console.log(page1.hasMore);`
+const users = await db.get({});
+await db.disconnect();`
+  },
+  {
+    title: 'MySQL',
+    code: `const { Hawiah } = require('@hawiah/core');
+const { MySQLDriver } = require('@hawiah/mysql');
+
+const driver = new MySQLDriver({
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
+  database: 'mydb',
+  port: 3306
+}, 'users');
+const db = new Hawiah({ driver });
+
+await db.connect();
+await db.insert({ 
+  id: 1, 
+  name: 'Ahmed',
+  email: 'ahmed@test.com' 
+});
+
+const users = await db.get({});
+await db.disconnect();`
+  },
+  {
+    title: 'PostgreSQL',
+    code: `const { Hawiah } = require('@hawiah/core');
+const { PostgreSQLDriver } = require('@hawiah/postgres');
+
+const driver = new PostgreSQLDriver({
+  connectionString: 'postgresql://user:pass@host:5432/db',
+  tableName: 'users'
+});
+const db = new Hawiah({ driver });
+
+await db.connect();
+await db.insert({ 
+  id: 1, 
+  name: 'Ahmed',
+  email: 'ahmed@test.com' 
+});
+
+const users = await db.get({});
+await db.disconnect();`
+  },
+  {
+    title: 'Firebase',
+    code: `const { Hawiah } = require('@hawiah/core');
+const { FirebaseDriver } = require('@hawiah/firebase');
+
+const driver = new FirebaseDriver({
+  firebaseConfig: {
+    apiKey: "YOUR_API_KEY",
+    projectId: "your-project-id",
+    // ... other config
+  },
+  collectionName: 'users'
+});
+const db = new Hawiah({ driver });
+
+await db.connect();
+await db.insert({ 
+  id: 1, 
+  name: 'Ahmed' 
+});
+
+const users = await db.get({});
+await db.disconnect();`
   }
 ];
 
@@ -75,10 +150,10 @@ export default function CodeDemo() {
         className="mb-8 sm:mb-12 text-center"
       >
         <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
-          Unified API
+          One API, Multiple Drivers
         </h2>
         <p className="text-base sm:text-lg text-slate-600 dark:text-gray-400">
-          Same methods, different drivers. It's that simple.
+          Same code, different databases. Switch drivers without changing your application logic.
         </p>
       </motion.div>
 
@@ -94,10 +169,11 @@ export default function CodeDemo() {
             <button
               key={example.title}
               onClick={() => setActiveTab(index)}
-              className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${activeTab === index
+              className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
+                activeTab === index
                   ? 'border-b-2 border-teal-600 dark:border-teal-400 text-teal-700 dark:text-teal-400'
                   : 'text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white'
-                }`}
+              }`}
             >
               {example.title}
             </button>

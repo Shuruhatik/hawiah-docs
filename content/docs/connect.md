@@ -21,12 +21,67 @@ connect(): Promise<void>
 
 The `connect()` method initializes and establishes a connection to your database. This must be called before performing any database operations.
 
-## Example
+## Examples
+
+### JSONDriver
 
 ```javascript
-const db = new Hawiah({ driver: 'mongodb', connection: {...} });
+const { Hawiah } = require('@hawiah/core');
+const { JSONDriver } = require('@hawiah/local');
+
+const driver = new JSONDriver('./data/users.json');
+const db = new Hawiah({ driver });
+
 await db.connect();
-console.log('Connected to database');
+console.log('Connected to JSON file');
+```
+
+### SQLiteDriver
+
+```javascript
+const { Hawiah } = require('@hawiah/core');
+const { SQLiteDriver } = require('@hawiah/sqlite');
+
+const driver = new SQLiteDriver('./app.db', 'users');
+const db = new Hawiah({ driver });
+
+await db.connect();
+console.log('Connected to SQLite database');
+```
+
+### MongoDriver
+
+```javascript
+const { Hawiah } = require('@hawiah/core');
+const { MongoDriver } = require('@hawiah/mongo');
+
+const driver = new MongoDriver({
+  uri: 'mongodb://localhost:27017',
+  databaseName: 'myapp',
+  collectionName: 'users'
+});
+const db = new Hawiah({ driver });
+
+await db.connect();
+console.log('Connected to MongoDB');
+```
+
+### MySQLDriver
+
+```javascript
+const { Hawiah } = require('@hawiah/core');
+const { MySQLDriver } = require('@hawiah/mysql');
+
+const driver = new MySQLDriver({
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
+  database: 'mydb'
+}, 'users');
+const db = new Hawiah({ driver });
+
+await db.connect();
+console.log('Connected to MySQL');
 ```
 
 ## Error Handling
@@ -40,11 +95,17 @@ try {
 }
 ```
 
+## Notes
+
+- Must be called before any database operations
+- Can be called multiple times safely (will not reconnect if already connected)
+- Different drivers may have different connection requirements
+
 ## Return Value
 
 Returns a `Promise<void>` that resolves when the connection is established.
 
 ## Related Methods
 
-- [disconnect()](#disconnect) - Close the database connection
-- [isActive()](#isActive) - Check connection status
+- [disconnect()](/docs/disconnect) - Close the database connection
+- [isActive()](/docs/isActive) - Check connection status

@@ -1,15 +1,15 @@
 ---
 title: getBy()
-description: Retrieves records by a specific field and value.
+description: Retrieves records where a specific field matches a value.
 category: "CRUD: Reading Data"
 signature: "getBy(field: string, value: any): Promise<Data[]>"
 returnValue: "Promise<Data[]> - Array of matching records"
-relatedMethods: ["get", "getOne"]
+relatedMethods: ["get", "getOne", "hasBy", "countBy"]
 ---
 
 # db.getBy()
 
-Retrieves records by a specific field and value.
+Retrieves records where a specific field matches a value.
 
 ## Signature
 
@@ -21,49 +21,49 @@ getBy(field: string, value: any): Promise<Data[]>
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `field` | `string` | The field name to query |
-| `value` | `any` | The value to match |
+| `field` | `string` | Field name to match |
+| `value` | `any` | Value to match |
 
 ## Examples
 
-### Get by Role
+### Get users by role
 
 ```javascript
 const admins = await db.getBy('role', 'Admin');
 console.log(`Found ${admins.length} admins`);
 ```
 
-### Get by Status
+### Get posts by author
 
 ```javascript
-const activeUsers = await db.getBy('active', true);
-const inactiveUsers = await db.getBy('active', false);
+const userPosts = await db.getBy('authorId', userId);
 ```
 
-### Get by Category
+### Get by city
 
 ```javascript
-const techPosts = await db.getBy('category', 'Technology');
-const newsPosts = await db.getBy('category', 'News');
+const users = await db.getBy('city', 'Cairo');
 ```
 
-### Get by Numeric Value
+### Get by status
 
 ```javascript
-const premiumUsers = await db.getBy('tier', 'premium');
-const freeUsers = await db.getBy('tier', 'free');
+const activeUsers = await db.getBy('status', 'active');
 ```
 
 ## Return Value
 
-Returns a `Promise<Data[]>` containing all records where the specified field matches the value.
+Returns a `Promise<Data[]>` containing all records where the field matches the value.
 
-## Comparison with get()
+## Notes
 
-```javascript
-// These are equivalent:
-const result1 = await db.getBy('role', 'Admin');
-const result2 = await db.get({ role: 'Admin' });
+- Equivalent to `get({ [field]: value })`
+- More readable for simple field matching
+- Returns empty array if no matches found
 
-// But getBy() is more concise for single-field queries
-```
+## Related Methods
+
+- [get()](/docs/get) - Get with complex queries
+- [getOne()](/docs/getOne) - Get single record
+- [hasBy()](/docs/hasBy) - Check if field value exists
+- [countBy()](/docs/countBy) - Count records by field value

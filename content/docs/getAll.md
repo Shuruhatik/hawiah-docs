@@ -1,10 +1,10 @@
 ---
 title: getAll()
-description: Retrieves all records from the database without any filtering.
+description: Retrieves all records from the database.
 category: "CRUD: Reading Data"
 signature: "getAll(): Promise<Data[]>"
-returnValue: "Promise<Data[]> - All records in the database"
-relatedMethods: ["get", "count"]
+returnValue: "Promise<Data[]> - Array of all records"
+relatedMethods: ["get", "getOne", "count"]
 ---
 
 # db.getAll()
@@ -19,56 +19,45 @@ getAll(): Promise<Data[]>
 
 ## Examples
 
-### Get All Records
+### Get all records
 
 ```javascript
-const allRecords = await db.getAll();
-console.log(`Total records: ${allRecords.length}`);
+const allUsers = await db.getAll();
+console.log(`Total users: ${allUsers.length}`);
 ```
 
-### Export Data
-
-```javascript
-const allData = await db.getAll();
-const json = JSON.stringify(allData, null, 2);
-fs.writeFileSync('backup.json', json);
-```
-
-### Statistics
+### Process all records
 
 ```javascript
 const records = await db.getAll();
-const stats = {
-  total: records.length,
-  active: records.filter(r => r.active).length,
-  inactive: records.filter(r => !r.active).length
-};
-console.log(stats);
-```
 
-### Iterate All Records
-
-```javascript
-const records = await db.getAll();
 for (const record of records) {
   console.log(record.name);
 }
+```
+
+### Export data
+
+```javascript
+const allData = await db.getAll();
+fs.writeFileSync('backup.json', JSON.stringify(allData, null, 2));
 ```
 
 ## Return Value
 
 Returns a `Promise<Data[]>` containing all records in the database.
 
-## Performance Considerations
+## Notes
 
+- Equivalent to `get({})` but more explicit
 - Use with caution on large datasets
-- Consider using `get()` with pagination for large collections
-- Use `count()` if you only need the total number
-- Consider using `paginate()` for better performance
+- Consider using `paginate()` for large collections
+- For filtered results, use `get(query)` instead
 
-## Use Cases
+## Related Methods
 
-- Small datasets
-- Data export/backup
-- Statistics calculation
-- Development/testing
+- [get()](/docs/get) - Get records with filtering
+- [getOne()](/docs/getOne) - Get a single record
+- [count()](/docs/count) - Count all records
+- [paginate()](/docs/paginate) - Get paginated results
+- [isEmpty()](/docs/isEmpty) - Check if database is empty

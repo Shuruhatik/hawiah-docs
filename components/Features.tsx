@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Zap, Code2, Layers, Shield, Database, Cpu, Globe } from 'lucide-react';
+import { Zap, Code2, Layers, Shield, Globe, Link2 } from 'lucide-react';
 
 export default function Features() {
   return (
@@ -36,10 +36,10 @@ export default function Features() {
               <div className="w-12 h-12 rounded-2xl bg-teal-500/10 flex items-center justify-center mb-6 text-teal-600 dark:text-teal-400">
                 <Layers size={24} />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">No Schema ORM</h3>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Modular Architecture</h3>
               <p className="text-slate-600 dark:text-slate-400 max-w-md">
-                Forget about migrations and rigid schemas. Store data flexibly and let your code define the structure.
-                Perfect for rapid prototyping and evolving applications.
+                Install only what you need. Core package + your choice of drivers.
+                Keep your bundle size small and dependencies minimal.
               </p>
             </div>
 
@@ -101,7 +101,7 @@ export default function Features() {
           </p>
         </motion.div>
 
-        {/* Standard Card - Developer Friendly */}
+        {/* Standard Card - Virtual Relationships */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -110,11 +110,11 @@ export default function Features() {
           className="relative overflow-hidden rounded-3xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-8 group hover:border-teal-500/50 transition-colors"
         >
           <div className="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6 text-purple-600 dark:text-purple-400">
-            <Code2 size={24} />
+            <Link2 size={24} />
           </div>
-          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Dev Friendly</h3>
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Virtual Relationships</h3>
           <p className="text-sm text-slate-600 dark:text-slate-400">
-            Intuitive API designed for humans. Write code that reads like English.
+            Create relationships between instances with DataLoader batching. Avoid N+1 queries.
           </p>
         </motion.div>
 
