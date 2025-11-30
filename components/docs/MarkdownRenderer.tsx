@@ -28,6 +28,12 @@ function extractText(children: any): string {
   return '';
 }
 
+// Helper to create ID from text
+function createId(children: any): string {
+  const text = extractText(children);
+  return text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+}
+
 function CodeBlock({ children, className }: { children: any; className?: string }) {
   const [copied, setCopied] = useState(false);
   
@@ -71,16 +77,16 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
         rehypePlugins={[rehypeRaw, rehypeHighlight]}
         components={{
           h1: ({ children }) => (
-            <h1 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-slate-900 dark:text-white">{children}</h1>
+            <h1 id={createId(children)} className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-slate-900 dark:text-white scroll-mt-20">{children}</h1>
           ),
           h2: ({ children }) => (
-            <h2 className="text-xl sm:text-2xl font-bold mt-8 sm:mt-10 mb-3 sm:mb-4 text-slate-900 dark:text-white">{children}</h2>
+            <h2 id={createId(children)} className="text-xl sm:text-2xl font-bold mt-8 sm:mt-10 mb-3 sm:mb-4 text-slate-900 dark:text-white scroll-mt-20">{children}</h2>
           ),
           h3: ({ children }) => (
-            <h3 className="text-lg sm:text-xl font-semibold mt-6 sm:mt-8 mb-2 sm:mb-3 text-slate-900 dark:text-white">{children}</h3>
+            <h3 id={createId(children)} className="text-lg sm:text-xl font-semibold mt-6 sm:mt-8 mb-2 sm:mb-3 text-slate-900 dark:text-white scroll-mt-20">{children}</h3>
           ),
           h4: ({ children }) => (
-            <h4 className="text-base sm:text-lg font-semibold mt-4 sm:mt-6 mb-2 text-slate-900 dark:text-white">{children}</h4>
+            <h4 id={createId(children)} className="text-base sm:text-lg font-semibold mt-4 sm:mt-6 mb-2 text-slate-900 dark:text-white scroll-mt-20">{children}</h4>
           ),
           p: ({ children }) => (
             <p className="text-slate-600 dark:text-gray-400 text-base mb-4 leading-relaxed">{children}</p>

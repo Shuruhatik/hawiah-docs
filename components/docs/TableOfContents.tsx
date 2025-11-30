@@ -16,6 +16,16 @@ const tocItems: Record<string, string[]> = {
 export default function TableOfContents({ activeSection }: TableOfContentsProps) {
   const items = tocItems[activeSection] || ['Overview', 'Syntax', 'Examples'];
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, item: string) => {
+    e.preventDefault();
+    const id = item.toLowerCase().replace(/\s+/g, '-');
+    const element = document.getElementById(id);
+    
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <aside className="hidden xl:block sticky top-16 h-[calc(100vh-4rem)] w-56 overflow-y-auto">
       <nav className="p-6">
@@ -27,6 +37,7 @@ export default function TableOfContents({ activeSection }: TableOfContentsProps)
             <li key={item}>
               <a
                 href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                onClick={(e) => handleClick(e, item)}
                 className="text-sm text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors block"
               >
                 {item}
