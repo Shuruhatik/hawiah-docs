@@ -2,6 +2,7 @@
 
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
+import navGroupsData from '@/data/sidebar-navigation.json';
 
 interface SidebarProps {
   activeSection: string;
@@ -19,98 +20,23 @@ interface NavGroup {
   items: NavItem[];
 }
 
-const navGroups: NavGroup[] = [
-  {
-    title: 'Getting Started',
-    items: [
-      { id: 'installation', label: 'Installation' },
-      { id: 'quick-start', label: 'Quick Start' },
-    ],
-  },
-  {
-    title: 'Connection',
-    items: [
-      { id: 'connect', label: 'connect()' },
-      { id: 'disconnect', label: 'disconnect()' },
-      { id: 'isActive', label: 'isActive()' },
-    ],
-  },
-  {
-    title: 'CRUD: Writing Data',
-    items: [
-      { id: 'insert', label: 'insert()' },
-      { id: 'insertMany', label: 'insertMany()' },
-      { id: 'save', label: 'save()' },
-    ],
-  },
-  {
-    title: 'CRUD: Reading Data',
-    items: [
-      { id: 'get', label: 'get()' },
-      { id: 'getOne', label: 'getOne()' },
-      { id: 'getAll', label: 'getAll()' },
-      { id: 'getById', label: 'getById()' },
-      { id: 'getBy', label: 'getBy()' },
-      { id: 'first', label: 'first()' },
-      { id: 'last', label: 'last()' },
-      { id: 'random', label: 'random()' },
-      { id: 'paginate', label: 'paginate()' },
-    ],
-  },
-  {
-    title: 'CRUD: Updating Data',
-    items: [
-      { id: 'update', label: 'update()' },
-      { id: 'updateOne', label: 'updateOne()' },
-      { id: 'updateById', label: 'updateById()' },
-    ],
-  },
-  {
-    title: 'CRUD: Deleting Data',
-    items: [
-      { id: 'remove', label: 'remove()' },
-      { id: 'removeOne', label: 'removeOne()' },
-      { id: 'removeById', label: 'removeById()' },
-      { id: 'clear', label: 'clear()' },
-    ],
-  },
-  {
-    title: 'Array Operations',
-    items: [
-      { id: 'push', label: 'push()' },
-      { id: 'pull', label: 'pull()' },
-      { id: 'shift', label: 'shift()' },
-      { id: 'unshift', label: 'unshift()' },
-      { id: 'pop', label: 'pop()' },
-    ],
-  },
-  {
-    title: 'Math Operations',
-    items: [
-      { id: 'increment', label: 'increment()' },
-      { id: 'decrement', label: 'decrement()' },
-      { id: 'sum', label: 'sum()' },
-    ],
-  },
-  {
-    title: 'Field Operations',
-    items: [
-      { id: 'rename', label: 'rename()' },
-      { id: 'unset', label: 'unset()' },
-    ],
-  },
-  {
-    title: 'Utility Methods',
-    items: [
-      { id: 'count', label: 'count()' },
-      { id: 'has', label: 'has()' },
-      { id: 'sort', label: 'sort()' },
-      { id: 'select', label: 'select()' },
-      { id: 'unique', label: 'unique()' },
-      { id: 'group', label: 'group()' },
-    ],
-  },
-];
+const navGroups: NavGroup[] = navGroupsData as NavGroup[];
+
+// Highlight text matching search query
+function highlightText(text: string, query: string): string {
+  if (!query.trim()) return text;
+  
+  const searchTerms = query.toLowerCase().trim().split(/\s+/);
+  let result = text;
+  
+  searchTerms.forEach(term => {
+    if (term.length < 2) return;
+    const regex = new RegExp(`(${term})`, 'gi');
+    result = result.replace(regex, '<mark>$1</mark>');
+  });
+  
+  return result;
+}
 
 export default function Sidebar({ activeSection, setActiveSection, searchQuery = '' }: SidebarProps) {
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(
