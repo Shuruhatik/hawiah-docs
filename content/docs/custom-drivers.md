@@ -36,7 +36,7 @@ interface IDriver {
 ### Example: Redis Driver
 
 ```javascript
-import { IDriver } from '@hawiah/core';
+import { IDriver } from 'hawiah';
 import redis from 'redis';
 
 class RedisDriver {
@@ -140,7 +140,7 @@ module.exports = { RedisDriver };
 ### Using Your Custom Driver
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { RedisDriver } from './RedisDriver';
 
 const driver = new RedisDriver({
@@ -381,7 +381,7 @@ async update(query, data) {
 ## Testing Your Driver
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { MyCustomDriver } from './MyCustomDriver';
 
 describe('MyCustomDriver', () => {
@@ -446,7 +446,7 @@ my-hawiah-driver/
   "main": "src/index.js",
   "keywords": ["hawiah", "database", "driver"],
   "peerDependencies": {
-    "@hawiah/core": "^1.0.0"
+    "hawiah": "^1.0.0"
   }
 }
 ```

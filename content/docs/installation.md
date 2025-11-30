@@ -18,7 +18,7 @@ Hawiah uses a modular architecture. You need to install the core package and at 
 ## Core Package (Required)
 
 ```bash
-npm install @hawiah/core
+npm install hawiah
 ```
 
 ## Database Drivers (Choose One or More)
@@ -64,10 +64,10 @@ npm install @hawiah/mysql
 
 ```bash
 # Install core + JSON driver for development
-npm install @hawiah/core @hawiah/local
+npm install hawiah @hawiah/local
 
 # Or install core + MongoDB for production
-npm install @hawiah/core @hawiah/mongo
+npm install hawiah @hawiah/mongo
 ```
 
 ## Package Managers
@@ -75,19 +75,19 @@ npm install @hawiah/core @hawiah/mongo
 ### NPM
 
 ```bash
-npm install @hawiah/core @hawiah/local
+npm install hawiah @hawiah/local
 ```
 
 ### Yarn
 
 ```bash
-yarn add @hawiah/core @hawiah/local
+yarn add hawiah @hawiah/local
 ```
 
 ### PNPM
 
 ```bash
-pnpm add @hawiah/core @hawiah/local
+pnpm add hawiah @hawiah/local
 ```
 
 ## Requirements

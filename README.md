@@ -15,7 +15,7 @@ A lightweight, modular database abstraction layer with unified API. Support for 
 
 ```bash
 # Install core package (required)
-npm install @hawiah/core
+npm install hawiah
 
 # Install a driver (choose one or more)
 npm install @hawiah/local      # JSON & YAML
@@ -31,7 +31,7 @@ npm install @hawiah/mysql      # MySQL
 ### JSONDriver - Local JSON Files
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
+const { Hawiah } = require('hawiah');
 const { JSONDriver } = require('@hawiah/local');
 
 const driver = new JSONDriver('./data/users.json');
@@ -46,7 +46,7 @@ await db.disconnect();
 ### MongoDriver - MongoDB
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
+const { Hawiah } = require('hawiah');
 const { MongoDriver } = require('@hawiah/mongo');
 
 const driver = new MongoDriver({
@@ -65,7 +65,7 @@ await db.disconnect();
 ### SQLiteDriver - SQLite
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
+const { Hawiah } = require('hawiah');
 const { SQLiteDriver } = require('@hawiah/sqlite');
 
 const driver = new SQLiteDriver('./app.db', 'users');
@@ -190,7 +190,7 @@ MIT License - see LICENSE file for details.
 
 - [Documentation](https://hawiah.vercel.app/docs)
 - [GitHub](https://github.com/Shuruhatik/hawiah)
-- [NPM](https://www.npmjs.com/package/@hawiah/core)
+- [NPM](https://www.npmjs.com/package/hawiah)
 
 ## 🔗 Virtual Relationships
 

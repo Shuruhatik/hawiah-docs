@@ -22,7 +22,7 @@ Hawiah is not just another ORM. It offers:
 
 ```bash
 # Install core package
-npm install @hawiah/core
+npm install hawiah
 
 # Install a driver (example: JSON)
 npm install @hawiah/local
@@ -38,7 +38,7 @@ npm install dataloader
 Perfect for development, testing, and small applications.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { JSONDriver } from '@hawiah/local';
 
 // Create driver
@@ -66,7 +66,7 @@ await db.disconnect(;
 Great for configuration files and structured content.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { YAMLDriver } from '@hawiah/local';
 
 const driver = new YAMLDriver('./data/config.yaml';
@@ -83,7 +83,7 @@ await db.disconnect(;
 Ideal for desktop applications and embedded systems.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { SQLiteDriver } from '@hawiah/sqlite';
 
 // First parameter: database file path
@@ -102,7 +102,7 @@ await db.disconnect(;
 Perfect for web applications and scalable systems.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { MongoDriver } from '@hawiah/mongo';
 
 const driver = new MongoDriver({
@@ -123,7 +123,7 @@ await db.disconnect(;
 Great for real-time applications and mobile apps.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { FirebaseDriver } from '@hawiah/firebase';
 
 const firebaseConfig = {
@@ -152,7 +152,7 @@ await db.disconnect(;
 Enterprise-grade database for complex applications.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { PostgreSQLDriver } from '@hawiah/postgres';
 
 const driver = new PostgreSQLDriver({
@@ -172,7 +172,7 @@ await db.disconnect(;
 Popular choice for web applications and CMS.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { MySQLDriver } from '@hawiah/mysql';
 
 // First parameter: connection config

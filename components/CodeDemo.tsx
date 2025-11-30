@@ -7,7 +7,7 @@ import CodeBlock from './docs/CodeBlock';
 const codeExamples = [
   {
     title: 'JSON',
-    code: `import { Hawiah } from '@hawiah/core';
+    code: `import { Hawiah } from 'hawiah';
 import { JSONDriver } from '@hawiah/local';
 
 const driver = new JSONDriver('./users.json');
@@ -25,7 +25,7 @@ await db.disconnect();`
   },
   {
     title: 'YAML',
-    code: `import { Hawiah } from '@hawiah/core';
+    code: `import { Hawiah } from 'hawiah';
 import { YAMLDriver } from '@hawiah/local';
 
 const driver = new YAMLDriver('./config.yaml');
@@ -43,7 +43,7 @@ await db.disconnect();`
   },
   {
     title: 'SQLite',
-    code: `import { Hawiah } from '@hawiah/core';
+    code: `import { Hawiah } from 'hawiah';
 import { SQLiteDriver } from '@hawiah/sqlite';
 
 const driver = new SQLiteDriver(
@@ -64,7 +64,7 @@ await db.disconnect();`
   },
   {
     title: 'MongoDB',
-    code: `import { Hawiah } from '@hawiah/core';
+    code: `import { Hawiah } from 'hawiah';
 import { MongoDriver } from '@hawiah/mongo';
 
 const driver = new MongoDriver({
@@ -86,7 +86,7 @@ await db.disconnect();`
   },
   {
     title: 'MySQL',
-    code: `import { Hawiah } from '@hawiah/core';
+    code: `import { Hawiah } from 'hawiah';
 import { MySQLDriver } from '@hawiah/mysql';
 
 const driver = new MySQLDriver({
@@ -110,7 +110,7 @@ await db.disconnect();`
   },
   {
     title: 'PostgreSQL',
-    code: `import { Hawiah } from '@hawiah/core';
+    code: `import { Hawiah } from 'hawiah';
 import { PostgreSQLDriver } from '@hawiah/postgres';
 
 const driver = new PostgreSQLDriver({
@@ -131,7 +131,7 @@ await db.disconnect();`
   },
   {
     title: 'Firebase',
-    code: `import { Hawiah } from '@hawiah/core';
+    code: `import { Hawiah } from 'hawiah';
 import { FirebaseDriver } from '@hawiah/firebase';
 
 const driver = new FirebaseDriver({
@@ -187,11 +187,10 @@ export default function CodeDemo() {
             <button
               key={example.title}
               onClick={() => setActiveTab(index)}
-              className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
-                activeTab === index
+              className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${activeTab === index
                   ? 'border-b-2 border-teal-600 dark:border-teal-400 text-teal-700 dark:text-teal-400'
                   : 'text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white'
-              }`}
+                }`}
             >
               {example.title}
             </button>

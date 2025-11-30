@@ -17,7 +17,7 @@ Hawiah supports multiple database drivers through a modular architecture. Instal
 Perfect for development, testing, and small applications.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { JSONDriver } from '@hawiah/local';
 
 const driver = new JSONDriver('./data/users.json');
@@ -47,7 +47,7 @@ await db.connect();
 Great for configuration files and structured content.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { YAMLDriver } from '@hawiah/local';
 
 const driver = new YAMLDriver('./data/config.yaml');
@@ -77,7 +77,7 @@ await db.connect();
 Ideal for desktop applications and embedded systems.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { SQLiteDriver } from '@hawiah/sqlite';
 
 // First parameter: database file path
@@ -110,7 +110,7 @@ await db.connect();
 Perfect for web applications and scalable systems.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { MongoDriver } from '@hawiah/mongo';
 
 const driver = new MongoDriver({
@@ -145,7 +145,7 @@ await db.connect();
 Great for real-time applications and mobile apps.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { FirebaseDriver } from '@hawiah/firebase';
 
 const firebaseConfig = {
@@ -188,7 +188,7 @@ await db.connect();
 Enterprise-grade database for complex applications.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { PostgreSQLDriver } from '@hawiah/postgres';
 
 const driver = new PostgreSQLDriver({
@@ -222,7 +222,7 @@ await db.connect();
 Popular choice for web applications and CMS.
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { MySQLDriver } from '@hawiah/mysql';
 
 // First parameter: connection config
@@ -292,7 +292,7 @@ await prodDb.insert({ name: 'Ahmed' });
 
 1. Install core package:
 ```bash
-npm install @hawiah/core
+npm install hawiah
 ```
 
 2. Install your chosen driver(s):
@@ -310,7 +310,7 @@ npm install @hawiah/mysql
 
 3. Start using:
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { JSONDriver } from '@hawiah/local';
 
 const driver = new JSONDriver('./data.json');

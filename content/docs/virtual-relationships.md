@@ -18,7 +18,7 @@ Relationships work **between different instances** of Hawiah - not within the sa
 ## 📦 Installation
 
 ```bash
-npm install @hawiah/core dataloader
+npm install hawiah dataloader
 ```
 
 ## 🚀 Quick Start
@@ -26,7 +26,7 @@ npm install @hawiah/core dataloader
 ### 1. Create Instances
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { MemoryDriver } from '@hawiah/local';
 
 const Users = new Hawiah({ driver: new MemoryDriver() });
@@ -118,7 +118,7 @@ Posts.clearCache();
 ### Example 1: Blog System
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { MemoryDriver } from '@hawiah/local';
 
 const Users = new Hawiah({ driver: new MemoryDriver() });
@@ -243,7 +243,7 @@ Posts.clearCache(); // Clear relationship cache
 ## 🔧 TypeScript Support
 
 ```typescript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { MemoryDriver } from '@hawiah/local';
 
 const Users = new Hawiah({ driver: new MemoryDriver() });

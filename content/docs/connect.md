@@ -26,7 +26,7 @@ The `connect()` method initializes and establishes a connection to your database
 ### JSONDriver
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { JSONDriver } from '@hawiah/local';
 
 const driver = new JSONDriver('./data/users.json');
@@ -39,7 +39,7 @@ console.log('Connected to JSON file');
 ### SQLiteDriver
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { SQLiteDriver } from '@hawiah/sqlite';
 
 const driver = new SQLiteDriver('./app.db', 'users');
@@ -52,7 +52,7 @@ console.log('Connected to SQLite database');
 ### MongoDriver
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { MongoDriver } from '@hawiah/mongo';
 
 const driver = new MongoDriver({
@@ -69,7 +69,7 @@ console.log('Connected to MongoDB');
 ### MySQLDriver
 
 ```javascript
-import { Hawiah } from '@hawiah/core';
+import { Hawiah } from 'hawiah';
 import { MySQLDriver } from '@hawiah/mysql';
 
 const driver = new MySQLDriver({
