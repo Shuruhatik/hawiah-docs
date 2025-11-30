@@ -7,7 +7,6 @@ import navGroupsData from '@/data/sidebar-navigation.json';
 interface SidebarProps {
   activeSection: string;
   setActiveSection: (section: string) => void;
-  searchQuery?: string;
 }
 
 interface NavItem {
@@ -22,23 +21,7 @@ interface NavGroup {
 
 const navGroups: NavGroup[] = navGroupsData as NavGroup[];
 
-// Highlight text matching search query
-function highlightText(text: string, query: string): string {
-  if (!query.trim()) return text;
-  
-  const searchTerms = query.toLowerCase().trim().split(/\s+/);
-  let result = text;
-  
-  searchTerms.forEach(term => {
-    if (term.length < 2) return;
-    const regex = new RegExp(`(${term})`, 'gi');
-    result = result.replace(regex, '<mark>$1</mark>');
-  });
-  
-  return result;
-}
-
-export default function Sidebar({ activeSection, setActiveSection, searchQuery = '' }: SidebarProps) {
+export default function Sidebar({ activeSection, setActiveSection }: SidebarProps) {
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(
     new Set(navGroups.map((g) => g.title))
   );
@@ -53,15 +36,6 @@ export default function Sidebar({ activeSection, setActiveSection, searchQuery =
       });
     }
   }, [activeSection]);
-
-  // Filter groups and items based on search query
-  const filteredGroups = navGroups.map(group => {
-    const filteredItems = group.items.filter(item => 
-      item.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.id.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    return { ...group, items: filteredItems };
-  }).filter(group => group.items.length > 0);
 
   const toggleGroup = (title: string) => {
     const newExpanded = new Set(expandedGroups);
@@ -85,7 +59,7 @@ export default function Sidebar({ activeSection, setActiveSection, searchQuery =
           </div>
         </div>
         <nav className="space-y-6">
-          {filteredGroups.map((group) => (
+          {navGroups.map((group) => (
             <div key={group.title}>
               <button
                 onClick={() => toggleGroup(group.title)}

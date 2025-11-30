@@ -24,7 +24,7 @@ function highlightText(text: string, searchTerms: string[]): string {
     if (term.length < 2) return;
     
     const regex = new RegExp(`(${term})`, 'gi');
-    result = result.replace(regex, '<mark class="bg-teal-500/30 text-teal-300">$1</mark>');
+    result = result.replace(regex, '<mark>$1</mark>');
   });
   
   return result;

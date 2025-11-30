@@ -321,7 +321,6 @@ export default function DocsPage() {
             <Sidebar 
               activeSection={activeSection} 
               setActiveSection={setActiveSection}
-              searchQuery={searchQuery}
             />
           )}
         </div>

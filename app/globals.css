@@ -246,18 +246,21 @@ button {
 
 /* Search highlight styles */
 mark {
-  background-color: rgba(20, 184, 166, 0.15);
-  color: #0d9488;
-  padding: 1px 3px;
+  background-color: #99f6e4;
+  color: #134e4a;
+  padding: 1px 2px;
   border-radius: 3px;
-  font-weight: 500;
-  border: 1px solid rgba(20, 184, 166, 0.25);
+  font-weight: inherit;
+  border: none;
+  box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.4);
 }
 
 .dark mark {
-  background-color: rgba(94, 234, 212, 0.2);
+  background-color: rgba(94, 234, 212, 0.3);
   color: #5EEAD4;
-  border: 1px solid rgba(94, 234, 212, 0.3);
+  border: none;
+  box-shadow: none;
+  font-weight: inherit;
 }
 
 /* Highlight.js Light Theme */
