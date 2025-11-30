@@ -7,6 +7,7 @@
   border: none !important;
 }
 
+/* Dark theme colors (default) */
 .hljs-keyword {
   color: #10b981;
   font-weight: 600;
@@ -45,6 +46,47 @@
 
 .hljs-literal {
   color: #34d399;
+}
+
+/* Light theme colors - darker greens for better visibility */
+:root:not(.dark) .hljs-keyword {
+  color: #059669;
+  font-weight: 600;
+}
+
+:root:not(.dark) .hljs-string {
+  color: #10b981;
+}
+
+:root:not(.dark) .hljs-comment {
+  color: #6b7280;
+  font-style: italic;
+}
+
+:root:not(.dark) .hljs-title.class_ {
+  color: #059669;
+  font-weight: 600;
+}
+
+:root:not(.dark) .hljs-title.function_ {
+  color: #0d9488;
+  font-weight: 500;
+}
+
+:root:not(.dark) .hljs-attr {
+  color: #14b8a6;
+}
+
+:root:not(.dark) .hljs-number {
+  color: #059669;
+}
+
+:root:not(.dark) .hljs-built_in {
+  color: #047857;
+}
+
+:root:not(.dark) .hljs-literal {
+  color: #059669;
 }
 
 /* Remove any default borders from code elements */

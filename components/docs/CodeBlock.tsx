@@ -21,9 +21,13 @@ export default function CodeBlock({ code, language = 'typescript' }: CodeBlockPr
 
   useEffect(() => {
     if (codeRef.current) {
+      // Remove existing highlighting classes
+      codeRef.current.removeAttribute('data-highlighted');
+      codeRef.current.className = `language-${language} text-[11px] sm:text-sm font-mono leading-relaxed`;
+      // Apply highlighting
       hljs.highlightElement(codeRef.current);
     }
-  }, [code]);
+  }, [code, language]);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code);

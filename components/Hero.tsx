@@ -1,90 +1,74 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Github } from 'lucide-react';
+import { ArrowRight, Github, Database, Zap } from 'lucide-react';
 import Link from 'next/link';
-import CodeBlock from './docs/CodeBlock';
 
 export default function Hero() {
   return (
-    <section className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-24 sm:pt-32 pb-12 sm:pb-20">
-      <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+    <section className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-20 sm:pt-32 pb-16 sm:pb-24 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
+        <div className="absolute top-[20%] right-[10%] w-72 h-72 bg-teal-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-[20%] left-[10%] w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="flex items-center justify-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col justify-center"
+          className="flex flex-col justify-center text-center max-w-4xl"
         >
-          <h1 className="mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 dark:text-white">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-900/30 border border-teal-100 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-sm font-medium mb-6 mx-auto w-fit"
+          >
+            <Zap size={14} className="fill-current" />
+            <span>No Schema ORM</span>
+          </motion.div>
+
+          <h1 className="mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
             One API to{' '}
-            <span className="bg-gradient-to-r from-teal-600 to-emerald-600 dark:from-teal-400 dark:to-emerald-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-teal-600 via-emerald-500 to-teal-600 dark:from-teal-400 dark:via-emerald-400 dark:to-teal-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
               Rule Them All
             </span>
           </h1>
 
-          <p className="mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed text-slate-600 dark:text-gray-400">
-            A lightweight, schema-less database abstraction layer. Swap drivers
-            instantly without changing your code.
+          <p className="mb-8 text-lg sm:text-xl leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            The ultimate schema-less database abstraction layer.
+            Swap drivers instantly, write less code, and scale without limits.
           </p>
 
-          <div className="flex flex-row gap-3 sm:gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/docs"
-              className="group flex-1 sm:flex-none flex items-center justify-center gap-2 rounded-lg bg-teal-600 dark:bg-teal-400 px-4 sm:px-6 py-3 text-sm sm:text-base font-medium text-white dark:text-black transition-all hover:bg-teal-700 dark:hover:bg-teal-500 hover:shadow-lg hover:shadow-teal-600/20 dark:hover:shadow-teal-400/20"
+              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-teal-600 dark:bg-teal-500 px-8 py-4 text-base font-semibold text-white transition-all hover:bg-teal-700 dark:hover:bg-teal-400 hover:shadow-lg hover:shadow-teal-600/25 hover:-translate-y-0.5"
             >
-              <span>Get Started</span>
-              <ArrowRight size={16} className="sm:w-[18px] sm:h-[18px] transition-transform group-hover:translate-x-1" />
+              <span>Start Building</span>
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
 
             <Link
               href="https://github.com/Shuruhatik/hawiah"
               target="_blank"
-              className="flex-1 sm:flex-none flex items-center justify-center gap-2 rounded-lg border border-slate-300 dark:border-white/10 bg-slate-100 dark:bg-white/5 px-4 sm:px-6 py-3 text-sm sm:text-base font-medium text-slate-900 dark:text-white transition-all hover:border-slate-400 dark:hover:border-white/20 hover:bg-slate-200 dark:hover:bg-white/10"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 px-8 py-4 text-base font-semibold text-slate-900 dark:text-white transition-all hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-300 dark:hover:border-white/20"
             >
-              <Github size={16} className="sm:w-[18px] sm:h-[18px]" />
-              <span className="hidden xs:inline">GitHub</span>
+              <Github size={18} />
+              <span>GitHub</span>
             </Link>
           </div>
-        </motion.div>
 
-        {/* Right Code Block */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative overflow-hidden"
-        >
-          <div className="rounded-lg sm:rounded-xl border border-teal-200 dark:border-teal-500/20 bg-slate-50 dark:bg-[#0c0c0c] p-3 sm:p-6 shadow-2xl">
-            <div className="mb-2 sm:mb-4 flex items-center gap-1.5 sm:gap-2">
-              <div className="h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-red-500"></div>
-              <div className="h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-yellow-500"></div>
-              <div className="h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-green-500"></div>
+          <div className="mt-10 flex items-center justify-center gap-6 text-slate-400 dark:text-slate-500 text-sm font-medium">
+            <div className="flex items-center gap-2">
+              <Database size={16} />
+              <span>Multi-Driver Support</span>
             </div>
-
-            <div className="-m-1 sm:-m-2 overflow-x-auto text-xs sm:text-sm">
-              <CodeBlock code={`import { Hawiah, JSONDriver } from 'hawiah';
-
-// Initialize with any driver
-const db = new Hawiah(
-  new JSONDriver('./db.json')
-);
-
-// Connect
-await db.connect();
-
-// Unified CRUD API
-await db.insert({ 
-  name: 'Ali', 
-  role: 'Developer' 
-});
-
-const users = await db.get({ 
-  role: 'Developer' 
-});`} />
-            </div>
+            <div className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700" />
+            <div>TypeScript Ready</div>
           </div>
-
-          <div className="absolute -inset-1 -z-10 rounded-lg sm:rounded-xl bg-gradient-to-r from-teal-400/20 to-emerald-400/20 opacity-50 blur-xl sm:blur-2xl"></div>
         </motion.div>
       </div>
     </section>

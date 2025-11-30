@@ -26,13 +26,13 @@ const drivers = [
 
 export default function EcosystemGrid() {
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-20">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-24">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mb-12 text-center"
+        className="mb-16 text-center"
       >
         <h2 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white">
           Connect to Any Database
@@ -42,37 +42,34 @@ export default function EcosystemGrid() {
         </p>
       </motion.div>
 
-      <div className="grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {drivers.map((driver, index) => {
           const Icon = driver.icon;
           return (
             <motion.div
               key={driver.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group relative overflow-hidden rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 p-4 sm:p-6 transition-all hover:border-teal-600 dark:hover:border-teal-500/50 hover:bg-slate-50 dark:hover:bg-white/10 shadow-sm hover:shadow-md"
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              className="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:border-teal-500/30 dark:hover:border-teal-500/30 transition-all hover:-translate-y-1"
             >
-              <div className="mb-3 sm:mb-4 inline-flex rounded-lg bg-teal-50 dark:bg-teal-500/10 p-2 sm:p-3">
-                <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-teal-600 dark:text-teal-400" />
+              <div className="mb-4 p-3 rounded-xl bg-white dark:bg-white/5 shadow-sm group-hover:shadow-md group-hover:shadow-teal-500/10 transition-all">
+                <Icon className="h-6 w-6 text-slate-600 dark:text-slate-400 group-hover:text-teal-500 transition-colors" />
               </div>
 
-              <h3 className="mb-1.5 sm:mb-2 text-sm sm:text-lg font-semibold text-slate-900 dark:text-white">
+              <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-1">
                 {driver.name}
               </h3>
 
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-gray-400">
+              <p className="text-xs text-slate-500 dark:text-slate-500 text-center">
                 {driver.description}
               </p>
-
-              {/* Hover glow effect */}
-              <div className="absolute inset-0 -z-10 opacity-0 transition-opacity group-hover:opacity-100">
-                <div className="absolute inset-0 bg-gradient-to-br from-teal-400/10 to-transparent"></div>
-              </div>
             </motion.div>
           );
         })}
+
+
       </div>
     </section>
   );
