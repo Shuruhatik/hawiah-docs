@@ -89,9 +89,9 @@ export default function CodeBlock({ code, language = 'typescript' }: CodeBlockPr
           <Copy className="w-4 h-4 text-gray-400" />
         )}
       </button>
-      <pre className="bg-gradient-to-br from-[#0a0f0d] to-[#0d1512] rounded-lg p-4 overflow-x-auto border border-teal-900/30 shadow-xl shadow-teal-950/20">
+      <pre className="bg-gradient-to-br from-[#0a0f0d] to-[#0d1512] rounded-lg p-2.5 sm:p-4 overflow-x-auto border border-teal-900/30 shadow-xl shadow-teal-950/20">
         <code
-          className="text-sm font-mono text-gray-200 leading-relaxed"
+          className="text-[11px] sm:text-sm font-mono text-gray-200 leading-relaxed"
           dangerouslySetInnerHTML={{ __html: highlightCode(code) }}
         />
       </pre>

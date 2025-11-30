@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Heart } from 'lucide-react';
+import { Github, Heart, Code } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -43,10 +43,38 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex items-center justify-center gap-2 border-t border-white/10 pt-8 text-sm text-gray-400">
-          <span>Made with</span>
-          <Heart size={16} className="text-red-500" />
-          <span>by the Hawiah team</span>
+        <div className="mt-8 border-t border-white/10 pt-8">
+          <div className="flex flex-col items-center gap-4">
+            {/* Made with love */}
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <span>Made with</span>
+              <Heart size={16} className="text-red-500" />
+              <span>by the Hawiah team</span>
+            </div>
+
+            {/* Developer credits */}
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
+              <span>
+                <a
+                  href="https://shuruhatik.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-teal-400 hover:text-teal-300 transition-colors duration-300 font-semibold"
+                >
+                  Mohamed Abdelkarim
+                </a>
+                {' '}and{' '}
+                <a
+                  href="https://tahawy.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-teal-400 hover:text-teal-300 transition-colors duration-300 font-semibold"
+                >
+                  Amer Mohamed
+                </a>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
