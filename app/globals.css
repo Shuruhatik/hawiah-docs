@@ -56,16 +56,17 @@ code {
   font-family: 'Consolas', 'Courier New', monospace;
 }
 
-/* Syntax highlighting for code blocks */
+/* Syntax highlighting for code blocks - Teal/Green Theme */
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #6a9955;
+  color: #6b7280;
+  font-style: italic;
 }
 
 .token.punctuation {
-  color: #d4d4d4;
+  color: #5eead4;
 }
 
 .token.property,
@@ -75,7 +76,7 @@ code {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #b5cea8;
+  color: #34d399;
 }
 
 .token.selector,
@@ -84,7 +85,7 @@ code {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #ce9178;
+  color: #6ee7b7;
 }
 
 .token.operator,
@@ -92,24 +93,26 @@ code {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: #d4d4d4;
+  color: #5eead4;
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #c586c0;
+  color: #5eead4;
+  font-weight: 500;
 }
 
 .token.function,
 .token.class-name {
-  color: #dcdcaa;
+  color: #2dd4bf;
+  font-weight: 500;
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-  color: #d16969;
+  color: #10b981;
 }
 
 /* Smooth transitions */
@@ -126,9 +129,10 @@ button {
 
 /* Search highlight styles */
 mark {
-  background-color: rgba(94, 234, 212, 0.3);
+  background-color: rgba(94, 234, 212, 0.2);
   color: #5EEAD4;
-  padding: 0 2px;
-  border-radius: 2px;
-  font-weight: 600;
+  padding: 1px 3px;
+  border-radius: 3px;
+  font-weight: 500;
+  border: 1px solid rgba(94, 234, 212, 0.3);
 }

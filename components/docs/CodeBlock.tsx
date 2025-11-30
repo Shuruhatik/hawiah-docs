@@ -17,7 +17,7 @@ export default function CodeBlock({ code, language = 'typescript' }: CodeBlockPr
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Enhanced syntax highlighting with proper escaping
+  // Enhanced syntax highlighting with teal/green theme
   const highlightCode = (code: string) => {
     // Store strings and comments temporarily to avoid nested replacements
     const strings: string[] = [];
@@ -32,36 +32,36 @@ export default function CodeBlock({ code, language = 'typescript' }: CodeBlockPr
     // Extract and store strings FIRST (to avoid matching // inside strings)
     highlighted = highlighted.replace(/(['"`])((?:\\.|(?!\1)[^\\])*?)\1/g, (match) => {
       const index = strings.length;
-      strings.push(`<span class="text-[#ce9178]">${match}</span>`);
+      strings.push(`<span class="text-[#6ee7b7] font-medium">${match}</span>`);
       return `__STRING_${index}__`;
     });
 
     // Extract and store comments AFTER strings
     highlighted = highlighted.replace(/\/\/(.*?)$/gm, (match) => {
       const index = comments.length;
-      comments.push(`<span class="text-[#6a9955]">${match}</span>`);
+      comments.push(`<span class="text-[#6b7280] italic">${match}</span>`);
       return `__COMMENT_${index}__`;
     });
 
     // Apply syntax highlighting to remaining code
     // Keywords (import, export, from, const, let, var, new, await, async, etc.)
-    highlighted = highlighted.replace(/\b(const|let|var|function|async|await|return|if|else|for|while|class|import|export|from|default|new|interface|type|Promise)\b/g, '<span class="text-[#c586c0]">$1</span>');
+    highlighted = highlighted.replace(/\b(const|let|var|function|async|await|return|if|else|for|while|class|import|export|from|default|new|interface|type|Promise)\b/g, '<span class="text-[#5eead4] font-semibold">$1</span>');
 
     // Booleans and special values
-    highlighted = highlighted.replace(/\b(true|false|null|undefined)\b/g, '<span class="text-[#569cd6]">$1</span>');
+    highlighted = highlighted.replace(/\b(true|false|null|undefined)\b/g, '<span class="text-[#34d399] font-medium">$1</span>');
 
     // Numbers
-    highlighted = highlighted.replace(/\b(\d+)\b/g, '<span class="text-[#b5cea8]">$1</span>');
+    highlighted = highlighted.replace(/\b(\d+)\b/g, '<span class="text-[#34d399]">$1</span>');
 
     // Function calls and methods (console.log, db.connect, etc.)
-    highlighted = highlighted.replace(/\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(/g, '<span class="text-[#dcdcaa]">$1</span>(');
+    highlighted = highlighted.replace(/\b([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(/g, '<span class="text-[#2dd4bf] font-medium">$1</span>(');
     
     // Object properties and method calls (db.connect, console.log)
-    highlighted = highlighted.replace(/\.([a-zA-Z_$][a-zA-Z0-9_$]*)/g, '.<span class="text-[#dcdcaa]">$1</span>');
+    highlighted = highlighted.replace(/\.([a-zA-Z_$][a-zA-Z0-9_$]*)/g, '.<span class="text-[#2dd4bf]">$1</span>');
 
     // Class names and constructors (Hawiah, MongoDriver, etc.)
-    highlighted = highlighted.replace(/\bnew\s+<span class="text-\[#c586c0\]">new<\/span>\s+([A-Z][a-zA-Z0-9_$]*)/g, 'new <span class="text-[#c586c0]">new</span> <span class="text-[#4ec9b0]">$1</span>');
-    highlighted = highlighted.replace(/\b([A-Z][a-zA-Z0-9_$]*)\s*\(/g, '<span class="text-[#4ec9b0]">$1</span>(');
+    highlighted = highlighted.replace(/\bnew\s+<span class="text-\[#5eead4\] font-semibold">new<\/span>\s+([A-Z][a-zA-Z0-9_$]*)/g, 'new <span class="text-[#5eead4] font-semibold">new</span> <span class="text-[#10b981] font-semibold">$1</span>');
+    highlighted = highlighted.replace(/\b([A-Z][a-zA-Z0-9_$]*)\s*\(/g, '<span class="text-[#10b981] font-semibold">$1</span>(');
 
     // Restore strings
     strings.forEach((str, index) => {
@@ -89,9 +89,9 @@ export default function CodeBlock({ code, language = 'typescript' }: CodeBlockPr
           <Copy className="w-4 h-4 text-gray-400" />
         )}
       </button>
-      <pre className="bg-[#1e1e1e] rounded-lg p-4 overflow-x-auto border border-white/10">
+      <pre className="bg-gradient-to-br from-[#0a0f0d] to-[#0d1512] rounded-lg p-4 overflow-x-auto border border-teal-900/30 shadow-xl shadow-teal-950/20">
         <code
-          className="text-sm font-mono text-gray-300 leading-relaxed"
+          className="text-sm font-mono text-gray-200 leading-relaxed"
           dangerouslySetInnerHTML={{ __html: highlightCode(code) }}
         />
       </pre>
