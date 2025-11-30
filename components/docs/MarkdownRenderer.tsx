@@ -11,11 +11,31 @@ interface MarkdownRendererProps {
   content: string;
 }
 
-function CodeBlock({ children, className }: { children: string; className?: string }) {
+// Helper function to extract text from React children
+function extractText(children: any): string {
+  if (typeof children === 'string') {
+    return children;
+  }
+  
+  if (Array.isArray(children)) {
+    return children.map(extractText).join('');
+  }
+  
+  if (children?.props?.children) {
+    return extractText(children.props.children);
+  }
+  
+  return '';
+}
+
+function CodeBlock({ children, className }: { children: any; className?: string }) {
   const [copied, setCopied] = useState(false);
   
+  // Extract the actual text content
+  const codeText = extractText(children);
+  
   const handleCopy = () => {
-    navigator.clipboard.writeText(children);
+    navigator.clipboard.writeText(codeText);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -24,16 +44,17 @@ function CodeBlock({ children, className }: { children: string; className?: stri
     <div className="relative group">
       <button
         onClick={handleCopy}
-        className="absolute right-3 top-3 p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10"
+        className="absolute right-3 top-3 p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-200 z-10"
         aria-label="Copy code"
+        title={copied ? "Copied!" : "Copy code"}
       >
         {copied ? (
           <Check className="w-4 h-4 text-teal-400" />
         ) : (
-          <Copy className="w-4 h-4 text-gray-400" />
+          <Copy className="w-4 h-4 text-gray-400 hover:text-white" />
         )}
       </button>
-      <pre className="bg-[#0d1117] border border-white/10 rounded-lg p-4 overflow-x-auto mb-6">
+      <pre className="bg-[#0F0F0F] border border-white/10 rounded-lg p-4 overflow-x-auto mb-6">
         <code className={className}>
           {children}
         </code>
@@ -90,18 +111,12 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
             );
           },
           pre: ({ children }: any) => {
-            const code = children?.props?.children;
-            const className = children?.props?.className;
+            // Get the code element
+            const codeElement = children?.props;
+            const className = codeElement?.className;
             
-            if (typeof code === 'string') {
-              return <CodeBlock className={className}>{code}</CodeBlock>;
-            }
-            
-            return (
-              <pre className="bg-[#0d1117] border border-white/10 rounded-lg p-4 overflow-x-auto mb-6">
-                {children}
-              </pre>
-            );
+            // Always wrap in CodeBlock for copy functionality
+            return <CodeBlock className={className}>{children}</CodeBlock>;
           },
           ul: ({ children }) => (
             <ul className="list-disc list-inside text-gray-400 mb-4 space-y-1.5 ml-4">

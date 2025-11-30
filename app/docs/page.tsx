@@ -17,13 +17,42 @@ interface SearchResult {
 }
 
 export default function DocsPage() {
-  const [activeSection, setActiveSection] = useState('installation');
+  // Get initial section from URL hash or default to 'installation'
+  const getInitialSection = () => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.replace('#', '');
+      return hash || 'installation';
+    }
+    return 'installation';
+  };
+
+  const [activeSection, setActiveSection] = useState(getInitialSection());
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+
+  // Update URL when section changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.history.replaceState(null, '', `#${activeSection}`);
+    }
+  }, [activeSection]);
+
+  // Listen for hash changes (back/forward navigation)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        setActiveSection(hash);
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   // Debounced search
   useEffect(() => {
