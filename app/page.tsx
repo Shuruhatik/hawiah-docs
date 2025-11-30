@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-[#020202] overflow-hidden">
       {/* Aurora Background Effects */}
-      <div className="pointer-events-none absolute top-[-10%] left-[-10%] h-[500px] w-[500px] rounded-full bg-blue-900/20 blur-[120px]" />
-      <div className="pointer-events-none absolute top-[10%] right-[-5%] h-[400px] w-[400px] rounded-full bg-teal-900/20 blur-[100px]" />
-      <div className="pointer-events-none absolute bottom-[20%] left-[20%] h-[600px] w-[600px] rounded-full bg-blue-900/10 blur-[150px]" />
+      <div className="pointer-events-none absolute top-[-10%] left-[-10%] h-[500px] w-[500px] rounded-full bg-teal-900/20 blur-[120px]" />
+      <div className="pointer-events-none absolute top-[10%] right-[-5%] h-[400px] w-[400px] rounded-full bg-emerald-900/20 blur-[100px]" />
+      <div className="pointer-events-none absolute bottom-[20%] left-[20%] h-[600px] w-[600px] rounded-full bg-teal-900/10 blur-[150px]" />
 
       <Header />
       <main className="relative z-10">
