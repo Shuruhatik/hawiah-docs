@@ -44,7 +44,7 @@ function CodeBlock({ children, className }: { children: any; className?: string 
     <div className="relative group">
       <button
         onClick={handleCopy}
-        className="absolute right-3 top-3 p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-200 z-10"
+        className="absolute right-3 top-3 p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 md:opacity-0 md:group-hover:opacity-100 transition-all duration-200 z-10"
         aria-label="Copy code"
         title={copied ? "Copied!" : "Copy code"}
       >
@@ -54,7 +54,7 @@ function CodeBlock({ children, className }: { children: any; className?: string 
           <Copy className="w-4 h-4 text-gray-400 hover:text-white" />
         )}
       </button>
-      <pre className="bg-[#0F0F0F] border border-white/10 rounded-lg p-4 overflow-x-auto mb-6">
+      <pre className="bg-[#0F0F0F] border border-white/10 rounded-lg p-3 sm:p-4 pr-10 sm:pr-12 overflow-x-auto mb-6 text-sm">
         <code className={className}>
           {children}
         </code>
@@ -71,16 +71,16 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
         rehypePlugins={[rehypeRaw, rehypeHighlight]}
         components={{
           h1: ({ children }) => (
-            <h1 className="text-4xl font-bold mb-6 text-white">{children}</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white">{children}</h1>
           ),
           h2: ({ children }) => (
-            <h2 className="text-2xl font-bold mt-10 mb-4 text-white">{children}</h2>
+            <h2 className="text-xl sm:text-2xl font-bold mt-8 sm:mt-10 mb-3 sm:mb-4 text-white">{children}</h2>
           ),
           h3: ({ children }) => (
-            <h3 className="text-xl font-semibold mt-8 mb-3 text-white">{children}</h3>
+            <h3 className="text-lg sm:text-xl font-semibold mt-6 sm:mt-8 mb-2 sm:mb-3 text-white">{children}</h3>
           ),
           h4: ({ children }) => (
-            <h4 className="text-lg font-semibold mt-6 mb-2 text-white">{children}</h4>
+            <h4 className="text-base sm:text-lg font-semibold mt-4 sm:mt-6 mb-2 text-white">{children}</h4>
           ),
           p: ({ children }) => (
             <p className="text-gray-400 text-base mb-4 leading-relaxed">{children}</p>
@@ -147,7 +147,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
             </a>
           ),
           table: ({ children }) => (
-            <div className="overflow-x-auto mb-6 rounded-lg border border-white/10">
+            <div className="overflow-x-auto mb-6 rounded-lg border border-white/10 -mx-4 sm:mx-0">
               <table className="min-w-full">
                 {children}
               </table>
