@@ -229,5 +229,4 @@ posts.forEach(post => console.log(post.user.name));
 - **Open Source**: Free and community-driven
 
 ---
-
 Made with ❤️ by [Shuruhatik](https://github.com/Shuruhatik)
