@@ -1,7 +1,7 @@
 ---
 title: getAll()
 description: Retrieves all records from the database without any filtering.
-category: CRUD: Reading Data
+category: "CRUD: Reading Data"
 signature: "getAll(): Promise<Data[]>"
 returnValue: "Promise<Data[]> - All records in the database"
 relatedMethods: ["get", "count"]

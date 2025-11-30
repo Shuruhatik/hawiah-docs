@@ -1,7 +1,7 @@
 ---
 title: last()
 description: Retrieves the last record from the database.
-category: CRUD: Reading Data
+category: "CRUD: Reading Data"
 signature: "last(): Promise<Data | null>"
 returnValue: "Promise<Data | null> - The last record or null"
 relatedMethods: ["first", "getOne"]

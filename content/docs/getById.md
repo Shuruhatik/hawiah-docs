@@ -1,7 +1,7 @@
 ---
 title: getById()
 description: Retrieves a single record by its unique identifier.
-category: CRUD: Reading Data
+category: "CRUD: Reading Data"
 signature: "getById(id: string | number): Promise<Data | null>"
 returnValue: "Promise<Data | null> - The record or null if not found"
 relatedMethods: ["getOne", "updateById", "removeById"]

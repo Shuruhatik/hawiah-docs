@@ -1,7 +1,7 @@
 ---
 title: clear()
 description: Removes all records from the database. Use with caution!
-category: CRUD: Deleting Data
+category: "CRUD: Deleting Data"
 signature: "clear(): Promise<number>"
 returnValue: "Promise<number> - Number of records deleted"
 relatedMethods: ["remove"]

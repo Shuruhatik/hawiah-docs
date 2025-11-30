@@ -1,7 +1,7 @@
 ---
 title: paginate()
 description: Retrieves paginated results with metadata.
-category: CRUD: Reading Data
+category: "CRUD: Reading Data"
 signature: "paginate(query?: Query, page?: number, pageSize?: number): Promise<PaginatedResult>"
 returnValue: "Promise<PaginatedResult> - Object with data, page, pageSize, total, and totalPages"
 relatedMethods: ["get", "count"]

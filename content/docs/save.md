@@ -1,7 +1,7 @@
 ---
 title: save()
 description: Upsert operation - updates existing record if found, otherwise inserts a new one.
-category: CRUD: Writing Data
+category: "CRUD: Writing Data"
 signature: "save(query: Query, data: Data): Promise<Data>"
 returnValue: "Promise<Data> - The saved record"
 relatedMethods: ["insert", "update", "updateOne"]

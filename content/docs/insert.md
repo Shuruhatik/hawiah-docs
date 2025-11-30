@@ -1,7 +1,7 @@
 ---
 title: insert()
 description: Adds a new record to the database.
-category: CRUD - Writing Data
+category: "CRUD - Writing Data"
 signature: "insert(data: Data): Promise<Data>"
 returnValue: "Promise<Data> - The inserted record with generated ID"
 relatedMethods: ["insertMany", "save"]

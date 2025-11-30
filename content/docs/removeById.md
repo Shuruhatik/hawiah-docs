@@ -1,7 +1,7 @@
 ---
 title: removeById()
 description: Deletes a record by its unique identifier.
-category: CRUD: Deleting Data
+category: "CRUD: Deleting Data"
 signature: "removeById(id: string | number): Promise<Data | null>"
 returnValue: "Promise<Data | null> - The deleted record or null"
 relatedMethods: ["remove", "removeOne", "getById"]

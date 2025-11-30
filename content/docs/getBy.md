@@ -1,7 +1,7 @@
 ---
 title: getBy()
 description: Retrieves records by a specific field and value.
-category: CRUD: Reading Data
+category: "CRUD: Reading Data"
 signature: "getBy(field: string, value: any): Promise<Data[]>"
 returnValue: "Promise<Data[]> - Array of matching records"
 relatedMethods: ["get", "getOne"]

@@ -1,7 +1,7 @@
 ---
 title: updateById()
 description: Updates a record by its unique identifier.
-category: CRUD: Updating Data
+category: "CRUD: Updating Data"
 signature: "updateById(id: string | number, data: Partial<Data>): Promise<Data | null>"
 returnValue: "Promise<Data | null> - The updated record or null"
 relatedMethods: ["update", "updateOne", "getById"]

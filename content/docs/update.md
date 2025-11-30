@@ -1,7 +1,7 @@
 ---
 title: update()
 description: Updates all records matching the query criteria.
-category: CRUD - Updating Data
+category: "CRUD - Updating Data"
 signature: "update(query: Query, data: Partial<Data>): Promise<number>"
 returnValue: "Promise<number> - Number of records updated"
 relatedMethods: ["updateOne", "updateById"]

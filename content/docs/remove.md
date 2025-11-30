@@ -1,7 +1,7 @@
 ---
 title: remove()
 description: Deletes all records matching the query criteria.
-category: CRUD: Deleting Data
+category: "CRUD: Deleting Data"
 signature: "remove(query: Query): Promise<number>"
 returnValue: "Promise<number> - Number of records deleted"
 relatedMethods: ["removeOne", "removeById", "clear"]

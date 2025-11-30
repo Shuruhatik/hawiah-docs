@@ -1,7 +1,7 @@
 ---
 title: first()
 description: Retrieves the first record from the database.
-category: CRUD: Reading Data
+category: "CRUD: Reading Data"
 signature: "first(): Promise<Data | null>"
 returnValue: "Promise<Data | null> - The first record or null"
 relatedMethods: ["last", "getOne"]

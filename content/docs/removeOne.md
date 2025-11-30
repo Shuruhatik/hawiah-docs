@@ -1,7 +1,7 @@
 ---
 title: removeOne()
 description: Deletes the first record matching the query criteria.
-category: CRUD: Deleting Data
+category: "CRUD: Deleting Data"
 signature: "removeOne(query: Query): Promise<Data | null>"
 returnValue: "Promise<Data | null> - The deleted record or null"
 relatedMethods: ["remove", "removeById"]

@@ -1,7 +1,7 @@
 ---
 title: updateOne()
 description: Updates the first record matching the query criteria.
-category: CRUD: Updating Data
+category: "CRUD: Updating Data"
 signature: "updateOne(query: Query, data: Partial<Data>): Promise<Data | null>"
 returnValue: "Promise<Data | null> - The updated record or null"
 relatedMethods: ["update", "updateById"]

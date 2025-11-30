@@ -1,7 +1,7 @@
 ---
 title: random()
 description: Retrieves random records from the database.
-category: CRUD: Reading Data
+category: "CRUD: Reading Data"
 signature: "random(sampleSize?: number): Promise<Data[]>"
 returnValue: "Promise<Data[]> - Array of random records"
 relatedMethods: ["get", "getAll"]

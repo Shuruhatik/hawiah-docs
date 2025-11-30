@@ -1,7 +1,7 @@
 ---
 title: get()
 description: Retrieves multiple records matching the query criteria.
-category: CRUD - Reading Data
+category: "CRUD - Reading Data"
 signature: "get(query?: Query, limit?: number): Promise<Data[]>"
 returnValue: "Promise<Data[]> - Array of matching records"
 relatedMethods: ["getOne", "getAll", "getById"]

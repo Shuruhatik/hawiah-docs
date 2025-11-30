@@ -1,7 +1,7 @@
 ---
 title: insertMany()
 description: Inserts multiple records into the database in a single operation.
-category: CRUD: Writing Data
+category: "CRUD: Writing Data"
 signature: "insertMany(dataArray: Data[]): Promise<Data[]>"
 returnValue: "Promise<Data[]> - Array of inserted records with generated IDs"
 relatedMethods: ["insert", "save"]

@@ -1,7 +1,7 @@
 ---
 title: getOne()
 description: Retrieves a single record matching the query criteria.
-category: CRUD: Reading Data
+category: "CRUD: Reading Data"
 signature: "getOne(query: Query): Promise<Data | null>"
 returnValue: "Promise<Data | null> - The first matching record or null"
 relatedMethods: ["get", "getById", "first"]
