@@ -227,6 +227,3 @@ posts.forEach(post => console.log(post.user.name));
 - **Virtual Relationships**: Powerful data modeling
 - **TypeScript**: Full type safety and autocomplete
 - **Open Source**: Free and community-driven
-
----
-Made with ❤️ by [Shuruhatik](https://github.com/Shuruhatik)
