@@ -29,7 +29,7 @@ export default function Features() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="md:col-span-2 relative overflow-hidden rounded-3xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-8 group"
+          className="md:col-span-2 relative overflow-hidden rounded-3xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-8 group hover:border-teal-500/50 transition-colors"
         >
           <div className="relative z-10 h-full flex flex-col justify-between">
             <div>
@@ -43,10 +43,7 @@ export default function Features() {
               </p>
             </div>
 
-            {/* Visual representation of flexible data */}
-            <div className="absolute right-0 bottom-0 w-1/2 h-full opacity-10 dark:opacity-5 pointer-events-none">
-              <div className="absolute inset-0 bg-gradient-to-l from-teal-500 to-transparent" />
-            </div>
+
           </div>
         </motion.div>
 
