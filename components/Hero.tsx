@@ -9,7 +9,6 @@ export default function Hero() {
   return (
     <section className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-24 sm:pt-32 pb-12 sm:pb-20">
       <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-        {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -85,7 +84,6 @@ const users = await db.get({
             </div>
           </div>
 
-          {/* Glow effect */}
           <div className="absolute -inset-1 -z-10 rounded-lg sm:rounded-xl bg-gradient-to-r from-teal-400/20 to-emerald-400/20 opacity-50 blur-xl sm:blur-2xl"></div>
         </motion.div>
       </div>

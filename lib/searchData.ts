@@ -1,10 +1,9 @@
-// Complete search index with all content from documentation
 export interface SearchItem {
   id: string;
   label: string;
   category: string;
   description: string;
-  content: string; // Full searchable content
+  content: string; 
   keywords: string[];
 }
 
@@ -337,7 +336,6 @@ export interface SearchResult extends SearchItem {
   highlightedLabel?: string;
 }
 
-// Extract snippet around matched text
 function extractSnippet(text: string, searchTerm: string, maxLength: number = 100): string {
   const lowerText = text.toLowerCase();
   const lowerTerm = searchTerm.toLowerCase();
@@ -345,20 +343,17 @@ function extractSnippet(text: string, searchTerm: string, maxLength: number = 10
   
   if (index === -1) return '';
   
-  // Find sentence boundaries
   const start = Math.max(0, index - 40);
   const end = Math.min(text.length, index + searchTerm.length + 60);
   
   let snippet = text.substring(start, end);
   
-  // Add ellipsis if needed
   if (start > 0) snippet = '...' + snippet;
   if (end < text.length) snippet = snippet + '...';
   
   return snippet.trim();
 }
 
-// Highlight matched terms in text
 export function highlightText(text: string, searchTerms: string[]): string {
   let result = text;
   
@@ -372,7 +367,6 @@ export function highlightText(text: string, searchTerms: string[]): string {
   return result;
 }
 
-// Advanced search function
 export function searchDocumentation(query: string): SearchResult[] {
   if (!query.trim()) return [];
   
@@ -388,7 +382,6 @@ export function searchDocumentation(query: string): SearchResult[] {
       const lowerCategory = item.category.toLowerCase();
       
       searchTerms.forEach(term => {
-        // Exact match in label (highest priority)
         if (lowerLabel === term) {
           score += 100;
           matchedSnippet = item.description;
@@ -397,7 +390,6 @@ export function searchDocumentation(query: string): SearchResult[] {
           matchedSnippet = item.description;
         }
         
-        // Match in keywords
         if (item.keywords.some(k => k.includes(term))) {
           score += 30;
           if (!matchedSnippet) {
@@ -406,7 +398,6 @@ export function searchDocumentation(query: string): SearchResult[] {
           }
         }
         
-        // Match in description
         if (lowerDescription.includes(term)) {
           score += 20;
           if (!matchedSnippet) {
@@ -414,12 +405,10 @@ export function searchDocumentation(query: string): SearchResult[] {
           }
         }
         
-        // Match in category
         if (lowerCategory.includes(term)) {
           score += 15;
         }
         
-        // Match in full content
         if (lowerContent.includes(term)) {
           score += 10;
           if (!matchedSnippet) {
@@ -428,7 +417,6 @@ export function searchDocumentation(query: string): SearchResult[] {
         }
       });
       
-      // Highlight the label and snippet
       const highlightedLabel = highlightText(item.label, searchTerms);
       const highlightedSnippet = highlightText(matchedSnippet || item.description, searchTerms);
       

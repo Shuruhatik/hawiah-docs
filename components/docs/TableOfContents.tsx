@@ -10,7 +10,6 @@ const tocItems: Record<string, string[]> = {
   connect: ['Syntax', 'Parameters', 'Examples'],
   insert: ['Syntax', 'Parameters', 'Examples', 'Return Value'],
   get: ['Syntax', 'Parameters', 'Examples', 'Return Value'],
-  // Add more as needed
 };
 
 export default function TableOfContents({ activeSection }: TableOfContentsProps) {

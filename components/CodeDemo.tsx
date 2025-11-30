@@ -89,7 +89,6 @@ export default function CodeDemo() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="overflow-hidden rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c0c0c] shadow-lg"
       >
-        {/* Tabs */}
         <div className="flex overflow-x-auto border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5">
           {codeExamples.map((example, index) => (
             <button
@@ -105,7 +104,6 @@ export default function CodeDemo() {
           ))}
         </div>
 
-        {/* Code Content */}
         <div className="p-4 sm:p-6">
           <CodeBlock code={codeExamples[activeTab].code} />
         </div>

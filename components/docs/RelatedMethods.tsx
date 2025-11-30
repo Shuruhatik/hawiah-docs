@@ -19,13 +19,12 @@ interface RelatedMethodsProps {
   methods: string[];
 }
 
-// Find label for a method ID from navigation
 function findMethodLabel(id: string): string {
   for (const group of navGroups) {
     const item = group.items.find(item => item.id === id);
     if (item) return item.label;
   }
-  return id; // Fallback to ID if not found
+  return id; 
 }
 
 export default function RelatedMethods({ methods }: RelatedMethodsProps) {
@@ -43,7 +42,6 @@ export default function RelatedMethods({ methods }: RelatedMethodsProps) {
             href={`#${methodId}`}
             onClick={(e) => {
               e.preventDefault();
-              // Trigger section change via custom event
               window.dispatchEvent(new CustomEvent('navigate-to-section', { detail: methodId }));
             }}
             className="flex items-center justify-between p-3 bg-white dark:bg-[#0c0c0c] hover:bg-slate-50 dark:hover:bg-white/5 border border-slate-200 dark:border-white/5 hover:border-teal-600 dark:hover:border-teal-500/30 rounded-lg transition-all group text-left"

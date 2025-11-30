@@ -27,7 +27,6 @@ export default function Sidebar({ activeSection, setActiveSection }: SidebarProp
   );
   const activeItemRef = useRef<HTMLButtonElement>(null);
 
-  // Scroll to active item on mount and when activeSection changes
   useEffect(() => {
     if (activeItemRef.current) {
       activeItemRef.current.scrollIntoView({

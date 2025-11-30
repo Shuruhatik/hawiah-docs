@@ -3,7 +3,6 @@ import { buildSearchIndex, SearchItem } from '@/lib/searchData.server';
 
 let searchIndex: SearchItem[] = [];
 
-// Build index on first request
 function getSearchIndex() {
   if (searchIndex.length === 0) {
     searchIndex = buildSearchIndex();
@@ -69,7 +68,6 @@ export async function GET(request: NextRequest) {
       const lowerCategory = item.category.toLowerCase();
       
       searchTerms.forEach(term => {
-        // Exact match in label (highest priority)
         if (lowerLabel === term) {
           score += 100;
           matchedSnippet = item.description;
@@ -78,12 +76,10 @@ export async function GET(request: NextRequest) {
           matchedSnippet = item.description;
         }
         
-        // Match in keywords
         if (item.keywords.some(k => k.includes(term))) {
           score += 30;
         }
         
-        // Match in description
         if (lowerDescription.includes(term)) {
           score += 20;
           if (!matchedSnippet) {
@@ -91,12 +87,10 @@ export async function GET(request: NextRequest) {
           }
         }
         
-        // Match in category
         if (lowerCategory.includes(term)) {
           score += 15;
         }
         
-        // Match in full content
         if (lowerContent.includes(term)) {
           score += 10;
           if (!matchedSnippet) {
