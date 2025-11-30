@@ -56,12 +56,12 @@ export default function Features() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="md:row-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-slate-900 dark:to-black border border-slate-200 dark:border-slate-800 p-8 text-slate-900 dark:text-white"
+          className="md:row-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-50 to-emerald-50 dark:bg-black dark:from-transparent dark:to-transparent border border-slate-200 dark:border-white/10 p-8 text-slate-900 dark:text-white group"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-teal-400/20 dark:bg-teal-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-teal-400/20 dark:bg-teal-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 transition-all duration-500 group-hover:bg-teal-400/30 dark:group-hover:bg-teal-500/20" />
 
           <div className="relative z-10 h-full flex flex-col">
-            <div className="w-12 h-12 rounded-2xl bg-teal-500/20 dark:bg-white/10 flex items-center justify-center mb-6">
+            <div className="w-12 h-12 rounded-2xl bg-teal-500/20 dark:bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <Zap size={24} className="text-teal-600 dark:text-teal-400" />
             </div>
             <h3 className="text-2xl font-bold mb-2">Lightning Fast</h3>
