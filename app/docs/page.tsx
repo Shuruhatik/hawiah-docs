@@ -18,7 +18,6 @@ interface SearchResult {
 }
 
 export default function DocsPage() {
-  // Initialize with null to prevent hydration mismatch
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -27,20 +26,17 @@ export default function DocsPage() {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
-  // Initialize section from URL on mount
   useEffect(() => {
     const hash = window.location.hash.replace('#', '');
     setActiveSection(hash || 'installation');
   }, []);
 
-  // Update URL when section changes
   useEffect(() => {
     if (activeSection && typeof window !== 'undefined') {
       window.history.replaceState(null, '', `#${activeSection}`);
     }
   }, [activeSection]);
 
-  // Listen for hash changes (back/forward navigation)
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
@@ -53,7 +49,6 @@ export default function DocsPage() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  // Debounced search
   useEffect(() => {
     const timer = setTimeout(async () => {
       if (searchQuery.trim()) {
@@ -73,7 +68,6 @@ export default function DocsPage() {
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
-  // Close search results when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
@@ -85,7 +79,6 @@ export default function DocsPage() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Keyboard shortcut (Ctrl+K or Cmd+K)
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
@@ -99,7 +92,6 @@ export default function DocsPage() {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Listen for navigation events from RelatedMethods
   useEffect(() => {
     const handleNavigate = (event: Event) => {
       const customEvent = event as CustomEvent<string>;

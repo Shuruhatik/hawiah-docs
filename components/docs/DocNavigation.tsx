@@ -15,7 +15,6 @@ interface NavGroup {
 
 const navGroups: NavGroup[] = navGroupsData as NavGroup[];
 
-// Flatten all items into a single array
 const allItems: NavItem[] = navGroups.flatMap(group => group.items);
 
 interface DocNavigationProps {

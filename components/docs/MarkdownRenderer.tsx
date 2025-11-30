@@ -11,7 +11,6 @@ interface MarkdownRendererProps {
   content: string;
 }
 
-// Helper function to extract text from React children
 function extractText(children: any): string {
   if (typeof children === 'string') {
     return children;
@@ -28,7 +27,6 @@ function extractText(children: any): string {
   return '';
 }
 
-// Helper to create ID from text
 function createId(children: any): string {
   const text = extractText(children);
   return text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
@@ -37,7 +35,6 @@ function createId(children: any): string {
 function CodeBlock({ children, className }: { children: any; className?: string }) {
   const [copied, setCopied] = useState(false);
   
-  // Extract the actual text content
   const codeText = extractText(children);
   
   const handleCopy = () => {
@@ -117,11 +114,9 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
             );
           },
           pre: ({ children }: any) => {
-            // Get the code element
             const codeElement = children?.props;
             const className = codeElement?.className;
             
-            // Always wrap in CodeBlock for copy functionality
             return <CodeBlock className={className}>{children}</CodeBlock>;
           },
           ul: ({ children }) => (
