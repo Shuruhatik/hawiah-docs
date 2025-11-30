@@ -1,7 +1,7 @@
 'use client';
 
 import { ChevronDown, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import navGroupsData from '@/data/sidebar-navigation.json';
 
 interface SidebarProps {
@@ -42,6 +42,17 @@ export default function Sidebar({ activeSection, setActiveSection, searchQuery =
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(
     new Set(navGroups.map((g) => g.title))
   );
+  const activeItemRef = useRef<HTMLButtonElement>(null);
+
+  // Scroll to active item on mount and when activeSection changes
+  useEffect(() => {
+    if (activeItemRef.current) {
+      activeItemRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      });
+    }
+  }, [activeSection]);
 
   // Filter groups and items based on search query
   const filteredGroups = navGroups.map(group => {
@@ -92,6 +103,7 @@ export default function Sidebar({ activeSection, setActiveSection, searchQuery =
                   {group.items.map((item) => (
                     <li key={item.id}>
                       <button
+                        ref={activeSection === item.id ? activeItemRef : null}
                         onClick={() => setActiveSection(item.id)}
                         className={`block w-full text-left text-sm py-1.5 px-3 rounded transition-colors ${activeSection === item.id
                             ? 'text-teal-400 bg-teal-500/10 border-l-2 border-teal-400'
