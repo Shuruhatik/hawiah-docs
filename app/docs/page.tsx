@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Menu, X, Search } from 'lucide-react';
+import { Menu, X, Search, Github } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Sidebar from '@/components/docs/Sidebar';
@@ -82,16 +82,7 @@ export default function DocsPage() {
             </nav>
           </div>
           
-          {/* Mobile Search Button */}
-          <button
-            onClick={() => setShowMobileSearch(true)}
-            className="sm:hidden text-gray-400 hover:text-white"
-            aria-label="Search"
-          >
-            <Search className="w-5 h-5" />
-          </button>
-          
-          {/* Search Bar */}
+          {/* Search Bar - Desktop */}
           <div className="hidden sm:flex flex-1 max-w-md mx-4" ref={searchRef}>
             <div className="relative w-full">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
@@ -150,14 +141,29 @@ export default function DocsPage() {
             </div>
           </div>
 
-          <a
-            href="https://github.com/yourusername/hawiah"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-gray-400 hover:text-white transition-colors whitespace-nowrap"
-          >
-            GitHub
-          </a>
+          {/* Right Side Actions */}
+          <div className="flex items-center gap-3">
+            {/* Mobile Search Button */}
+            <button
+              onClick={() => setShowMobileSearch(true)}
+              className="sm:hidden text-gray-400 hover:text-white"
+              aria-label="Search"
+            >
+              <Search className="w-5 h-5" />
+            </button>
+            
+            {/* GitHub Link - Icon + text on desktop, icon only on mobile */}
+            <a
+              href="https://github.com/Shuruhatik/hawiah"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+              aria-label="GitHub"
+            >
+              <Github className="w-5 h-5" />
+              <span className="hidden sm:inline">GitHub</span>
+            </a>
+          </div>
         </div>
       </header>
 

@@ -28,7 +28,7 @@ export default function Header() {
           </Link>
 
           <Link
-            href="https://github.com/hawiah/hawiah"
+            href="https://github.com/Shuruhatik/hawiah"
             target="_blank"
             className="flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
           >
