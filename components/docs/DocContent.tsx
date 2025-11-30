@@ -3,9 +3,11 @@
 import { useState, useEffect } from 'react';
 import MarkdownRenderer from './MarkdownRenderer';
 import RelatedMethods from './RelatedMethods';
+import DocNavigation from './DocNavigation';
 
 interface DocContentProps {
   activeSection: string;
+  onNavigate?: (sectionId: string) => void;
 }
 
 interface DocData {
@@ -18,7 +20,7 @@ interface DocData {
   };
 }
 
-export default function DocContent({ activeSection }: DocContentProps) {
+export default function DocContent({ activeSection, onNavigate }: DocContentProps) {
   const [docData, setDocData] = useState<DocData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -117,6 +119,13 @@ export default function DocContent({ activeSection }: DocContentProps) {
       
       {docData.metadata.relatedMethods && docData.metadata.relatedMethods.length > 0 && (
         <RelatedMethods methods={docData.metadata.relatedMethods} />
+      )}
+
+      {onNavigate && (
+        <DocNavigation 
+          currentSection={activeSection} 
+          onNavigate={onNavigate}
+        />
       )}
     </div>
   );

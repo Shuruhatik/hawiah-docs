@@ -15,7 +15,7 @@ export default function Header() {
             alt="Hawiah Logo" 
             width={28} 
             height={28}
-            className="rounded-lg sm:w-8 sm:h-8"
+            className="rounded-lg sm:w-8 sm:h-8 logo-light-mode"
           />
           <span className="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white">Hawiah</span>
         </Link>

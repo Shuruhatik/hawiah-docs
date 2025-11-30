@@ -19,6 +19,15 @@
   }
 }
 
+/* Logo styling for light mode */
+.logo-light-mode {
+  filter: brightness(0) saturate(100%) invert(0%);
+}
+
+.dark .logo-light-mode {
+  filter: none;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

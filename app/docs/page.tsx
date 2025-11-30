@@ -137,7 +137,7 @@ export default function DocsPage() {
                 alt="Hawiah Logo" 
                 width={28} 
                 height={28}
-                className="rounded-lg"
+                className="rounded-lg logo-light-mode"
               />
               <span className="text-xl font-bold">Hawiah</span>
             </Link>
@@ -328,7 +328,16 @@ export default function DocsPage() {
 
         {/* Main Content */}
         <main className="flex-1 px-4 sm:px-6 md:px-8 py-6 md:py-12 max-w-4xl min-w-0">
-          {activeSection && <DocContent activeSection={activeSection} />}
+          {activeSection && (
+            <DocContent 
+              activeSection={activeSection} 
+              onNavigate={(sectionId) => {
+                setActiveSection(sectionId);
+                setSidebarOpen(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            />
+          )}
         </main>
 
         {/* Right Sidebar - Table of Contents */}
