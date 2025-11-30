@@ -26,8 +26,8 @@ The `connect()` method initializes and establishes a connection to your database
 ### JSONDriver
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { JSONDriver } = require('@hawiah/local');
+import { Hawiah } from '@hawiah/core';
+import { JSONDriver } from '@hawiah/local';
 
 const driver = new JSONDriver('./data/users.json');
 const db = new Hawiah({ driver });
@@ -39,8 +39,8 @@ console.log('Connected to JSON file');
 ### SQLiteDriver
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { SQLiteDriver } = require('@hawiah/sqlite');
+import { Hawiah } from '@hawiah/core';
+import { SQLiteDriver } from '@hawiah/sqlite';
 
 const driver = new SQLiteDriver('./app.db', 'users');
 const db = new Hawiah({ driver });
@@ -52,8 +52,8 @@ console.log('Connected to SQLite database');
 ### MongoDriver
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { MongoDriver } = require('@hawiah/mongo');
+import { Hawiah } from '@hawiah/core';
+import { MongoDriver } from '@hawiah/mongo';
 
 const driver = new MongoDriver({
   uri: 'mongodb://localhost:27017',
@@ -69,8 +69,8 @@ console.log('Connected to MongoDB');
 ### MySQLDriver
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { MySQLDriver } = require('@hawiah/mysql');
+import { Hawiah } from '@hawiah/core';
+import { MySQLDriver } from '@hawiah/mysql';
 
 const driver = new MySQLDriver({
   host: 'localhost',

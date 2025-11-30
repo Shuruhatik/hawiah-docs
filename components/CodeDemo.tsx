@@ -7,8 +7,8 @@ import CodeBlock from './docs/CodeBlock';
 const codeExamples = [
   {
     title: 'JSON',
-    code: `const { Hawiah } = require('@hawiah/core');
-const { JSONDriver } = require('@hawiah/local');
+    code: `import { Hawiah } from '@hawiah/core';
+import { JSONDriver } from '@hawiah/local';
 
 const driver = new JSONDriver('./users.json');
 const db = new Hawiah({ driver });
@@ -24,9 +24,27 @@ const users = await db.get({});
 await db.disconnect();`
   },
   {
+    title: 'YAML',
+    code: `import { Hawiah } from '@hawiah/core';
+import { YAMLDriver } from '@hawiah/local';
+
+const driver = new YAMLDriver('./config.yaml');
+const db = new Hawiah({ driver });
+
+await db.connect();
+await db.insert({ 
+  id: 1, 
+  setting: 'theme',
+  value: 'dark' 
+});
+
+const settings = await db.get({});
+await db.disconnect();`
+  },
+  {
     title: 'SQLite',
-    code: `const { Hawiah } = require('@hawiah/core');
-const { SQLiteDriver } = require('@hawiah/sqlite');
+    code: `import { Hawiah } from '@hawiah/core';
+import { SQLiteDriver } from '@hawiah/sqlite';
 
 const driver = new SQLiteDriver(
   './app.db', 
@@ -46,8 +64,8 @@ await db.disconnect();`
   },
   {
     title: 'MongoDB',
-    code: `const { Hawiah } = require('@hawiah/core');
-const { MongoDriver } = require('@hawiah/mongo');
+    code: `import { Hawiah } from '@hawiah/core';
+import { MongoDriver } from '@hawiah/mongo';
 
 const driver = new MongoDriver({
   uri: 'mongodb+srv://user:pass@cluster/',
@@ -68,8 +86,8 @@ await db.disconnect();`
   },
   {
     title: 'MySQL',
-    code: `const { Hawiah } = require('@hawiah/core');
-const { MySQLDriver } = require('@hawiah/mysql');
+    code: `import { Hawiah } from '@hawiah/core';
+import { MySQLDriver } from '@hawiah/mysql';
 
 const driver = new MySQLDriver({
   host: 'localhost',
@@ -92,8 +110,8 @@ await db.disconnect();`
   },
   {
     title: 'PostgreSQL',
-    code: `const { Hawiah } = require('@hawiah/core');
-const { PostgreSQLDriver } = require('@hawiah/postgres');
+    code: `import { Hawiah } from '@hawiah/core';
+import { PostgreSQLDriver } from '@hawiah/postgres';
 
 const driver = new PostgreSQLDriver({
   connectionString: 'postgresql://user:pass@host:5432/db',
@@ -113,8 +131,8 @@ await db.disconnect();`
   },
   {
     title: 'Firebase',
-    code: `const { Hawiah } = require('@hawiah/core');
-const { FirebaseDriver } = require('@hawiah/firebase');
+    code: `import { Hawiah } from '@hawiah/core';
+import { FirebaseDriver } from '@hawiah/firebase';
 
 const driver = new FirebaseDriver({
   firebaseConfig: {

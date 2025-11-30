@@ -26,8 +26,8 @@ npm install @hawiah/core dataloader
 ### 1. Create Instances
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { MemoryDriver } = require('@hawiah/local');
+import { Hawiah } from '@hawiah/core';
+import { MemoryDriver } from '@hawiah/local';
 
 const Users = new Hawiah({ driver: new MemoryDriver() });
 const Posts = new Hawiah({ driver: new MemoryDriver() });
@@ -118,8 +118,8 @@ Posts.clearCache();
 ### Example 1: Blog System
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { MemoryDriver } = require('@hawiah/local');
+import { Hawiah } from '@hawiah/core';
+import { MemoryDriver } from '@hawiah/local';
 
 const Users = new Hawiah({ driver: new MemoryDriver() });
 const Posts = new Hawiah({ driver: new MemoryDriver() });
@@ -272,8 +272,8 @@ Because:
 Yes! Each instance can use a different driver:
 
 ```javascript
-const { SQLiteDriver } = require('@hawiah/sqlite');
-const { MongoDriver } = require('@hawiah/mongo');
+import { SQLiteDriver } from '@hawiah/sqlite';
+import { MongoDriver } from '@hawiah/mongo';
 
 const Users = new Hawiah({ driver: new SQLiteDriver('./users.db', 'users') });
 const Posts = new Hawiah({ driver: new MongoDriver({

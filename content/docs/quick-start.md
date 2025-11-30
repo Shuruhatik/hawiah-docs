@@ -38,27 +38,27 @@ npm install dataloader
 Perfect for development, testing, and small applications.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { JSONDriver } = require('@hawiah/local');
+import { Hawiah } from '@hawiah/core';
+import { JSONDriver } from '@hawiah/local';
 
 // Create driver
-const driver = new JSONDriver('./data/users.json');
+const driver = new JSONDriver('./data/users.json';
 
 // Create Hawiah instance
-const db = new Hawiah({ driver });
+const db = new Hawiah({ driver };
 
 // Connect
-await db.connect();
+await db.connect(;
 
 // Insert data
-await db.insert({ id: 1, name: 'Ahmed', age: 25 });
+await db.insert({ id: 1, name: 'Ahmed', age: 25 };
 
 // Query data
-const users = await db.get({});
-console.log(users);
+const users = await db.get({};
+console.log(users;
 
 // Disconnect
-await db.disconnect();
+await db.disconnect(;
 ```
 
 ### 2. YAMLDriver - Local YAML Files
@@ -66,16 +66,16 @@ await db.disconnect();
 Great for configuration files and structured content.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { YAMLDriver } = require('@hawiah/local');
+import { Hawiah } from '@hawiah/core';
+import { YAMLDriver } from '@hawiah/local';
 
-const driver = new YAMLDriver('./data/config.yaml');
-const db = new Hawiah({ driver });
+const driver = new YAMLDriver('./data/config.yaml';
+const db = new Hawiah({ driver };
 
-await db.connect();
-await db.insert({ id: 1, setting: 'theme', value: 'dark' });
-const settings = await db.get({});
-await db.disconnect();
+await db.connect(;
+await db.insert({ id: 1, setting: 'theme', value: 'dark' };
+const settings = await db.get({};
+await db.disconnect(;
 ```
 
 ### 3. SQLiteDriver - SQLite Database
@@ -83,18 +83,18 @@ await db.disconnect();
 Ideal for desktop applications and embedded systems.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { SQLiteDriver } = require('@hawiah/sqlite');
+import { Hawiah } from '@hawiah/core';
+import { SQLiteDriver } from '@hawiah/sqlite';
 
 // First parameter: database file path
 // Second parameter: table name
-const driver = new SQLiteDriver('./data/app.db', 'users');
-const db = new Hawiah({ driver });
+const driver = new SQLiteDriver('./data/app.db', 'users';
+const db = new Hawiah({ driver };
 
-await db.connect();
-await db.insert({ id: 1, username: 'ahmed', email: 'ahmed@test.com' });
-const users = await db.get({});
-await db.disconnect();
+await db.connect(;
+await db.insert({ id: 1, username: 'ahmed', email: 'ahmed@test.com' };
+const users = await db.get({};
+await db.disconnect(;
 ```
 
 ### 4. MongoDriver - MongoDB
@@ -102,20 +102,20 @@ await db.disconnect();
 Perfect for web applications and scalable systems.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { MongoDriver } = require('@hawiah/mongo');
+import { Hawiah } from '@hawiah/core';
+import { MongoDriver } from '@hawiah/mongo';
 
 const driver = new MongoDriver({
   uri: 'mongodb+srv://user:pass@cluster.mongodb.net/',
   databaseName: 'myDatabase',
   collectionName: 'users'
-});
-const db = new Hawiah({ driver });
+};
+const db = new Hawiah({ driver };
 
-await db.connect();
-await db.insert({ id: 1, name: 'Ahmed', email: 'ahmed@test.com' });
-const users = await db.get({});
-await db.disconnect();
+await db.connect(;
+await db.insert({ id: 1, name: 'Ahmed', email: 'ahmed@test.com' };
+const users = await db.get({};
+await db.disconnect(;
 ```
 
 ### 5. FirebaseDriver - Firebase Firestore
@@ -123,8 +123,8 @@ await db.disconnect();
 Great for real-time applications and mobile apps.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { FirebaseDriver } = require('@hawiah/firebase');
+import { Hawiah } from '@hawiah/core';
+import { FirebaseDriver } from '@hawiah/firebase';
 
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
@@ -138,13 +138,13 @@ const firebaseConfig = {
 const driver = new FirebaseDriver({
   firebaseConfig: firebaseConfig,
   collectionName: 'users'
-});
-const db = new Hawiah({ driver });
+};
+const db = new Hawiah({ driver };
 
-await db.connect();
-await db.insert({ id: 1, name: 'Ahmed' });
-const users = await db.get({});
-await db.disconnect();
+await db.connect(;
+await db.insert({ id: 1, name: 'Ahmed' };
+const users = await db.get({};
+await db.disconnect(;
 ```
 
 ### 6. PostgreSQLDriver - PostgreSQL
@@ -152,19 +152,19 @@ await db.disconnect();
 Enterprise-grade database for complex applications.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { PostgreSQLDriver } = require('@hawiah/postgres');
+import { Hawiah } from '@hawiah/core';
+import { PostgreSQLDriver } from '@hawiah/postgres';
 
 const driver = new PostgreSQLDriver({
   connectionString: 'postgresql://user:pass@host:5432/database',
   tableName: 'users'
-});
-const db = new Hawiah({ driver });
+};
+const db = new Hawiah({ driver };
 
-await db.connect();
-await db.insert({ id: 1, name: 'Ahmed', email: 'ahmed@test.com' });
-const users = await db.get({});
-await db.disconnect();
+await db.connect(;
+await db.insert({ id: 1, name: 'Ahmed', email: 'ahmed@test.com' };
+const users = await db.get({};
+await db.disconnect(;
 ```
 
 ### 7. MySQLDriver - MySQL
@@ -172,8 +172,8 @@ await db.disconnect();
 Popular choice for web applications and CMS.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { MySQLDriver } = require('@hawiah/mysql');
+import { Hawiah } from '@hawiah/core';
+import { MySQLDriver } from '@hawiah/mysql';
 
 // First parameter: connection config
 // Second parameter: table name
@@ -183,13 +183,13 @@ const driver = new MySQLDriver({
   password: 'password',
   database: 'mydb',
   port: 3306
-}, 'users');
-const db = new Hawiah({ driver });
+}, 'users';
+const db = new Hawiah({ driver };
 
-await db.connect();
-await db.insert({ id: 1, name: 'Ahmed', email: 'ahmed@test.com' });
-const users = await db.get({});
-await db.disconnect();
+await db.connect(;
+await db.insert({ id: 1, name: 'Ahmed', email: 'ahmed@test.com' };
+const users = await db.get({};
+await db.disconnect(;
 ```
 
 ## CRUD Operations
@@ -198,82 +198,82 @@ await db.disconnect();
 
 ```javascript
 // Insert single record
-await db.insert({ id: 1, name: 'Ahmed', age: 25 });
+await db.insert({ id: 1, name: 'Ahmed', age: 25 };
 
 // Insert multiple records
 await db.insertMany([
   { id: 1, name: 'Ahmed', age: 25 },
   { id: 2, name: 'Fatima', age: 30 }
-]);
+];
 
 // Save (insert or update)
-await db.save({ id: 1 }, { name: 'Ahmed', age: 26 });
+await db.save({ id: 1 }, { name: 'Ahmed', age: 26 };
 ```
 
 ### Read Data
 
 ```javascript
 // Get all records
-const all = await db.get({});
+const all = await db.get({};
 
 // Get with filter
-const filtered = await db.get({ age: 25 });
+const filtered = await db.get({ age: 25 };
 
 // Get one record
-const one = await db.getOne({ id: 1 });
+const one = await db.getOne({ id: 1 };
 
 // Get by ID
-const byId = await db.getById(1);
+const byId = await db.getById(1;
 
 // Get by field
-const byField = await db.getBy('city', 'Riyadh');
+const byField = await db.getBy('city', 'Riyadh';
 
 // Get all records
-const all2 = await db.getAll();
+const all2 = await db.getAll(;
 
 // First record
-const first = await db.first();
+const first = await db.first(;
 
 // Last record
-const last = await db.last();
+const last = await db.last(;
 
 // Random record
-const random = await db.random(1);
+const random = await db.random(1;
 ```
 
 ### Update Data
 
 ```javascript
 // Update records
-await db.update({ age: 25 }, { age: 26 });
+await db.update({ age: 25 }, { age: 26 };
 
 // Update one record
-await db.updateOne({ id: 1 }, { age: 26 });
+await db.updateOne({ id: 1 }, { age: 26 };
 
 // Update by ID
-await db.updateById(1, { age: 26 });
+await db.updateById(1, { age: 26 };
 
 // Increment value
-await db.increment({ id: 1 }, 'age', 1);
+await db.increment({ id: 1 }, 'age', 1;
 
 // Decrement value
-await db.decrement({ id: 1 }, 'age', 1);
+await db.decrement({ id: 1 }, 'age', 1;
 ```
 
 ### Delete Data
 
 ```javascript
 // Remove records
-await db.remove({ age: 25 });
+await db.remove({ age: 25 };
 
 // Remove one record
-await db.removeOne({ id: 1 });
+await db.removeOne({ id: 1 };
 
 // Remove by ID
-await db.removeById(1);
+await db.removeById(1;
 
 // Clear all
-await db.clear();
+await db.clear(;
 ```
 
 ## Advanced Operations
@@ -282,77 +282,77 @@ await db.clear();
 
 ```javascript
 // Check existence
-const exists = await db.has({ id: 1 });
+const exists = await db.has({ id: 1 };
 
 // Check by field
-const hasField = await db.hasBy('email', 'test@test.com');
+const hasField = await db.hasBy('email', 'test@test.com';
 
 // Check by ID
-const hasId = await db.hasId(1);
+const hasId = await db.hasId(1;
 
 // Count records
-const count = await db.count({});
+const count = await db.count({};
 
 // Count with filter
-const countFiltered = await db.count({ age: 25 });
+const countFiltered = await db.count({ age: 25 };
 
 // Count by field
-const countBy = await db.countBy('city', 'Riyadh');
+const countBy = await db.countBy('city', 'Riyadh';
 
 // Check if empty
-const empty = await db.isEmpty();
+const empty = await db.isEmpty(;
 ```
 
 ### Sorting and Filtering
 
 ```javascript
 // Sort
-const sorted = await db.sort({}, 'age', 'asc');
+const sorted = await db.sort({}, 'age', 'asc';
 
 // Select specific fields
-const selected = await db.select({}, ['name', 'age']);
+const selected = await db.select({}, ['name', 'age'];
 
 // Get unique values
-const unique = await db.unique('city');
+const unique = await db.unique('city';
 
 // Group by field
-const grouped = await db.group('city');
+const grouped = await db.group('city';
 
 // Paginate
-const page = await db.paginate({}, 1, 10);
+const page = await db.paginate({}, 1, 10;
 // Returns: { data: [...], page: 1, pageSize: 10, total: 50, totalPages: 5 }
 
 // Sum
-const sum = await db.sum('salary');
+const sum = await db.sum('salary';
 ```
 
 ### Array Operations
 
 ```javascript
 // Push to array
-await db.push({ id: 1 }, 'tags', 'javascript');
+await db.push({ id: 1 }, 'tags', 'javascript';
 
 // Pull from array
-await db.pull({ id: 1 }, 'tags', 'javascript');
+await db.pull({ id: 1 }, 'tags', 'javascript';
 
 // Unshift (add to beginning)
-await db.unshift({ id: 1 }, 'tags', 'nodejs');
+await db.unshift({ id: 1 }, 'tags', 'nodejs';
 
 // Shift (remove first)
-await db.shift({ id: 1 }, 'tags');
+await db.shift({ id: 1 }, 'tags';
 
 // Pop (remove last)
-await db.pop({ id: 1 }, 'tags');
+await db.pop({ id: 1 }, 'tags';
 ```
 
 ### Field Operations
 
 ```javascript
 // Remove field
-await db.unset({ id: 1 }, 'oldField');
+await db.unset({ id: 1 }, 'oldField';
 
 // Rename field
-await db.rename({ id: 1 }, 'oldName', 'newName');
+await db.rename({ id: 1 }, 'oldName', 'newName';
 ```
 
 ## Driver Comparison
@@ -372,22 +372,22 @@ await db.rename({ id: 1 }, 'oldName', 'newName');
 Create relationships between different Hawiah instances:
 
 ```javascript
-const Users = new Hawiah({ driver: new JSONDriver('./users.json') });
-const Posts = new Hawiah({ driver: new JSONDriver('./posts.json') });
+const Users = new Hawiah({ driver: new JSONDriver('./users.json') };
+const Posts = new Hawiah({ driver: new JSONDriver('./posts.json') };
 
-await Users.connect();
-await Posts.connect();
+await Users.connect(;
+await Posts.connect(;
 
 // Define relationships
-Users.relation('posts', Posts, '_id', 'userId', 'many');
-Posts.relation('user', Users, 'userId', '_id', 'one');
+Users.relation('posts', Posts, '_id', 'userId', 'many';
+Posts.relation('user', Users, 'userId', '_id', 'one';
 
 // Fetch with relationships
-const user = await Users.getOneWith({ _id: 1 }, 'posts');
-console.log(user.posts); // Array of user's posts
+const user = await Users.getOneWith({ _id: 1 }, 'posts';
+console.log(user.posts; // Array of user's posts
 
-const posts = await Posts.getWith({}, 'user');
-posts.forEach(post => console.log(post.user.name));
+const posts = await Posts.getWith({}, 'user';
+posts.forEach(post => console.log(post.user.name);
 ```
 
 Learn more: [Virtual Relationships](/docs#virtual-relationships)
@@ -406,3 +406,4 @@ Explore the full API documentation:
 - **Numeric**: [increment()](/docs/increment), [decrement()](/docs/decrement), [sum()](/docs/sum)
 - **Fields**: [unset()](/docs/unset), [rename()](/docs/rename)
 - **Utility**: [first()](/docs/first), [last()](/docs/last), [isEmpty()](/docs/isEmpty), [random()](/docs/random), [count()](/docs/count), [has()](/docs/has)
+

@@ -17,8 +17,8 @@ Hawiah supports multiple database drivers through a modular architecture. Instal
 Perfect for development, testing, and small applications.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { JSONDriver } = require('@hawiah/local');
+import { Hawiah } from '@hawiah/core';
+import { JSONDriver } from '@hawiah/local';
 
 const driver = new JSONDriver('./data/users.json');
 const db = new Hawiah({ driver });
@@ -47,8 +47,8 @@ await db.connect();
 Great for configuration files and structured content.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { YAMLDriver } = require('@hawiah/local');
+import { Hawiah } from '@hawiah/core';
+import { YAMLDriver } from '@hawiah/local';
 
 const driver = new YAMLDriver('./data/config.yaml');
 const db = new Hawiah({ driver });
@@ -77,8 +77,8 @@ await db.connect();
 Ideal for desktop applications and embedded systems.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { SQLiteDriver } = require('@hawiah/sqlite');
+import { Hawiah } from '@hawiah/core';
+import { SQLiteDriver } from '@hawiah/sqlite';
 
 // First parameter: database file path
 // Second parameter: table name
@@ -110,8 +110,8 @@ await db.connect();
 Perfect for web applications and scalable systems.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { MongoDriver } = require('@hawiah/mongo');
+import { Hawiah } from '@hawiah/core';
+import { MongoDriver } from '@hawiah/mongo';
 
 const driver = new MongoDriver({
   uri: 'mongodb+srv://user:pass@cluster.mongodb.net/',
@@ -145,8 +145,8 @@ await db.connect();
 Great for real-time applications and mobile apps.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { FirebaseDriver } = require('@hawiah/firebase');
+import { Hawiah } from '@hawiah/core';
+import { FirebaseDriver } from '@hawiah/firebase';
 
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
@@ -188,8 +188,8 @@ await db.connect();
 Enterprise-grade database for complex applications.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { PostgreSQLDriver } = require('@hawiah/postgres');
+import { Hawiah } from '@hawiah/core';
+import { PostgreSQLDriver } from '@hawiah/postgres';
 
 const driver = new PostgreSQLDriver({
   connectionString: 'postgresql://user:pass@host:5432/database',
@@ -222,8 +222,8 @@ await db.connect();
 Popular choice for web applications and CMS.
 
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { MySQLDriver } = require('@hawiah/mysql');
+import { Hawiah } from '@hawiah/core';
+import { MySQLDriver } from '@hawiah/mysql';
 
 // First parameter: connection config
 // Second parameter: table name
@@ -310,8 +310,8 @@ npm install @hawiah/mysql
 
 3. Start using:
 ```javascript
-const { Hawiah } = require('@hawiah/core');
-const { JSONDriver } = require('@hawiah/local');
+import { Hawiah } from '@hawiah/core';
+import { JSONDriver } from '@hawiah/local';
 
 const driver = new JSONDriver('./data.json');
 const db = new Hawiah({ driver });
