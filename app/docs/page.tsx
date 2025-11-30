@@ -7,18 +7,43 @@ import Image from 'next/image';
 import Sidebar from '@/components/docs/Sidebar';
 import DocContent from '@/components/docs/DocContent';
 import TableOfContents from '@/components/docs/TableOfContents';
-import { searchDocumentation } from '@/lib/searchData';
+interface SearchResult {
+  id: string;
+  label: string;
+  category: string;
+  description: string;
+  matchedSnippet?: string;
+  highlightedLabel?: string;
+}
 
 export default function DocsPage() {
   const [activeSection, setActiveSection] = useState('installation');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
-  // Advanced search with full content indexing
-  const searchResults = searchDocumentation(searchQuery);
+  // Debounced search
+  useEffect(() => {
+    const timer = setTimeout(async () => {
+      if (searchQuery.trim()) {
+        try {
+          const response = await fetch(`/api/search?q=${encodeURIComponent(searchQuery)}`);
+          const results = await response.json();
+          setSearchResults(results);
+        } catch (error) {
+          console.error('Search error:', error);
+          setSearchResults([]);
+        }
+      } else {
+        setSearchResults([]);
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
 
   // Close search results when clicking outside
   useEffect(() => {
@@ -44,6 +69,18 @@ export default function DocsPage() {
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Listen for navigation events from RelatedMethods
+  useEffect(() => {
+    const handleNavigate = (event: Event) => {
+      const customEvent = event as CustomEvent<string>;
+      setActiveSection(customEvent.detail);
+      setSidebarOpen(false);
+    };
+
+    window.addEventListener('navigate-to-section', handleNavigate);
+    return () => window.removeEventListener('navigate-to-section', handleNavigate);
   }, []);
 
   const handleSearchSelect = (sectionId: string) => {
