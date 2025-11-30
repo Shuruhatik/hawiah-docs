@@ -66,18 +66,18 @@ export default function CodeDemo() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mb-12 text-center"
+        className="mb-8 sm:mb-12 text-center"
       >
-        <h2 className="mb-4 text-4xl font-bold text-white">
+        <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-white">
           Unified API
         </h2>
-        <p className="text-lg text-gray-400">
+        <p className="text-base sm:text-lg text-gray-400">
           Same methods, different drivers. It's that simple.
         </p>
       </motion.div>
@@ -90,12 +90,12 @@ export default function CodeDemo() {
         className="overflow-hidden rounded-xl border border-white/10 bg-[#0c0c0c]"
       >
         {/* Tabs */}
-        <div className="flex border-b border-white/10 bg-white/5">
+        <div className="flex overflow-x-auto border-b border-white/10 bg-white/5">
           {codeExamples.map((example, index) => (
             <button
               key={example.title}
               onClick={() => setActiveTab(index)}
-              className={`px-6 py-3 text-sm font-medium transition-colors ${activeTab === index
+              className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${activeTab === index
                   ? 'border-b-2 border-teal-400 text-teal-400'
                   : 'text-gray-400 hover:text-white'
                 }`}
@@ -106,7 +106,7 @@ export default function CodeDemo() {
         </div>
 
         {/* Code Content */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           <CodeBlock code={codeExamples[activeTab].code} />
         </div>
       </motion.div>

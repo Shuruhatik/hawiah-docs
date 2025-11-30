@@ -28,7 +28,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ export default function Features() {
         </p>
       </motion.div>
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 grid-cols-2 lg:grid-cols-4">
         {features.map((feature, index) => {
           const Icon = feature.icon;
           return (
@@ -56,15 +56,15 @@ export default function Features() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="text-center"
             >
-              <div className="mb-4 inline-flex rounded-xl bg-teal-500/10 p-4">
-                <Icon className="h-8 w-8 text-teal-400" />
+              <div className="mb-3 sm:mb-4 inline-flex rounded-xl bg-teal-500/10 p-3 sm:p-4">
+                <Icon className="h-6 w-6 sm:h-8 sm:w-8 text-teal-400" />
               </div>
 
-              <h3 className="mb-2 text-xl font-semibold text-white">
+              <h3 className="mb-1.5 sm:mb-2 text-base sm:text-xl font-semibold text-white">
                 {feature.title}
               </h3>
 
-              <p className="text-sm text-gray-400">
+              <p className="text-xs sm:text-sm text-gray-400">
                 {feature.description}
               </p>
             </motion.div>

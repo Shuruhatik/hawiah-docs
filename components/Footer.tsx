@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Twitter, Heart } from 'lucide-react';
+import { Github, Heart } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -25,16 +25,6 @@ export default function Footer() {
                   Documentation
                 </Link>
               </li>
-              <li>
-                <Link href="/examples" className="transition-colors hover:text-white">
-                  Examples
-                </Link>
-              </li>
-              <li>
-                <Link href="/api" className="transition-colors hover:text-white">
-                  API Reference
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -43,18 +33,11 @@ export default function Footer() {
             <h4 className="mb-4 text-sm font-semibold text-white">Community</h4>
             <div className="flex gap-4">
               <Link
-                href="https://github.com/hawiah/hawiah"
+                href="https://github.com/Shuruhatik/hawiah"
                 target="_blank"
                 className="text-gray-400 transition-colors hover:text-white"
               >
                 <Github size={20} />
-              </Link>
-              <Link
-                href="https://twitter.com/hawiah"
-                target="_blank"
-                className="text-gray-400 transition-colors hover:text-white"
-              >
-                <Twitter size={20} />
               </Link>
             </div>
           </div>

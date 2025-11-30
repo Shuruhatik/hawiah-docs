@@ -26,7 +26,7 @@ const drivers = [
 
 export default function EcosystemGrid() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ export default function EcosystemGrid() {
         </p>
       </motion.div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-3">
         {drivers.map((driver, index) => {
           const Icon = driver.icon;
           return (
@@ -52,17 +52,17 @@ export default function EcosystemGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 transition-all hover:border-teal-500/50 hover:bg-white/10"
+              className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-4 sm:p-6 transition-all hover:border-teal-500/50 hover:bg-white/10"
             >
-              <div className="mb-4 inline-flex rounded-lg bg-teal-500/10 p-3">
-                <Icon className="h-6 w-6 text-teal-400" />
+              <div className="mb-3 sm:mb-4 inline-flex rounded-lg bg-teal-500/10 p-2 sm:p-3">
+                <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-teal-400" />
               </div>
 
-              <h3 className="mb-2 text-lg font-semibold text-white">
+              <h3 className="mb-1.5 sm:mb-2 text-sm sm:text-lg font-semibold text-white">
                 {driver.name}
               </h3>
 
-              <p className="text-sm text-gray-400">
+              <p className="text-xs sm:text-sm text-gray-400">
                 {driver.description}
               </p>
 
