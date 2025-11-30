@@ -17,16 +17,8 @@ interface SearchResult {
 }
 
 export default function DocsPage() {
-  // Get initial section from URL hash or default to 'installation'
-  const getInitialSection = () => {
-    if (typeof window !== 'undefined') {
-      const hash = window.location.hash.replace('#', '');
-      return hash || 'installation';
-    }
-    return 'installation';
-  };
-
-  const [activeSection, setActiveSection] = useState(getInitialSection());
+  // Initialize with null to prevent hydration mismatch
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
@@ -34,9 +26,15 @@ export default function DocsPage() {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
+  // Initialize section from URL on mount
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    setActiveSection(hash || 'installation');
+  }, []);
+
   // Update URL when section changes
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (activeSection && typeof window !== 'undefined') {
       window.history.replaceState(null, '', `#${activeSection}`);
     }
   }, [activeSection]);
@@ -316,20 +314,22 @@ export default function DocsPage() {
           transform transition-transform duration-300 ease-in-out
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}>
-          <Sidebar 
-            activeSection={activeSection} 
-            setActiveSection={setActiveSection}
-            searchQuery={searchQuery}
-          />
+          {activeSection && (
+            <Sidebar 
+              activeSection={activeSection} 
+              setActiveSection={setActiveSection}
+              searchQuery={searchQuery}
+            />
+          )}
         </div>
 
         {/* Main Content */}
         <main className="flex-1 px-4 md:px-8 py-8 md:py-12 max-w-4xl min-w-0">
-          <DocContent activeSection={activeSection} />
+          {activeSection && <DocContent activeSection={activeSection} />}
         </main>
 
         {/* Right Sidebar - Table of Contents */}
-        <TableOfContents activeSection={activeSection} />
+        {activeSection && <TableOfContents activeSection={activeSection} />}
       </div>
     </div>
   );
