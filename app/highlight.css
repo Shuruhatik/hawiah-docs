@@ -1,0 +1,54 @@
+/* Custom Highlight.js Theme - No borders or backgrounds */
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.hljs-keyword {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.hljs-string {
+  color: #6ee7b7;
+}
+
+.hljs-comment {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.hljs-title.class_ {
+  color: #34d399;
+  font-weight: 600;
+}
+
+.hljs-title.function_ {
+  color: #2dd4bf;
+  font-weight: 500;
+}
+
+.hljs-attr {
+  color: #5eead4;
+}
+
+.hljs-number {
+  color: #34d399;
+}
+
+.hljs-built_in {
+  color: #10b981;
+}
+
+.hljs-literal {
+  color: #34d399;
+}
+
+/* Remove any default borders from code elements */
+code.hljs {
+  border: none !important;
+  outline: none !important;
+}
