@@ -71,8 +71,8 @@ Returns a `Promise<Data | null>`:
 
 ## Related Methods
 
-- [getOne()](/docs/getOne) - Get by any query
-- [updateById()](/docs/updateById) - Update by ID
-- [removeById()](/docs/removeById) - Remove by ID
-- [hasId()](/docs/hasId) - Check if ID exists
-- [get()](/docs/get) - Get multiple records
+- [getOne()](/docs=getOne) - Get by any query
+- [updateById()](/docs=updateById) - Update by ID
+- [removeById()](/docs=removeById) - Remove by ID
+- [hasId()](/docs=hasId) - Check if ID exists
+- [get()](/docs=get) - Get multiple records

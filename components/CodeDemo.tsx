@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import CodeBlock from './docs/CodeBlock';
 
@@ -164,8 +164,8 @@ export default function CodeDemo() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="mb-8 sm:mb-12 text-center"
+        transition={{ type: 'spring' as const, stiffness: 100, damping: 20 }}
+        className="mb-8 sm:mb-12 text-center will-change-transform"
       >
         <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
           One API, Multiple Drivers
@@ -179,10 +179,10 @@ export default function CodeDemo() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="overflow-hidden rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c0c0c] shadow-lg"
+        transition={{ type: 'spring' as const, stiffness: 100, damping: 20, delay: 0.2 }}
+        className="overflow-hidden rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c0c0c] shadow-lg will-change-transform"
       >
-        <div className="flex overflow-x-auto border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5">
+        <div className="flex overflow-x-auto border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-white/10">
           {codeExamples.map((example, index) => (
             <button
               key={example.title}
@@ -197,10 +197,21 @@ export default function CodeDemo() {
           ))}
         </div>
 
-        <div className="p-4 sm:p-6">
-          <CodeBlock code={codeExamples[activeTab].code} />
+        <div className="p-4 sm:p-6 min-h-[350px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.15 }}
+            >
+              <CodeBlock code={codeExamples[activeTab].code} />
+            </motion.div>
+          </AnimatePresence>
         </div>
       </motion.div>
     </section>
   );
 }
+

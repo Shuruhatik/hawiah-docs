@@ -77,6 +77,6 @@ Returns a `Promise<Data[]>` containing an array of inserted records.
 
 ## Related Methods
 
-- [insert()](/docs/insert) - Insert a single record
-- [save()](/docs/save) - Upsert operation
-- [get()](/docs/get) - Query inserted records
+- [insert()](/docs=insert) - Insert a single record
+- [save()](/docs=save) - Upsert operation
+- [get()](/docs=get) - Query inserted records

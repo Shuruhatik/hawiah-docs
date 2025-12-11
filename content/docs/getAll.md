@@ -56,8 +56,8 @@ Returns a `Promise<Data[]>` containing all records in the database.
 
 ## Related Methods
 
-- [get()](/docs/get) - Get records with filtering
-- [getOne()](/docs/getOne) - Get a single record
-- [count()](/docs/count) - Count all records
-- [paginate()](/docs/paginate) - Get paginated results
-- [isEmpty()](/docs/isEmpty) - Check if database is empty
+- [get()](/docs=get) - Get records with filtering
+- [getOne()](/docs=getOne) - Get a single record
+- [count()](/docs=count) - Count all records
+- [paginate()](/docs=paginate) - Get paginated results
+- [isEmpty()](/docs=isEmpty) - Check if database is empty

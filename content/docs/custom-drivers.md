@@ -462,6 +462,6 @@ Share your custom drivers with the community:
 
 ## Related Topics
 
-- [Database Drivers](/docs/drivers) - Official drivers
-- [API Reference](/docs/api-reference) - Complete API
-- [Quick Start](/docs/quick-start) - Getting started guide
+- [Database Drivers](/docs=drivers) - Official drivers
+- [API Reference](/docs=api-reference) - Complete API
+- [Quick Start](/docs=quick-start) - Getting started guide

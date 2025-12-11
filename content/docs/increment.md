@@ -93,6 +93,6 @@ try {
 
 ## Related Methods
 
-- [decrement()](/docs/decrement) - Decrease a numeric field
-- [sum()](/docs/sum) - Calculate sum of a field
-- [update()](/docs/update) - Update fields directly
+- [decrement()](/docs=decrement) - Decrease a numeric field
+- [sum()](/docs=sum) - Calculate sum of a field
+- [update()](/docs=update) - Update fields directly

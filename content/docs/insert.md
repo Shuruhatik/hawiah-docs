@@ -77,6 +77,6 @@ Returns a `Promise<Data>` containing the inserted record.
 
 ## Related Methods
 
-- [insertMany()](/docs/insertMany) - Insert multiple records at once
-- [save()](/docs/save) - Upsert operation (insert or update)
-- [update()](/docs/update) - Update existing records
+- [insertMany()](/docs=insertMany) - Insert multiple records at once
+- [save()](/docs=save) - Upsert operation (insert or update)
+- [update()](/docs=update) - Update existing records

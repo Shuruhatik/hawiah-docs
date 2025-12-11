@@ -66,5 +66,5 @@ Returns a `Promise<Data[]>` containing all records that match any of the queries
 
 ## Related Methods
 
-- [get()](/docs/get) - Get with single query (AND operation)
-- [getOne()](/docs/getOne) - Get single record
+- [get()](/docs=get) - Get with single query (AND operation)
+- [getOne()](/docs=getOne) - Get single record

@@ -24,6 +24,31 @@ const drivers = [
   { name: 'CustomDriver', icon: Code2, description: 'Build your own', package: 'DIY' },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0.8, y: 30 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      type: 'spring' as const,
+      stiffness: 120,
+      damping: 15,
+      mass: 0.8,
+    },
+  },
+};
+
 export default function EcosystemGrid() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 py-24">
@@ -32,7 +57,7 @@ export default function EcosystemGrid() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mb-16 text-center"
+        className="mb-16 text-center will-change-transform"
       >
         <h2 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white">
           Connect to Any Database
@@ -45,39 +70,41 @@ export default function EcosystemGrid() {
         </p>
       </motion.div>
 
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {drivers.map((driver, index) => {
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="grid gap-4 grid-cols-2 lg:grid-cols-3"
+      >
+        {drivers.map((driver) => {
           const Icon = driver.icon;
           return (
             <motion.div
               key={driver.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-              className="group relative flex flex-col items-center justify-center p-6 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:border-teal-500/30 dark:hover:border-teal-500/30 transition-all hover:-translate-y-1"
+              variants={itemVariants}
+              className="group relative flex flex-col items-center justify-center p-6 rounded-3xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:border-teal-500/30 dark:hover:border-teal-500/30 transition-all hover:-translate-y-1 will-change-transform [&:nth-child(odd):last-child]:col-span-2 lg:[&:nth-child(odd):last-child]:col-span-1"
             >
-              <div className="mb-4 p-3 rounded-xl bg-white dark:bg-white/5 shadow-sm group-hover:shadow-md group-hover:shadow-teal-500/10 transition-all">
-                <Icon className="h-6 w-6 text-slate-600 dark:text-slate-400 group-hover:text-teal-500 transition-colors" />
+              <div className="mb-5 p-3.5 rounded-2xl bg-white dark:bg-white/5 shadow-sm group-hover:shadow-md group-hover:shadow-teal-500/10 transition-all">
+                <Icon className="h-7 w-7 text-slate-600 dark:text-slate-400 group-hover:text-teal-500 transition-colors" />
               </div>
 
-              <h3 className="text-sm font-semibold text-slate-900 dark:text-white mb-1">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2 text-center">
                 {driver.name}
               </h3>
 
-              <p className="text-xs text-slate-500 dark:text-slate-500 text-center mb-2">
+              <p className="text-sm text-slate-500 dark:text-slate-400 text-center mb-4 leading-relaxed">
                 {driver.description}
               </p>
 
-              <code className="text-[10px] text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/20 px-2 py-1 rounded">
+              <code className="text-xs text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/20 px-2.5 py-1 rounded-md font-medium">
                 {driver.package}
               </code>
             </motion.div>
           );
         })}
-
-
-      </div>
+      </motion.div>
     </section>
   );
 }
+

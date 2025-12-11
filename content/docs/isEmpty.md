@@ -68,7 +68,7 @@ Returns a `Promise<boolean>`:
 
 ## Related Methods
 
-- [count()](/docs/count) - Count records
-- [getAll()](/docs/getAll) - Get all records
-- [clear()](/docs/clear) - Remove all records
-- [first()](/docs/first) - Get first record
+- [count()](/docs=count) - Count records
+- [getAll()](/docs=getAll) - Get all records
+- [clear()](/docs=clear) - Remove all records
+- [first()](/docs=first) - Get first record

@@ -97,4 +97,4 @@ pnpm add hawiah @hawiah/local
 
 ## Next Steps
 
-After installation, check out the [Quick Start](/docs/quick-start) guide to begin using Hawiah in your project.
+After installation, check out the [Quick Start](/docs=quick-start) guide to begin using Hawiah in your project.

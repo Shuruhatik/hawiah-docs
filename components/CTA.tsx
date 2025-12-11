@@ -18,7 +18,8 @@ export default function CTA() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ type: 'spring' as const, stiffness: 100, damping: 20 }}
+                    className="will-change-transform"
                 >
                     <h2 className="mb-6 text-4xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">
                         Ready to simplify your database layer?
@@ -50,3 +51,4 @@ export default function CTA() {
         </section>
     );
 }
+

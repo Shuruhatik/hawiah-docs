@@ -107,5 +107,5 @@ Returns a `Promise<void>` that resolves when the connection is established.
 
 ## Related Methods
 
-- [disconnect()](/docs/disconnect) - Close the database connection
-- [isActive()](/docs/isActive) - Check connection status
+- [disconnect()](/docs=disconnect) - Close the database connection
+- [isActive()](/docs=isActive) - Check connection status
