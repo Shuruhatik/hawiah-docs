@@ -180,35 +180,61 @@ export default function CodeDemo() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ type: 'spring' as const, stiffness: 100, damping: 20, delay: 0.2 }}
-        className="overflow-hidden rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c0c0c] shadow-lg will-change-transform"
+        className="relative overflow-hidden rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c0c0c] shadow-2xl will-change-transform"
       >
-        <div className="flex overflow-x-auto border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-white/10">
-          {codeExamples.map((example, index) => (
-            <button
-              key={example.title}
-              onClick={() => setActiveTab(index)}
-              className={`px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${activeTab === index
-                  ? 'border-b-2 border-teal-600 dark:border-teal-400 text-teal-700 dark:text-teal-400'
-                  : 'text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white'
-                }`}
-            >
-              {example.title}
-            </button>
-          ))}
+        {/* Header / Tabs */}
+        <div className="flex flex-col md:flex-row items-center justify-between border-b border-slate-200 dark:border-white/5 bg-slate-50/50 dark:bg-[#1a1a1a]/50 backdrop-blur-md">
+          {/* Traffic Lights (Desktop only) */}
+          <div className="hidden md:flex gap-2 px-4 py-3">
+            <div className="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#ff5f56]" />
+            <div className="w-3 h-3 rounded-full bg-[#ffbd2e] border border-[#ffbd2e]" />
+            <div className="w-3 h-3 rounded-full bg-[#27c93f] border border-[#27c93f]" />
+          </div>
+
+          {/* Scrollable Tabs */}
+          <div className="flex-1 w-full md:w-auto overflow-x-auto no-scrollbar px-2 py-2">
+            <div className="flex items-center md:justify-center gap-1 min-w-max px-2">
+              {codeExamples.map((example, index) => (
+                <button
+                  key={example.title}
+                  onClick={() => setActiveTab(index)}
+                  className={`relative px-4 py-2 text-sm font-medium rounded-full transition-colors z-10 ${activeTab === index
+                    ? 'text-white dark:text-white'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                    }`}
+                >
+                  {activeTab === index && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute inset-0 bg-teal-600 dark:bg-white/10 rounded-full -z-10"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                  {example.title}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Spacer for desktop symmetry */}
+          <div className="hidden md:block w-20" />
         </div>
 
-        <div className="p-4 sm:p-6 min-h-[350px]">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 5 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -5 }}
-              transition={{ duration: 0.15 }}
-            >
-              <CodeBlock code={codeExamples[activeTab].code} />
-            </motion.div>
-          </AnimatePresence>
+        {/* Code Content */}
+        <div className="p-0 bg-slate-50 dark:bg-[#0a0f0d] transition-colors duration-300">
+          <div className="p-4 sm:p-6 min-h-[400px] overflow-auto">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.2 }}
+              >
+                <CodeBlock code={codeExamples[activeTab].code} />
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </motion.div>
     </section>
