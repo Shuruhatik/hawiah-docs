@@ -19,8 +19,8 @@ export default function TableOfContents({ activeSection }: TableOfContentsProps)
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    // Small delay to ensure content is rendered
-    const timer = setTimeout(() => {
+    // Function to update headings
+    const updateHeadings = () => {
       const elements = Array.from(document.querySelectorAll('main h2, main h3'));
       const headingData = elements
         .map((elem) => ({
@@ -30,9 +30,25 @@ export default function TableOfContents({ activeSection }: TableOfContentsProps)
         }))
         .filter((heading) => heading.text !== 'Related Methods');
       setHeadings(headingData);
-    }, 100);
+    };
 
-    return () => clearTimeout(timer);
+    // Initial update
+    updateHeadings();
+
+    // Use MutationObserver to watch for changes in the main content
+    const mainElement = document.querySelector('main');
+    if (!mainElement) return;
+
+    const observer = new MutationObserver(() => {
+      updateHeadings();
+    });
+
+    observer.observe(mainElement, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => observer.disconnect();
   }, [activeSection]);
 
   useEffect(() => {
@@ -149,12 +165,13 @@ export default function TableOfContents({ activeSection }: TableOfContentsProps)
         hidden xl:block
         sticky top-24 right-0 
         h-[calc(100vh-6rem)] 
-        w-56 
+        w-80 
         overflow-y-auto 
         pl-8 
         border-l border-slate-200 dark:border-white/10 
+        [direction:rtl]
       `}>
-        <nav>
+        <nav className="[direction:ltr]">
           <h3 className="text-xs font-semibold text-slate-500 dark:text-gray-500 uppercase tracking-wider mb-4">
             On This Page
           </h3>

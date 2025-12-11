@@ -35,16 +35,12 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, scale: 0.8, y: 30 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    scale: 1,
-    y: 0,
     transition: {
-      type: 'spring' as const,
-      stiffness: 120,
-      damping: 15,
-      mass: 0.8,
+      duration: 0.4,
+      ease: "easeOut" as const,
     },
   },
 };

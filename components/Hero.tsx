@@ -88,6 +88,15 @@ export default function Hero() {
               <Github size={18} />
               <span>GitHub</span>
             </Link>
+
+            <Link
+              href="https://npmjs.com/package/hawiah"
+              target="_blank"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 px-8 py-4 text-base font-semibold text-slate-900 dark:text-white transition-all hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-300 dark:hover:border-white/20"
+            >
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" className="text-[#CB3837]"><path d="M1.763 0C.786 0 0 .786 0 1.763v20.474C0 23.214.786 24 1.763 24h20.474c.977 0 1.763-.786 1.763-1.763V1.763C24 .786 23.214 0 22.237 0zM5.13 5.323l13.837.019-.009 13.836h-3.464l.01-10.382h-3.456L12.04 19.17H5.129z" /></svg>
+              <span>NPM</span>
+            </Link>
           </motion.div>
 
           <motion.div
