@@ -291,21 +291,31 @@ await prodDb.insert({ name: 'Ahmed' });
 ## Installation Guide
 
 1. Install core package:
-```bash
-npm install hawiah
+1. Install core package:
+```install
+hawiah
 ```
 
 2. Install your chosen driver(s):
-```bash
-# For local development
-npm install @hawiah/local
 
-# For production
-npm install @hawiah/mongo
-# or
-npm install @hawiah/postgres
-# or
-npm install @hawiah/mysql
+**For local development**
+```install
+@hawiah/local
+```
+
+**For production (MongoDB)**
+```install
+@hawiah/mongo
+```
+
+**For production (PostgreSQL)**
+```install
+@hawiah/postgres
+```
+
+**For production (MySQL)**
+```install
+@hawiah/mysql
 ```
 
 3. Start using:

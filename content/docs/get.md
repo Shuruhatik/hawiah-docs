@@ -76,9 +76,9 @@ Returns a `Promise<Data[]>` containing an array of matching records.
 
 ## Related Methods
 
-- [getOne()](/docs=getOne) - Get a single record
-- [getAll()](/docs=getAll) - Get all records
-- [getById()](/docs=getById) - Get record by ID
-- [getBy()](/docs=getBy) - Get records by field value
-- [paginate()](/docs=paginate) - Get paginated results
-- [count()](/docs=count) - Count matching records
+- [getOne()](/docs#getOne) - Get a single record
+- [getAll()](/docs#getAll) - Get all records
+- [getById()](/docs#getById) - Get record by ID
+- [getBy()](/docs#getBy) - Get records by field value
+- [paginate()](/docs#paginate) - Get paginated results
+- [count()](/docs#count) - Count matching records

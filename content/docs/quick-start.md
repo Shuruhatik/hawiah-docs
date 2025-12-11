@@ -20,15 +20,16 @@ Hawiah is not just another ORM. It offers:
 
 ## Installation
 
-```bash
-# Install core package
-npm install hawiah
+**Install Hawiah package**
 
-# Install a driver (example: JSON)
-npm install @hawiah/local
+```install
+hawiah
+```
 
-# For relationships (optional)
-npm install dataloader
+**For relationships (optional)**
+
+```install
+dataloader
 ```
 
 ## Basic Usage
@@ -36,6 +37,10 @@ npm install dataloader
 ### 1. JSONDriver - Local JSON Files
 
 Perfect for development, testing, and small applications.
+
+```install
+@hawiah/local
+```
 
 ```javascript
 import { Hawiah } from 'hawiah';
@@ -65,6 +70,10 @@ await db.disconnect();
 
 Great for configuration files and structured content.
 
+```install
+@hawiah/local
+```
+
 ```javascript
 import { Hawiah } from 'hawiah';
 import { YAMLDriver } from '@hawiah/local';
@@ -81,6 +90,10 @@ await db.disconnect();
 ### 3. SQLiteDriver - SQLite Database
 
 Ideal for desktop applications and embedded systems.
+
+```install
+@hawiah/sqlite
+```
 
 ```javascript
 import { Hawiah } from 'hawiah';
@@ -100,6 +113,10 @@ await db.disconnect();
 ### 4. MongoDriver - MongoDB
 
 Perfect for web applications and scalable systems.
+
+```install
+@hawiah/mongo
+```
 
 ```javascript
 import { Hawiah } from 'hawiah';
@@ -121,6 +138,10 @@ await db.disconnect();
 ### 5. FirebaseDriver - Firebase Firestore
 
 Great for real-time applications and mobile apps.
+
+```install
+@hawiah/firebase
+```
 
 ```javascript
 import { Hawiah } from 'hawiah';
@@ -151,6 +172,10 @@ await db.disconnect();
 
 Enterprise-grade database for complex applications.
 
+```install
+@hawiah/postgres
+```
+
 ```javascript
 import { Hawiah } from 'hawiah';
 import { PostgreSQLDriver } from '@hawiah/postgres';
@@ -170,6 +195,10 @@ await db.disconnect();
 ### 7. MySQLDriver - MySQL
 
 Popular choice for web applications and CMS.
+
+```install
+@hawiah/mysql
+```
 
 ```javascript
 import { Hawiah } from 'hawiah';
@@ -396,14 +425,14 @@ Learn more: [Virtual Relationships](/docs#virtual-relationships)
 
 Explore the full API documentation:
 
-- **Connection**: [connect()](/docs=connect), [disconnect()](/docs=disconnect), [isActive()](/docs=isActive)
-- **Insert**: [insert()](/docs=insert), [insertMany()](/docs=insertMany), [save()](/docs=save)
-- **Query**: [get()](/docs=get), [getOne()](/docs=getOne), [getAll()](/docs=getAll), [getById()](/docs=getById), [getBy()](/docs=getBy)
-- **Update**: [update()](/docs=update), [updateOne()](/docs=updateOne), [updateById()](/docs=updateById)
-- **Remove**: [remove()](/docs=remove), [removeOne()](/docs=removeOne), [removeById()](/docs=removeById), [clear()](/docs=clear)
-- **Advanced**: [paginate()](/docs=paginate), [sort()](/docs=sort), [group()](/docs=group), [select()](/docs=select), [unique()](/docs=unique)
-- **Arrays**: [push()](/docs=push), [pull()](/docs=pull), [shift()](/docs=shift), [unshift()](/docs=unshift), [pop()](/docs=pop)
-- **Numeric**: [increment()](/docs=increment), [decrement()](/docs=decrement), [sum()](/docs=sum)
-- **Fields**: [unset()](/docs=unset), [rename()](/docs=rename)
-- **Utility**: [first()](/docs=first), [last()](/docs=last), [isEmpty()](/docs=isEmpty), [random()](/docs=random), [count()](/docs=count), [has()](/docs=has)
+- **Connection**: [connect()](/docs#connect), [disconnect()](/docs#disconnect), [isActive()](/docs#isActive)
+- **Insert**: [insert()](/docs#insert), [insertMany()](/docs#insertMany), [save()](/docs#save)
+- **Query**: [get()](/docs#get), [getOne()](/docs#getOne), [getAll()](/docs#getAll), [getById()](/docs#getById), [getBy()](/docs#getBy)
+- **Update**: [update()](/docs#update), [updateOne()](/docs#updateOne), [updateById()](/docs#updateById)
+- **Remove**: [remove()](/docs#remove), [removeOne()](/docs#removeOne), [removeById()](/docs#removeById), [clear()](/docs#clear)
+- **Advanced**: [paginate()](/docs#paginate), [sort()](/docs#sort), [group()](/docs#group), [select()](/docs#select), [unique()](/docs#unique)
+- **Arrays**: [push()](/docs#push), [pull()](/docs#pull), [shift()](/docs#shift), [unshift()](/docs#unshift), [pop()](/docs#pop)
+- **Numeric**: [increment()](/docs#increment), [decrement()](/docs#decrement), [sum()](/docs#sum)
+- **Fields**: [unset()](/docs#unset), [rename()](/docs#rename)
+- **Utility**: [first()](/docs#first), [last()](/docs#last), [isEmpty()](/docs#isEmpty), [random()](/docs#random), [count()](/docs#count), [has()](/docs#has)
 

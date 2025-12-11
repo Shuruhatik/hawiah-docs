@@ -17,8 +17,8 @@ Relationships work **between different instances** of Hawiah - not within the sa
 
 ## 📦 Installation
 
-```bash
-npm install hawiah dataloader
+```install
+hawiah dataloader
 ```
 
 ## 🚀 Quick Start
@@ -399,7 +399,7 @@ const posts = await Posts.getWith({}, 'user');
 
 ## Related Topics
 
-- [API Reference](/docs=api-reference) - Complete method list
-- [Method Relationships](/docs=relationships) - Method patterns
-- [Custom Drivers](/docs=custom-drivers) - Build your own
-- [Quick Start](/docs=quick-start) - Getting started
+- [API Reference](/docs#api-reference) - Complete method list
+- [Method Relationships](/docs#relationships) - Method patterns
+- [Custom Drivers](/docs#custom-drivers) - Build your own
+- [Quick Start](/docs#quick-start) - Getting started

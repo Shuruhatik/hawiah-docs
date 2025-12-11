@@ -15,79 +15,54 @@ Hawiah uses a modular architecture. You need to install the core package and at 
 - **50+ Methods** - Complete CRUD and advanced operations
 - **TypeScript Ready** - Full type safety
 
-## Core Package (Required)
+## Main Package (Required)
 
-```bash
-npm install hawiah
+```install
+hawiah
 ```
 
 ## Database Drivers (Choose One or More)
 
 ### Local File Drivers
 
-```bash
-# JSON & YAML support
-npm install @hawiah/local
+```install
+@hawiah/local
 ```
 
 ### SQLite
 
-```bash
-npm install @hawiah/sqlite
+```install
+@hawiah/sqlite
 ```
 
 ### MongoDB
 
-```bash
-npm install @hawiah/mongo
+```install
+@hawiah/mongo
 ```
 
 ### Firebase Firestore
 
-```bash
-npm install @hawiah/firebase
+```install
+@hawiah/firebase
 ```
 
 ### PostgreSQL
 
-```bash
-npm install @hawiah/postgres
+```install
+@hawiah/postgres
 ```
 
 ### MySQL
 
-```bash
-npm install @hawiah/mysql
+```install
+@hawiah/mysql
 ```
 
 ## Complete Installation Example
 
-```bash
-# Install core + JSON driver for development
-npm install hawiah @hawiah/local
-
-# Or install core + MongoDB for production
-npm install hawiah @hawiah/mongo
-```
-
-## Package Managers
-
-### NPM
-
-```bash
-npm install hawiah @hawiah/local
-```
-
-### Yarn
-
-```bash
-yarn add hawiah @hawiah/local
-```
-
-### PNPM
-
-```bash
-pnpm add hawiah @hawiah/local
+```install
+hawiah @hawiah/local
 ```
 
 ## Requirements
@@ -97,4 +72,4 @@ pnpm add hawiah @hawiah/local
 
 ## Next Steps
 
-After installation, check out the [Quick Start](/docs=quick-start) guide to begin using Hawiah in your project.
+After installation, check out the [Quick Start](/docs#quick-start) guide to begin using Hawiah in your project.

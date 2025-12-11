@@ -63,7 +63,7 @@ Returns a `Promise<Data[]>` containing all records where the field matches the v
 
 ## Related Methods
 
-- [get()](/docs=get) - Get with complex queries
-- [getOne()](/docs=getOne) - Get single record
-- [hasBy()](/docs=hasBy) - Check if field value exists
-- [countBy()](/docs=countBy) - Count records by field value
+- [get()](/docs#get) - Get with complex queries
+- [getOne()](/docs#getOne) - Get single record
+- [hasBy()](/docs#hasBy) - Check if field value exists
+- [countBy()](/docs#countBy) - Count records by field value
