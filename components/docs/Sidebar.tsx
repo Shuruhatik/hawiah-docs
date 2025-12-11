@@ -47,7 +47,7 @@ export default function Sidebar({ activeSection, setActiveSection }: SidebarProp
   };
 
   return (
-    <aside className="sticky top-16 h-[calc(100vh-4rem)] w-64 border-r border-slate-200 dark:border-white/10 overflow-y-auto bg-slate-50 dark:bg-[#020202]">
+    <aside className="sticky top-16 h-[calc(100vh-4rem)] w-72 border-r border-slate-200 dark:border-white/10 overflow-y-auto bg-slate-50 dark:bg-[#020202]">
       <div className="p-6">
         <div className="mb-6">
           <div className="text-xs font-semibold text-slate-500 dark:text-gray-500 uppercase tracking-wider mb-2">
@@ -79,8 +79,8 @@ export default function Sidebar({ activeSection, setActiveSection }: SidebarProp
                         ref={activeSection === item.id ? activeItemRef : null}
                         onClick={() => setActiveSection(item.id)}
                         className={`block w-full text-left text-sm py-1.5 px-3 rounded transition-colors ${activeSection === item.id
-                            ? 'text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-500/10 border-l-2 border-teal-600 dark:border-teal-400'
-                            : 'text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5'
+                          ? 'text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-500/10 border-l-2 border-teal-600 dark:border-teal-400'
+                          : 'text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5'
                           }`}
                       >
                         {item.label}

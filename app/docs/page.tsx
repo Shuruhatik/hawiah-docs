@@ -124,10 +124,10 @@ export default function DocsPage() {
               {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
             <Link href="/" className="flex items-center gap-2">
-              <Image 
-                src="/icon.png" 
-                alt="Hawiah Logo" 
-                width={28} 
+              <Image
+                src="/icon.png"
+                alt="Hawiah Logo"
+                width={28}
                 height={28}
                 className="rounded-lg logo-light-mode"
               />
@@ -138,7 +138,7 @@ export default function DocsPage() {
               <Link href="/docs" className="text-teal-600 dark:text-teal-400">Docs</Link>
             </nav>
           </div>
-          
+
           {/* Search Bar - Desktop */}
           <div className="hidden sm:flex flex-1 max-w-md mx-4" ref={searchRef}>
             <div className="relative w-full">
@@ -157,7 +157,7 @@ export default function DocsPage() {
               <kbd className="absolute right-3 top-1/2 -translate-y-1/2 px-2 py-1 text-xs text-slate-500 dark:text-gray-500 bg-slate-200 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded">
                 ⌘K
               </kbd>
-              
+
               {/* Search Results Dropdown */}
               {showSearchResults && searchResults.length > 0 && (
                 <div className="absolute top-full mt-2 w-full bg-white dark:bg-[#111111] border border-slate-200 dark:border-white/10 rounded-lg shadow-2xl overflow-hidden z-50">
@@ -171,7 +171,7 @@ export default function DocsPage() {
                         <div className="flex items-start gap-3">
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-1">
-                              <span 
+                              <span
                                 className="text-sm font-medium text-slate-900 dark:text-white"
                                 dangerouslySetInnerHTML={{ __html: result.highlightedLabel || result.label }}
                               />
@@ -179,7 +179,7 @@ export default function DocsPage() {
                                 {result.category}
                               </span>
                             </div>
-                            <p 
+                            <p
                               className="text-xs text-slate-600 dark:text-gray-400 line-clamp-2"
                               dangerouslySetInnerHTML={{ __html: result.matchedSnippet || result.description }}
                             />
@@ -208,7 +208,7 @@ export default function DocsPage() {
             >
               <Search className="w-5 h-5" />
             </button>
-            
+
             {/* GitHub Link - Icon + text on desktop, icon only on mobile */}
             <a
               href="https://github.com/Shuruhatik/hawiah"
@@ -251,7 +251,7 @@ export default function DocsPage() {
                   <X className="w-5 h-5" />
                 </button>
               </div>
-              
+
               <div className="max-h-[60vh] overflow-y-auto">
                 {searchResults.length > 0 ? (
                   searchResults.map((result) => (
@@ -264,7 +264,7 @@ export default function DocsPage() {
                       className="w-full text-left px-4 py-3 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors border-b border-slate-200 dark:border-white/5 last:border-b-0"
                     >
                       <div className="flex items-center gap-2 mb-1">
-                        <span 
+                        <span
                           className="text-sm font-medium text-slate-900 dark:text-white"
                           dangerouslySetInnerHTML={{ __html: result.highlightedLabel || result.label }}
                         />
@@ -272,7 +272,7 @@ export default function DocsPage() {
                           {result.category}
                         </span>
                       </div>
-                      <p 
+                      <p
                         className="text-xs text-slate-600 dark:text-gray-400 line-clamp-2"
                         dangerouslySetInnerHTML={{ __html: result.matchedSnippet || result.description }}
                       />
@@ -310,18 +310,18 @@ export default function DocsPage() {
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}>
           {activeSection && (
-            <Sidebar 
-              activeSection={activeSection} 
+            <Sidebar
+              activeSection={activeSection}
               setActiveSection={setActiveSection}
             />
           )}
         </div>
 
         {/* Main Content */}
-        <main className="flex-1 px-4 sm:px-6 md:px-8 py-6 md:py-12 max-w-4xl min-w-0">
+        <main className="flex-1 px-4 sm:px-6 md:px-8 py-6 md:py-12 max-w-5xl min-w-0">
           {activeSection && (
-            <DocContent 
-              activeSection={activeSection} 
+            <DocContent
+              activeSection={activeSection}
               onNavigate={(sectionId) => {
                 setActiveSection(sectionId);
                 setSidebarOpen(false);

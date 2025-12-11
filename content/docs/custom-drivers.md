@@ -10,7 +10,7 @@ Hawiah's modular architecture allows you to create custom drivers for any databa
 
 ## Driver Interface
 
-All drivers must implement the `IDriver` interface:
+All drivers <mark>must implement</mark> the `IDriver` interface:
 
 ```typescript
 interface IDriver {

@@ -19,7 +19,7 @@ connect(): Promise<void>
 
 ## Description
 
-The `connect()` method initializes and establishes a connection to your database. This must be called before performing any database operations.
+The `connect()` method initializes and establishes a connection to your database. This <mark>must be called</mark> before performing any database operations.
 
 ## Examples
 
