@@ -67,7 +67,7 @@ hawiah @hawiah/local
 
 ## Requirements
 
-- Node.js 14.x or higher
+- Node.js 16.x or higher
 - Choose at least one database driver based on your needs
 
 ## Next Steps
