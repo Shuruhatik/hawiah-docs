@@ -75,7 +75,7 @@ export default function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="will-change-transform mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight sm:leading-[1.2]"
+              className="will-change-transform mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight sm:leading-[1.2]"
             >
               Hawiah: The <span className="text-teal-600 dark:text-teal-400">Ultra-Fast</span> <br className="hidden md:block" /> Universal ORM
             </motion.h1>
@@ -88,21 +88,21 @@ export default function Hero() {
               providing a zero-config, unified API for SQL, NoSQL, and Local files.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="will-change-transform flex flex-wrap gap-3 justify-center lg:justify-start px-4 sm:px-0">
+            <motion.div variants={itemVariants} className="will-change-transform flex flex-row gap-2 sm:gap-3 justify-center lg:justify-start px-4 sm:px-0 w-full max-w-[400px] mx-auto lg:mx-0">
               <Link
                 href="/docs#quick-start"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 dark:bg-white px-6 py-3 text-sm font-bold text-white dark:text-slate-900 transition-all hover:opacity-90 w-full sm:w-auto"
+                className="group inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-slate-900 dark:bg-white px-3 sm:px-6 py-3 text-[13px] sm:text-sm font-bold text-white dark:text-slate-900 transition-all hover:opacity-90 flex-1 sm:flex-none whitespace-nowrap"
               >
                 <span>Get Started</span>
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1 shrink-0" />
               </Link>
 
               <Link
                 href="https://npmjs.com/package/hawiah"
                 target="_blank"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 px-6 py-3 text-sm font-semibold text-slate-900 dark:text-white transition-all hover:bg-slate-50 dark:hover:bg-white/10 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 px-3 sm:px-6 py-3 text-[13px] sm:text-sm font-semibold text-slate-900 dark:text-white transition-all hover:bg-slate-50 dark:hover:bg-white/10 flex-1 sm:flex-none whitespace-nowrap"
               >
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M1.763 0C.786 0 0 .786 0 1.763v20.474C0 23.214.786 24 1.763 24h20.474c.977 0 1.763-.786 1.763-1.763V1.763C24 .786 23.214 0 22.237 0zM5.13 5.323l13.837.019-.009 13.836h-3.464l.01-10.382h-3.456L12.04 19.17H5.129z" /></svg>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" className="shrink-0"><path d="M1.763 0C.786 0 0 .786 0 1.763v20.474C0 23.214.786 24 1.763 24h20.474c.977 0 1.763-.786 1.763-1.763V1.763C24 .786 23.214 0 22.237 0zM5.13 5.323l13.837.019-.009 13.836h-3.464l.01-10.382h-3.456L12.04 19.17H5.129z" /></svg>
                 <span>View on NPM</span>
               </Link>
             </motion.div>

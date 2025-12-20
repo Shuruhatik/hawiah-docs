@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/ThemeProvider";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://hawiah.js.org'),
   title: {
     default: "Hawiah | The World's Fastest Universal ORM & Database Layer",
     template: "%s | Hawiah"
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     "Fastest ORM", "Universal ORM", "SQL ORM", "NoSQL ORM", "Database Abstraction", "SQLite ORM",
     "MongoDB ORM", "Database Portability", "JSON Database", "High Performance DB",
     "أسرع ORM", "قواعد بيانات", "برمجة", "تطوير تطبيقات", "Node.js", "Backend Development", "Hawia", "هاوية", "هوية", "Hawiah DB",
-    "Hawiah ORM", "Hawiah npm", "hawiahjs","hawiah.js"
+    "Hawiah ORM", "Hawiah npm", "hawiahjs", "hawiah.js"
   ],
   authors: [
     { name: "Shuruhatik", url: "https://github.com/Shuruhatik" },

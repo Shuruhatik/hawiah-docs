@@ -89,10 +89,9 @@ export default function TableOfContents({ activeSection }: TableOfContentsProps)
 
   return (
     <>
-      {/* Mobile Toggle Button - Top Right Pill */}
       <button
         onClick={() => setOpen(!open)}
-        className="xl:hidden absolute top-20 right-4 z-30 flex items-center gap-2 px-3 py-1.5 mt-2 bg-white/80 dark:bg-[#020202]/80 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-full shadow-sm text-xs font-medium text-slate-600 dark:text-gray-300 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
+        className="xl:hidden absolute top-20 right-4 z-40 flex items-center gap-2 px-3 py-1.5 bg-white/80 dark:bg-[#020202]/80 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-full shadow-sm text-xs font-medium text-slate-600 dark:text-gray-300 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line></svg>
         <span>On This Page</span>

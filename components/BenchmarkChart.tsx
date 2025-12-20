@@ -7,7 +7,7 @@ import { Zap, Activity, Rocket, ChevronRight, BarChart3 } from 'lucide-react';
 
 const benchmarks = [
     {
-        name: 'Total Performance',
+        name: 'Total',
         icon: <Rocket size={14} />,
         description: 'Total execution time (Lower is better)',
         unit: 'ms',
@@ -19,7 +19,7 @@ const benchmarks = [
         ]
     },
     {
-        name: 'Read (Get ID)',
+        name: 'Read',
         icon: <Zap size={14} />,
         description: 'Single record retrieval speed',
         unit: 'ms',
@@ -31,7 +31,7 @@ const benchmarks = [
         ]
     },
     {
-        name: 'Write (Update)',
+        name: 'Write',
         icon: <Activity size={14} />,
         description: 'Data modification efficiency',
         unit: 'ms',

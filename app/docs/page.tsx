@@ -305,7 +305,7 @@ export default function DocsPage() {
       )}
 
       {/* Main Layout */}
-      <div className="flex pt-16">
+      <div className="flex pt-16 relative">
         {/* Mobile Sidebar Overlay */}
         {sidebarOpen && (
           <div
@@ -329,7 +329,7 @@ export default function DocsPage() {
         </div>
 
         {/* Main Content */}
-        <main className="flex-1 px-4 sm:px-6 md:px-8 py-6 md:py-12 max-w-5xl min-w-0">
+        <main className="flex-1 px-4 sm:px-6 md:px-8 pt-16 pb-6 md:py-12 max-w-5xl min-w-0">
           {activeSection && (
             <DocContent
               activeSection={activeSection}
