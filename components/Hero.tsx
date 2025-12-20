@@ -77,7 +77,7 @@ export default function Hero() {
               variants={itemVariants}
               className="will-change-transform mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight sm:leading-[1.2]"
             >
-              Hawiah: The <span className="text-teal-600 dark:text-teal-400">Ultra-Fast</span> <br className="hidden md:block" /> Universal ORM
+              Hawiah: The <span className="text-teal-600 dark:text-teal-400">Ultra-Fast</span> <br className="hidden md:block" /> Universal Database Interface
             </motion.h1>
 
             <motion.p

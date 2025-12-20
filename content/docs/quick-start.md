@@ -10,7 +10,7 @@ Learn the basics of Hawiah in under 5 minutes.
 
 ## What Makes Hawiah Special?
 
-Hawiah is not just another ORM. It offers:
+Hawiah is not just another database interface. It offers:
 
 - **Modular Architecture** - Install only what you need
 - **Multiple Drivers** - JSON, YAML, SQLite, MongoDB, Firebase, PostgreSQL, MySQL
@@ -435,4 +435,3 @@ Explore the full API documentation:
 - **Numeric**: [increment()](/docs#increment), [decrement()](/docs#decrement), [sum()](/docs#sum)
 - **Fields**: [unset()](/docs#unset), [rename()](/docs#rename)
 - **Utility**: [first()](/docs#first), [last()](/docs#last), [isEmpty()](/docs#isEmpty), [random()](/docs#random), [count()](/docs#count), [has()](/docs#has)
-

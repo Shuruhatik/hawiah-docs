@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-xl font-bold text-slate-900 dark:text-white">Hawiah (حاوية)</h3>
             <p className="text-sm text-slate-600 dark:text-gray-400">
-              The fastest Universal ORM for JavaScript/TypeScript. A lightweight, schema-less database abstraction layer for professional modern applications.
+              The fastest Universal Database Interface for JavaScript/TypeScript. A lightweight, schema-less database abstraction layer for professional modern applications.
             </p>
           </div>
 

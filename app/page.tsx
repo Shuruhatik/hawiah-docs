@@ -13,7 +13,7 @@ export default function Home() {
     "name": "Hawiah (حاوية)",
     "operatingSystem": "Cross-platform (Node.js, Bun, Edge)",
     "applicationCategory": "DeveloperApplication, DatabaseTool",
-    "description": "Hawiah is the fastest Universal ORM and Database Interface for JavaScript and TypeScript. Supporting SQLite, MongoDB, PostgreSQL, and more.",
+    "description": "Hawiah is the fastest Universal Database Interface and Abstraction Layer for JavaScript and TypeScript. Supporting SQLite, MongoDB, PostgreSQL, and more.",
     "softwareVersion": "1.0.0",
     "offers": {
       "@type": "Offer",

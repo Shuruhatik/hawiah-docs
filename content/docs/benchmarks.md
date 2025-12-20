@@ -1,14 +1,14 @@
 ---
 title: Performance Benchmarks
-description: Comprehensive performance comparison between Hawiah and popular Node.js ORMs like Prisma, TypeORM, and Sequelize.
+description: Comprehensive performance comparison between Hawiah and popular database libraries like Prisma, TypeORM, and Sequelize.
 category: Getting Started
 ---
 
 # Performance Benchmarks
 
-To ensure high performance across various workloads, we conducted a comprehensive benchmark comparing **Hawiah** with other popular Node.js ORMs using **SQLite** as the common database driver.
+To ensure high performance across various workloads, we conducted a comprehensive benchmark comparing **Hawiah** with other popular database libraries using **SQLite** as the common database driver.
 
-SQLite provides a level playing field as all ORMs use their respective SQLite drivers, ensuring a fair comparison without network latency or external database setup overhead.
+SQLite provides a level playing field as all libraries use their respective SQLite drivers, ensuring a fair comparison without network latency or external database setup overhead.
 
 ## 📊 Summary Results
 
@@ -16,7 +16,7 @@ Testing Hawiah against **Prisma**, **TypeORM**, and **Sequelize** across 9 diffe
 
 ### 🥇 The Verdict: Hawiah Wins
 
-| Rank | ORM | Total Time | Performance |
+| Rank | Library | Total Time | Performance |
 |------|-----|------------|-------------|
 | 🥇 | **Hawiah** | **94.42 ms** | **Baseline (Fastest)** |
 | 🥈 | Sequelize | 230.08 ms | 144% slower |

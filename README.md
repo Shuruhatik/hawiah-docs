@@ -1,6 +1,6 @@
-# 🚀 Hawiah - Modular Database Abstraction Layer
+# 🚀 Hawiah - Universal Database Interface & Abstraction Layer
 
-A lightweight, modular database abstraction layer with unified API. Support for JSON, YAML, SQLite, MongoDB, Firebase, PostgreSQL, and MySQL.
+A lightweight, schema-less database abstraction layer with a unified API. Support for JSON, YAML, SQLite, MongoDB, Firebase, PostgreSQL, and MySQL.
 
 ## ✨ Features
 
@@ -14,7 +14,7 @@ A lightweight, modular database abstraction layer with unified API. Support for 
 
 ## 📊 Performance
 
-Hawiah is designed for speed. In our benchmarks using SQLite as a common driver, Hawiah outperformed major ORMs like Prisma, TypeORM, and Sequelize.
+Hawiah is designed for speed. In our benchmarks using SQLite as a common driver, Hawiah outperformed major database libraries like Prisma, TypeORM, and Sequelize.
 
 | Operation | Hawiah | Advantage |
 |-----------|--------|-----------|

@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: "Hawiah - Universal Database Layer",
+        name: "Hawiah - Universal Database Interface",
         short_name: "Hawiah",
-        description: "The fastest Universal ORM for JavaScript/TypeScript.",
+        description: "The fastest Universal Database Interface for JavaScript/TypeScript.",
         start_url: "/",
         display: "standalone",
         background_color: "#020202",
