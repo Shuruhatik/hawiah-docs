@@ -29,6 +29,13 @@ export default function Header() {
           </Link>
 
           <Link
+            href="/docs#benchmarks"
+            className="text-xs sm:text-sm text-slate-600 dark:text-gray-400 transition-colors hover:text-slate-900 dark:hover:text-white"
+          >
+            Performance
+          </Link>
+
+          <Link
             href="https://github.com/Shuruhatik/hawiah"
             target="_blank"
             className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-slate-600 dark:text-gray-400 transition-colors hover:text-slate-900 dark:hover:text-white"

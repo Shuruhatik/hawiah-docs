@@ -7,8 +7,39 @@ import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Hawiah (حاوية)",
+    "operatingSystem": "Cross-platform (Node.js, Bun, Edge)",
+    "applicationCategory": "DeveloperApplication, DatabaseTool",
+    "description": "Hawiah is the fastest Universal ORM and Database Interface for JavaScript and TypeScript. Supporting SQLite, MongoDB, PostgreSQL, and more.",
+    "softwareVersion": "1.0.0",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Shuruhatik",
+        "url": "https://github.com/Shuruhatik"
+      },
+      {
+        "@type": "Person",
+        "name": "Amer Mohamed",
+        "url": "https://github.com/tahawy111"
+      }
+    ]
+  };
+
   return (
     <div className="relative min-h-screen bg-white dark:bg-[#020202] overflow-hidden selection:bg-teal-500/30">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Global Background Effects */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] h-[600px] w-[600px] rounded-full bg-teal-500/5 blur-[120px]" />

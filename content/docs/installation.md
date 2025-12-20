@@ -13,6 +13,7 @@ Hawiah uses a modular architecture. You need to install the core package and at 
 - **Modular Drivers** - JSON, YAML, SQLite, MongoDB, Firebase, PostgreSQL, MySQL
 - **Virtual Relationships** - Create relationships between instances with DataLoader batching
 - **50+ Methods** - Complete CRUD and advanced operations
+- **High Performance** - 2.6x faster than competitors ([Benchmarks](/docs#benchmarks))
 - **TypeScript Ready** - Full type safety
 
 ## Main Package (Required)

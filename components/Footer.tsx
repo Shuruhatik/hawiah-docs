@@ -10,9 +10,9 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <h3 className="mb-4 text-xl font-bold text-slate-900 dark:text-white">Hawiah</h3>
+            <h3 className="mb-4 text-xl font-bold text-slate-900 dark:text-white">Hawiah (حاوية)</h3>
             <p className="text-sm text-slate-600 dark:text-gray-400">
-              A lightweight, schema-less database abstraction layer for modern applications.
+              The fastest Universal ORM for JavaScript/TypeScript. A lightweight, schema-less database abstraction layer for professional modern applications.
             </p>
           </div>
 
@@ -80,7 +80,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-gray-400">
               <span>Made with</span>
-              <Heart size={16} className="text-teal-500 dark:text-teal-400" />
+              <Heart size={16} className="text-teal-500 fill-teal-500" />
               <span>by the Hawiah team</span>
             </div>
           </div>

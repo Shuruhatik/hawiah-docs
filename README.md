@@ -10,6 +10,22 @@ A lightweight, modular database abstraction layer with unified API. Support for 
 - 🔄 **Easy Switching** - Change drivers without changing code
 - 💪 **TypeScript Support** - Full type safety
 - 🚀 **50+ Methods** - Complete CRUD and advanced operations
+- ⚡ **High Performance** - 2.6x faster than Prisma/TypeORM/Sequelize on average
+
+## 📊 Performance
+
+Hawiah is designed for speed. In our benchmarks using SQLite as a common driver, Hawiah outperformed major ORMs like Prisma, TypeORM, and Sequelize.
+
+| Operation | Hawiah | Advantage |
+|-----------|--------|-----------|
+| **Get By ID** | **0.24 ms** | **2,500%+ faster** than Prisma |
+| **Sort Records** | **0.41 ms** | **1,000%+ faster** than Sequelize |
+| **Delete Records** | **2.46 ms** | **2,600%+ faster** than TypeORM |
+| **Count Records** | **0.17 ms** | **1,500%+ faster** than Prisma |
+
+Detailed benchmarks and test environment details are available in the [Performance Documentation](https://hawiah.js.org/docs#benchmarks).
+
+View the full benchmark source code at [hawiah-benchmarks](https://github.com/Shuruhatik/hawiah-benchmarks/).
 
 ## 📦 Installation
 
