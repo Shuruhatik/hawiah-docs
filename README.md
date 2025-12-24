@@ -5,6 +5,7 @@ A lightweight, schema-less database abstraction layer with a unified API. Suppor
 ## ✨ Features
 
 - 🔌 **Modular Architecture** - Install only what you need
+- 🧬 **Hybrid Schema** - Bridges SQL and NoSQL seamlessly
 - 🎯 **Unified API** - Same code, different databases
 - 📦 **Multiple Drivers** - JSON, YAML, SQLite, MongoDB, Firebase, PostgreSQL, MySQL
 - 🔄 **Easy Switching** - Change drivers without changing code

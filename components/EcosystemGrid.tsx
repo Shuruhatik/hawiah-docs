@@ -53,7 +53,7 @@ export default function EcosystemGrid() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mb-16 text-center will-change-transform"
+        className="mb-16 text-center"
       >
         <h2 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white">
           Connect to Any Database
@@ -70,7 +70,7 @@ export default function EcosystemGrid() {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true }}
         className="grid gap-4 grid-cols-2 lg:grid-cols-3"
       >
         {drivers.map((driver) => {
@@ -79,7 +79,7 @@ export default function EcosystemGrid() {
             <motion.div
               key={driver.name}
               variants={itemVariants}
-              className="group relative flex flex-col items-center justify-center p-6 rounded-3xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:border-teal-500/30 dark:hover:border-teal-500/30 transition-all hover:-translate-y-1 will-change-transform [&:nth-child(odd):last-child]:col-span-2 lg:[&:nth-child(odd):last-child]:col-span-1"
+              className="group relative flex flex-col items-center justify-center p-6 rounded-3xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:border-teal-500/30 dark:hover:border-teal-500/30 transition-all hover:-translate-y-1 [&:nth-child(odd):last-child]:col-span-2 lg:[&:nth-child(odd):last-child]:col-span-1"
             >
               <div className="mb-5 p-3.5 rounded-2xl bg-white dark:bg-white/5 shadow-sm group-hover:shadow-md group-hover:shadow-teal-500/10 transition-all">
                 <Icon className="h-7 w-7 text-slate-600 dark:text-slate-400 group-hover:text-teal-500 transition-colors" />

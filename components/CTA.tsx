@@ -19,7 +19,7 @@ export default function CTA() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ type: 'spring' as const, stiffness: 100, damping: 20 }}
-                    className="will-change-transform"
+                    className=""
                 >
                     <h2 className="mb-6 text-4xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">
                         Start Simple, Scale Big

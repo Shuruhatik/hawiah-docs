@@ -3,12 +3,20 @@
     "title": "Getting Started",
     "items": [
       {
+        "id": "introduction",
+        "label": "Introduction"
+      },
+      {
         "id": "installation",
         "label": "Installation"
       },
       {
         "id": "quick-start",
         "label": "Quick Start"
+      },
+      {
+        "id": "hybrid-schema",
+        "label": "The Hybrid Schema"
       },
       {
         "id": "drivers",
@@ -235,6 +243,10 @@
       {
         "id": "virtual-relationships",
         "label": "Virtual Relationships"
+      },
+      {
+        "id": "advanced-features",
+        "label": "Advanced Features"
       },
       {
         "id": "custom-drivers",

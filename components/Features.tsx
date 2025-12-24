@@ -22,8 +22,8 @@ export default function Features() {
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="mb-20 text-center max-w-3xl mx-auto will-change-transform"
+        viewport={{ once: true }}
+        className="mb-20 text-center max-w-3xl mx-auto"
       >
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-300 text-xs font-bold uppercase tracking-wider mb-6 border border-teal-100 dark:border-teal-800">
           Why Hawiah?
@@ -44,7 +44,7 @@ export default function Features() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="md:col-span-2 relative overflow-hidden rounded-3xl bg-white dark:bg-[#0c0c0c] border border-slate-200 dark:border-white/5 p-8 group hover:border-teal-500/20 transition-all shadow-sm hover:shadow-xl hover:shadow-teal-500/5 will-change-transform"
+          className="md:col-span-2 relative overflow-hidden rounded-3xl bg-white dark:bg-[#0c0c0c] border border-slate-200 dark:border-white/5 p-8 group hover:border-teal-500/20 transition-all shadow-sm hover:shadow-xl hover:shadow-teal-500/5"
         >
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
           <div className="relative z-10 h-full flex flex-col justify-between">
@@ -54,7 +54,7 @@ export default function Features() {
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Unified API</h3>
               <p className="text-slate-600 dark:text-slate-400 max-w-md text-lg leading-relaxed">
-                Write your application logic once using Hawiah's unified API. Switch from local JSON files to MongoDB or PostgreSQL instantly by changing the driver definition.
+                Write your application logic once using Hawiah's unified API. <strong>Hybrid Schema</strong> technology automatically adapts your data for SQL tables or NoSQL documents without changing a line of code.
               </p>
             </div>
 
@@ -86,7 +86,7 @@ export default function Features() {
           whileInView="visible"
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="md:row-span-2 relative overflow-hidden rounded-3xl bg-white dark:bg-[#0a0a0a] border border-slate-200 dark:border-white/10 p-8 group will-change-transform shadow-xl shadow-teal-900/5 dark:shadow-none hover:border-teal-500/20 transition-all"
+          className="md:row-span-2 relative overflow-hidden rounded-3xl bg-white dark:bg-[#0a0a0a] border border-slate-200 dark:border-white/10 p-8 group shadow-xl shadow-teal-900/5 dark:shadow-none hover:border-teal-500/20 transition-all"
         >
           <div className="absolute top-0 right-0 w-80 h-80 bg-teal-500/10 dark:bg-teal-500/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 group-hover:bg-teal-500/20 dark:group-hover:bg-teal-500/30 transition-colors duration-500" />
 
@@ -127,7 +127,7 @@ export default function Features() {
           whileInView="visible"
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="relative overflow-hidden rounded-3xl bg-white dark:bg-[#0c0c0c] border border-slate-200 dark:border-white/5 p-8 group hover:border-purple-500/20 transition-all shadow-sm hover:shadow-xl hover:shadow-purple-500/5 will-change-transform"
+          className="relative overflow-hidden rounded-3xl bg-white dark:bg-[#0c0c0c] border border-slate-200 dark:border-white/5 p-8 group hover:border-purple-500/20 transition-all shadow-sm hover:shadow-xl hover:shadow-purple-500/5"
         >
           <div className="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-500/10 flex items-center justify-center mb-6 text-purple-600 dark:text-purple-400">
             <Link2 size={24} />
@@ -145,7 +145,7 @@ export default function Features() {
           whileInView="visible"
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="relative overflow-hidden rounded-3xl bg-white dark:bg-[#0c0c0c] border border-slate-200 dark:border-white/5 p-8 group hover:border-blue-500/20 transition-all shadow-sm hover:shadow-xl hover:shadow-blue-500/5 will-change-transform"
+          className="relative overflow-hidden rounded-3xl bg-white dark:bg-[#0c0c0c] border border-slate-200 dark:border-white/5 p-8 group hover:border-blue-500/20 transition-all shadow-sm hover:shadow-xl hover:shadow-blue-500/5"
         >
           <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center mb-6 text-blue-600 dark:text-blue-400">
             <Shield size={24} />
@@ -163,7 +163,7 @@ export default function Features() {
           whileInView="visible"
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="md:col-span-3 h-[250px] relative overflow-hidden rounded-3xl bg-white dark:bg-[#0c0c0c] border border-slate-200 dark:border-white/5 p-8 flex flex-col md:flex-row items-center justify-between gap-8 will-change-transform shadow-sm hover:shadow-xl hover:shadow-teal-500/5 transition-all"
+          className="md:col-span-3 h-[250px] relative overflow-hidden rounded-3xl bg-white dark:bg-[#0c0c0c] border border-slate-200 dark:border-white/5 p-8 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm hover:shadow-xl hover:shadow-teal-500/5 transition-all"
         >
           {/* Background Grid */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:14px_24px]"></div>

@@ -16,10 +16,8 @@ Hawiah uses a modular architecture. You need to install the core package and at 
 - **High Performance** - 2.6x faster than competitors ([Benchmarks](/docs#benchmarks))
 - **TypeScript Ready** - Full type safety
 
-## Main Package (Required)
-
 ```install
-hawiah
+npm install hawiah @hawiah/sqlite dataloader
 ```
 
 ## Database Drivers (Choose One or More)

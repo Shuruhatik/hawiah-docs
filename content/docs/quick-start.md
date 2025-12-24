@@ -13,6 +13,7 @@ Learn the basics of Hawiah in under 5 minutes.
 Hawiah is not just another database interface. It offers:
 
 - **Modular Architecture** - Install only what you need
+- **Hybrid Schema** - Bridges SQL and NoSQL seamlessly
 - **Multiple Drivers** - JSON, YAML, SQLite, MongoDB, Firebase, PostgreSQL, MySQL
 - **Virtual Relationships** - Create relationships between instances with DataLoader batching
 - **50+ Methods** - Complete CRUD and advanced operations
@@ -23,7 +24,7 @@ Hawiah is not just another database interface. It offers:
 **Install Hawiah package**
 
 ```install
-hawiah
+npm install hawiah
 ```
 
 **For relationships (optional)**

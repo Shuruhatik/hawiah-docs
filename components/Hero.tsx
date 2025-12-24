@@ -67,7 +67,7 @@ export default function Hero() {
           >
             <motion.div
               variants={itemVariants}
-              className="will-change-transform inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 text-xs font-medium mb-6 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 text-xs font-medium mb-6 backdrop-blur-sm"
             >
               <span className="flex h-1.5 w-1.5 rounded-full bg-teal-500 animate-pulse"></span>
               <span>v1.0.0 Stable</span>
@@ -75,20 +75,20 @@ export default function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="will-change-transform mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight sm:leading-[1.2]"
+              className="mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight sm:leading-[1.2]"
             >
               Hawiah: The <span className="text-teal-600 dark:text-teal-400">Ultra-Fast</span> <br className="hidden md:block" /> Universal Database Interface
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="will-change-transform mb-8 text-sm sm:text-base md:text-lg leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl px-4 sm:px-0"
+              className="mb-8 text-sm sm:text-base md:text-lg leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl px-4 sm:px-0"
             >
               Stop settling for slow database layers. Hawiah is <strong>2.6x faster</strong> than industry standards,
-              providing a zero-config, unified API for SQL, NoSQL, and Local files.
+              providing a zero-config, unified API for SQL, NoSQL, and Local files, powered by a revolutionary <strong>Hybrid Schema</strong> engine.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="will-change-transform flex flex-row gap-2 sm:gap-3 justify-center lg:justify-start px-4 sm:px-0 w-full max-w-[400px] mx-auto lg:mx-0">
+            <motion.div variants={itemVariants} className="flex flex-row gap-2 sm:gap-3 justify-center lg:justify-start px-4 sm:px-0 w-full max-w-[400px] mx-auto lg:mx-0">
               <Link
                 href="/docs#quick-start"
                 className="group inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-slate-900 dark:bg-white px-3 sm:px-6 py-3 text-[13px] sm:text-sm font-bold text-white dark:text-slate-900 transition-all hover:opacity-90 flex-1 sm:flex-none whitespace-nowrap"
@@ -109,7 +109,7 @@ export default function Hero() {
 
             <motion.div
               variants={itemVariants}
-              className="will-change-transform mt-10 grid grid-cols-2 xs:grid-cols-2 gap-y-6 gap-x-4 sm:gap-x-8 text-slate-500 dark:text-slate-400 text-[11px] sm:text-xs font-semibold border-t border-slate-100 dark:border-white/5 pt-8 w-full max-w-md mx-auto lg:mx-0 px-6 sm:px-0"
+              className="mt-10 grid grid-cols-2 xs:grid-cols-2 gap-y-6 gap-x-4 sm:gap-x-8 text-slate-500 dark:text-slate-400 text-[11px] sm:text-xs font-semibold border-t border-slate-100 dark:border-white/5 pt-8 w-full max-w-md mx-auto lg:mx-0 px-6 sm:px-0"
             >
               <div className="flex items-center gap-2.5 justify-center lg:justify-start">
                 <Database size={16} className="text-teal-500 shrink-0" />

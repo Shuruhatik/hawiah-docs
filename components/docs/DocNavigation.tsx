@@ -13,7 +13,8 @@ interface NavGroup {
   items: NavItem[];
 }
 
-const navGroups: NavGroup[] = navGroupsData as NavGroup[];
+// Ensure we handle potential import structure differences
+const navGroups: NavGroup[] = (Array.isArray(navGroupsData) ? navGroupsData : (navGroupsData as any).default || []) as NavGroup[];
 
 const allItems: NavItem[] = navGroups.flatMap(group => group.items);
 
@@ -24,9 +25,9 @@ interface DocNavigationProps {
 
 export default function DocNavigation({ currentSection, onNavigate }: DocNavigationProps) {
   const currentIndex = allItems.findIndex(item => item.id === currentSection);
-  
+
   if (currentIndex === -1) return null;
-  
+
   const previousItem = currentIndex > 0 ? allItems[currentIndex - 1] : null;
   const nextItem = currentIndex < allItems.length - 1 ? allItems[currentIndex + 1] : null;
 

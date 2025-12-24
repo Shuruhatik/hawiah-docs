@@ -165,7 +165,7 @@ export default function CodeDemo() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ type: 'spring' as const, stiffness: 100, damping: 20 }}
-        className="mb-8 sm:mb-12 text-center will-change-transform"
+        className="mb-8 sm:mb-12 text-center"
       >
         <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
           One API, Multiple Drivers
@@ -180,7 +180,7 @@ export default function CodeDemo() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ type: 'spring' as const, stiffness: 100, damping: 20, delay: 0.2 }}
-        className="relative overflow-hidden rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c0c0c] shadow-2xl will-change-transform"
+        className="relative overflow-hidden rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0c0c0c] shadow-2xl"
       >
         {/* Header / Tabs */}
         <div className="flex flex-col md:flex-row items-center justify-between border-b border-slate-200 dark:border-white/5 bg-slate-50/50 dark:bg-[#1a1a1a]/50 backdrop-blur-md">

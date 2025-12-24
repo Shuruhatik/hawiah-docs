@@ -256,15 +256,15 @@ await db.connect();
 
 ## Driver Comparison
 
-| Driver | Type | Server? | Speed | Complexity | Best For |
-|--------|------|---------|-------|------------|----------|
-| **JSON** | File | ❌ | ⭐⭐⭐ | ⭐ | Dev/Test |
-| **YAML** | File | ❌ | ⭐⭐⭐ | ⭐ | Config |
-| **SQLite** | SQL | ❌ | ⭐⭐⭐⭐ | ⭐⭐ | Desktop |
-| **MongoDB** | NoSQL | ✅ | ⭐⭐⭐⭐ | ⭐⭐⭐ | Web/Cloud |
-| **Firebase** | NoSQL | ✅ | ⭐⭐⭐⭐ | ⭐⭐ | Mobile/RT |
-| **PostgreSQL** | SQL | ✅ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Enterprise |
-| **MySQL** | SQL | ✅ | ⭐⭐⭐⭐ | ⭐⭐⭐ | Web |
+| Driver | Type | Server? | Speed | Complexity | Schema Mode | Best For |
+|--------|------|---------|-------|------------|-------------|----------|
+| **JSON** | File | ❌ | ⭐⭐⭐ | ⭐ | Virtual | Dev/Test |
+| **YAML** | File | ❌ | ⭐⭐⭐ | ⭐ | Virtual | Config |
+| **SQLite** | SQL | ❌ | ⭐⭐⭐⭐ | ⭐⭐ | Hybrid | Desktop |
+| **MongoDB** | NoSQL | ✅ | ⭐⭐⭐⭐ | ⭐⭐⭐ | Virtual | Web/Cloud |
+| **Firebase** | NoSQL | ✅ | ⭐⭐⭐⭐ | ⭐⭐ | Virtual | Mobile/RT |
+| **PostgreSQL** | SQL | ✅ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Hybrid | Enterprise |
+| **MySQL** | SQL | ✅ | ⭐⭐⭐⭐ | ⭐⭐⭐ | Hybrid | Web |
 
 ## Switching Drivers
 
@@ -293,7 +293,7 @@ await prodDb.insert({ name: 'Ahmed' });
 1. Install core package:
 1. Install core package:
 ```install
-hawiah
+npm install hawiah
 ```
 
 2. Install your chosen driver(s):
@@ -320,7 +320,7 @@ hawiah
 
 3. Start using:
 ```javascript
-import { Hawiah } from 'hawiah';
+import { Hawiah } from '@hawiah/core';
 import { JSONDriver } from '@hawiah/local';
 
 const driver = new JSONDriver('./data.json');
