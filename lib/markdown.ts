@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { DEFAULT_VERSION } from '@/config/versions';
 
 const docsDirectory = path.join(process.cwd(), 'content/docs');
 
@@ -19,11 +20,14 @@ export interface DocContent {
 }
 
 /**
- * Get all document IDs from the docs directory
+ * Get all document IDs from the docs directory for a specific version
  */
-export function getAllDocIds(): string[] {
+export function getAllDocIds(version: string = DEFAULT_VERSION): string[] {
   try {
-    const fileNames = fs.readdirSync(docsDirectory);
+    const versionDirectory = path.join(docsDirectory, version);
+    if (!fs.existsSync(versionDirectory)) return [];
+
+    const fileNames = fs.readdirSync(versionDirectory);
     return fileNames
       .filter(fileName => fileName.endsWith('.md'))
       .map(fileName => fileName.replace(/\.md$/, ''));
@@ -35,13 +39,18 @@ export function getAllDocIds(): string[] {
 /**
  * Get document content by ID
  */
-export function getDocById(id: string): DocContent | null {
+export function getDocById(id: string, version: string = DEFAULT_VERSION): DocContent | null {
   try {
-    const fullPath = path.join(docsDirectory, `${id}.md`);
+    const fullPath = path.join(docsDirectory, version, `${id}.md`);
+
+    if (!fs.existsSync(fullPath)) {
+      return null;
+    }
+
     const fileContents = fs.readFileSync(fullPath, 'utf8');
-    
+
     const { data, content } = matter(fileContents);
-    
+
     return {
       id,
       metadata: data as DocMetadata,
@@ -55,19 +64,19 @@ export function getDocById(id: string): DocContent | null {
 /**
  * Get all documents
  */
-export function getAllDocs(): DocContent[] {
-  const ids = getAllDocIds();
+export function getAllDocs(version: string = DEFAULT_VERSION): DocContent[] {
+  const ids = getAllDocIds(version);
   return ids
-    .map(id => getDocById(id))
+    .map(id => getDocById(id, version))
     .filter((doc): doc is DocContent => doc !== null);
 }
 
 /**
  * Check if a document exists
  */
-export function docExists(id: string): boolean {
+export function docExists(id: string, version: string = DEFAULT_VERSION): boolean {
   try {
-    const fullPath = path.join(docsDirectory, `${id}.md`);
+    const fullPath = path.join(docsDirectory, version, `${id}.md`);
     return fs.existsSync(fullPath);
   } catch (error) {
     return false;

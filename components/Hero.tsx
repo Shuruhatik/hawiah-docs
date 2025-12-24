@@ -1,6 +1,7 @@
 'use client';
 
 // ... imports
+import { DEFAULT_VERSION } from '@/config/versions';
 import { motion } from 'framer-motion';
 import { ArrowRight, Github, Database, Zap, Terminal, Layers } from 'lucide-react';
 import Link from 'next/link';
@@ -70,7 +71,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 text-xs font-medium mb-6 backdrop-blur-sm"
             >
               <span className="flex h-1.5 w-1.5 rounded-full bg-teal-500 animate-pulse"></span>
-              <span>v1.0.0 Stable</span>
+              <span>{DEFAULT_VERSION} Stable</span>
             </motion.div>
 
             <motion.h1

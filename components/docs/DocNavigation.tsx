@@ -1,29 +1,16 @@
 'use client';
 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import navGroupsData from '@/data/sidebar-navigation.json';
-
-interface NavItem {
-  id: string;
-  label: string;
-}
-
-interface NavGroup {
-  title: string;
-  items: NavItem[];
-}
-
-// Ensure we handle potential import structure differences
-const navGroups: NavGroup[] = (Array.isArray(navGroupsData) ? navGroupsData : (navGroupsData as any).default || []) as NavGroup[];
-
-const allItems: NavItem[] = navGroups.flatMap(group => group.items);
+import { NavGroup } from './Sidebar';
 
 interface DocNavigationProps {
   currentSection: string;
   onNavigate: (sectionId: string) => void;
+  navGroups: NavGroup[];
 }
 
-export default function DocNavigation({ currentSection, onNavigate }: DocNavigationProps) {
+export default function DocNavigation({ currentSection, onNavigate, navGroups }: DocNavigationProps) {
+  const allItems = navGroups.flatMap(group => group.items);
   const currentIndex = allItems.findIndex(item => item.id === currentSection);
 
   if (currentIndex === -1) return null;

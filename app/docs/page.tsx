@@ -4,10 +4,13 @@ import { useState, useRef, useEffect } from 'react';
 import { Menu, X, Search, Github } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Sidebar from '@/components/docs/Sidebar';
+import Sidebar, { NavGroup } from '@/components/docs/Sidebar';
 import DocContent from '@/components/docs/DocContent';
 import TableOfContents from '@/components/docs/TableOfContents';
 import ThemeToggle from '@/components/ThemeToggle';
+import { DEFAULT_VERSION } from '@/config/versions';
+import { sidebarMap } from '@/data/sidebar-map';
+
 interface SearchResult {
   id: string;
   label: string;
@@ -19,12 +22,15 @@ interface SearchResult {
 
 export default function DocsPage() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [activeVersion, setActiveVersion] = useState(DEFAULT_VERSION);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+
+  const navGroups: NavGroup[] = sidebarMap[activeVersion] || [];
 
   useEffect(() => {
     const hash = window.location.hash.replace('#', '');
@@ -324,6 +330,9 @@ export default function DocsPage() {
             <Sidebar
               activeSection={activeSection}
               setActiveSection={setActiveSection}
+              activeVersion={activeVersion}
+              setActiveVersion={setActiveVersion}
+              navGroups={navGroups}
             />
           )}
         </div>
@@ -333,6 +342,8 @@ export default function DocsPage() {
           {activeSection && (
             <DocContent
               activeSection={activeSection}
+              activeVersion={activeVersion}
+              navGroups={navGroups}
               onNavigate={(sectionId) => {
                 setActiveSection(sectionId);
                 setSidebarOpen(false);

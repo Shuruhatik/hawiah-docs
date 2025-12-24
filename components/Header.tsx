@@ -4,6 +4,7 @@ import { Github } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ThemeToggle from './ThemeToggle';
+import { DEFAULT_VERSION } from '@/config/versions';
 
 export default function Header() {
   return (
@@ -54,7 +55,7 @@ export default function Header() {
           </Link>
 
           <span className="hidden sm:inline-block rounded-full border border-teal-600/30 dark:border-teal-500/20 bg-teal-50 dark:bg-teal-500/10 px-3 py-1 text-xs font-medium text-teal-700 dark:text-teal-400">
-            v1.0.0
+            {DEFAULT_VERSION}
           </span>
 
           <ThemeToggle />
