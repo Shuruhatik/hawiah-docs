@@ -17,8 +17,9 @@ const { Hawiah, Schema, DataTypes } = require('hawiah');
 const { SQLiteDriver } = require('@hawiah/sqlite');
 
 const userSchema = new Schema({
-    username: DataTypes.STRING,
-    age:      DataTypes.INTEGER
+    username: { type: DataTypes.STRING, required: true },
+    age:      { type: DataTypes.INTEGER, min: 18 },
+    isActive: { type: DataTypes.BOOLEAN, default: true }
 });
 
 const db = new Hawiah({ 
@@ -29,27 +30,29 @@ const db = new Hawiah({
 await db.connect();
 
 // 1. Inserting Data
+// Notice: 'country' is not in schema, and 'isActive' is missing (will use default)
 await db.insert({ 
     username: 'mohammed', 
     age: 25, 
-    country: 'Palestine' // Extra field (not in schema)
+    country: 'Palestine'
 });
 ```
 
-### Physical Storage (Inside SQLite/Postgres):
-Hawiah creates columns for `username` and `age`. The `country` field goes to `_extras`.
+### Physical Storage (Inside SQLite):
+Hawiah creates real columns for schema fields. Extras go to `_extras`.
 
-| _id (TEXT) | username (TEXT) | age (INTEGER) | _extras (JSON) |
-| :--- | :--- | :--- | :--- |
-| `172...` | `mohammed` | `25` | `{"country": "Palestine"}` |
+| _id (TEXT) | username (TEXT) | age (INTEGER) | isActive (INTEGER) | _extras (JSON) |
+| :--- | :--- | :--- | :--- | :--- |
+| `172...` | `mohammed` | `25` | `1` | `{"country": "Palestine"}` |
 
 ### Retrieved Object (What you get back):
-When you call `db.get()`, Hawiah merges the columns and the JSON extras back into a flat object for you.
+When you call `db.get()`, Hawiah automatically merges everything and handles type casting (like converting SQLite's `1` back to `true`).
 ```javascript
 {
   "_id": "172...",
   "username": "mohammed",
   "age": 25,
+  "isActive": true,
   "country": "Palestine"
 }
 ```
@@ -82,9 +85,9 @@ await db.insert({
 ### Physical Storage (Inside SQLite):
 Since there is no schema, Hawiah stores everything in a single `_data` column as a JSON string.
 
-| _id (TEXT) | _data (TEXT / JSON) |
-| :--- | :--- |
-| `185...` | `{"level":"info","message":"System started","details":{...}}` |
+| _id (TEXT) | _data (TEXT / JSON) | _createdAt (TEXT) |
+| :--- | :--- | :--- |
+| `185...` | `{"level":"info","message":"System started",...}` | `2025-12-24...` |
 
 ### Retrieved Object:
 Hawiah automatically parses the JSON and returns a clean object:
@@ -93,7 +96,8 @@ Hawiah automatically parses the JSON and returns a clean object:
   "_id": "185...",
   "level": "info",
   "message": "System started",
-  "details": { "uptime": 3600, "nodes": 5 }
+  "details": { "uptime": 3600, "nodes": 5 },
+  "_createdAt": "2025-12-24..."
 }
 ```
 
@@ -106,7 +110,7 @@ Hawiah automatically parses the JSON and returns a clean object:
 | **Logic** | **Native Performance** | **Maximum Flexibility** |
 | **Storage** | Real columns + JSON fallback | Full JSON object |
 | **Indexing** | Native database indexes | Search-based or key-based |
-| **Data Types** | Enforced by DB and Hawiah | Flexible object structure |
+| **Data Types** | Enforced & Casted | Flexible object structure |
 
 ## Why use Hybrid Schema?
 1. **Migrations are optional**: You don't need to run `ALTER TABLE` every time you add a field. Just add it to your object and it goes to `_extras`.
