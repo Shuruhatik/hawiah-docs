@@ -293,7 +293,7 @@ await prodDb.insert({ name: 'Ahmed' });
 1. Install core package:
 1. Install core package:
 ```install
-npm install hawiah
+hawiah
 ```
 
 2. Install your chosen driver(s):

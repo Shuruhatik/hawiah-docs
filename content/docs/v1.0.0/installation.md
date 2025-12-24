@@ -17,7 +17,7 @@ Hawiah uses a modular architecture. You need to install the core package and at 
 - **TypeScript Ready** - Full type safety
 
 ```install
-npm install hawiah @hawiah/sqlite dataloader
+hawiah
 ```
 
 ## Database Drivers (Choose One or More)

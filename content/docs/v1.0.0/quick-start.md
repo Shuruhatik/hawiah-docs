@@ -24,7 +24,7 @@ Hawiah is not just another database interface. It offers:
 **Install Hawiah package**
 
 ```install
-npm install hawiah
+hawiah
 ```
 
 **For relationships (optional)**
