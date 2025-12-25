@@ -62,6 +62,8 @@ export const metadata: Metadata = {
   },
 };
 
+import DiscordToast from "@/components/DiscordToast";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -74,6 +76,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider>
+          <DiscordToast />
           {children}
         </ThemeProvider>
       </body>
